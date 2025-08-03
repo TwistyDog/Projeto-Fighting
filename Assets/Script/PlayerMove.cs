@@ -12,13 +12,17 @@ public class PlayerMove : MonoBehaviour
     [SerializeField] float _crouchHeight = 0.5f;
 
     private float _originalHeight;
-   [SerializeField] bool _isCrounching = false;
+    [SerializeField] bool _isCrounching = false;
+
+    [SerializeField] bool _isBlocking = false;
+    [SerializeField] float _damageReduction = 0.5f;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         _controller = GetComponent<CharacterController>();
+        _originalHeight = _controller.height;
     }
 
     // Update is called once per frame
@@ -30,11 +34,11 @@ public class PlayerMove : MonoBehaviour
         Crouch();
 
     }
-        
 
-        
 
-        
+
+
+
 
     void Move()
     {
@@ -83,7 +87,25 @@ public class PlayerMove : MonoBehaviour
         {
             _isCrounching = false;
             _controller.height = _originalHeight;
+            transform.localScale = new Vector3(1f, 1f, 1f);
         }
     }
+
+    void CheckBlock()
+    {
+        float horizontalInput = Input.GetAxis("Horizontal");
+
+        _isBlocking = _groundedPlayer &&
+                                     ((transform.forward.x > 0 && horizontalInput < -0.5f) ||
+                                     (transform.forward.x < 0 && horizontalInput > -0.5f));
+
+
+    }
+
+    public void TakeDamage(float damage)
+    {
+        float finalDamage = _isBlocking ? damage * _damageReduction : damage;
+        Debug.Log($"Dano Recebido: {finalDamage}(Bloqueado: {_isBlocking})");
+    }                        
 }
 
