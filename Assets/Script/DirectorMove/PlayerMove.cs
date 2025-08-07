@@ -3,30 +3,31 @@ using UnityEngine.InputSystem.XR;
 
 public class PlayerMove : MonoBehaviour
 {
-    [SerializeField] CharacterController _controller;
-    [SerializeField] Vector3 _playerVelocity;
-    [SerializeField] bool _groundedPlayer;
-    [SerializeField] float _playerSpeed = 6.0f;
-    [SerializeField] float _jumpHeight = 5.0f;
-    [SerializeField] float _gravityValue = -9.81f;
-    [SerializeField] float _crouchHeight = 0.5f;
+    [SerializeField] protected CharacterController _controller;
+    [SerializeField] protected Vector3 _playerVelocity;
+    [SerializeField] protected bool _groundedPlayer;
+    [SerializeField] protected float _playerSpeed = 6.0f;
+    [SerializeField] protected float _jumpHeight = 5.0f;
+    [SerializeField] protected float _gravityValue = -9.81f;
+    [SerializeField] protected float _crouchHeight = 0.5f;
 
-    private float _originalHeight;
-    [SerializeField] bool _isCrounching = false;
+    private protected float _originalHeight;
+    [SerializeField] protected bool _isCrounching = false;
 
-    [SerializeField] bool _isBlocking = false;
-    [SerializeField] float _damageReduction = 0.5f;
+    [SerializeField] protected bool _isBlocking = false;
+    [SerializeField] protected float _damageReduction = 0.5f;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    protected virtual void Start()
     {
         _controller = GetComponent<CharacterController>();
         _originalHeight = _controller.height;
+
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    protected virtual void Update()
     {
         Move();
         Gravity();
@@ -40,7 +41,7 @@ public class PlayerMove : MonoBehaviour
 
 
 
-    void Move()
+    protected virtual void Move()
     {
         _groundedPlayer = _controller.isGrounded;
         if (_groundedPlayer && _playerVelocity.y < 0)
@@ -61,13 +62,13 @@ public class PlayerMove : MonoBehaviour
         Vector3 finalMove = (move * _playerSpeed) + (_playerVelocity.y * Vector3.up);
         _controller.Move(finalMove * Time.deltaTime);
     }
-    void Gravity()
+    protected virtual void Gravity()
     {
         // Apply gravity
         _playerVelocity.y += _gravityValue * Time.deltaTime;
     }
 
-    void Jump()
+    protected virtual void Jump()
     {
         // Jump
         if (_groundedPlayer && Input.GetAxisRaw("Vertical") > 0.5f)
@@ -76,7 +77,7 @@ public class PlayerMove : MonoBehaviour
         }
     }
 
-    void Crouch()
+    protected virtual void Crouch()
     {
         if (_groundedPlayer && Input.GetAxisRaw("Vertical") < -0.5f)
         {
@@ -91,7 +92,7 @@ public class PlayerMove : MonoBehaviour
         }
     }
 
-    void CheckBlock()
+    protected virtual void CheckBlock()
     {
         float horizontalInput = Input.GetAxis("Horizontal");
 
@@ -102,7 +103,7 @@ public class PlayerMove : MonoBehaviour
 
     }
 
-    public void TakeDamage(float damage)
+    protected virtual void TakeDamage(float damage)
     {
         float finalDamage = _isBlocking ? damage * _damageReduction : damage;
         Debug.Log($"Dano Recebido: {finalDamage}(Bloqueado: {_isBlocking})");
