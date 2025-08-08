@@ -1,3 +1,4 @@
+using UnityEditor;
 using UnityEngine;
 
 public class FightCombat : MonoBehaviour
@@ -22,7 +23,7 @@ public class FightCombat : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-
+        OnDrawGizmos();
     }
 
     // Update is called once per frame
@@ -47,6 +48,8 @@ public class FightCombat : MonoBehaviour
         {
             LowKick();
         }
+
+        
     }
 
     void RightPuch()
@@ -59,6 +62,7 @@ public class FightCombat : MonoBehaviour
 
     void LeftPuch()
     {
+        _isAtacking = true;
         Debug.Log("Soco Esquerdo");
         ActiveHitBox(_leftPunchHitbox, _leftPunchDamage);
         Invoke("ResetAttack", _attackCooldown);
@@ -94,7 +98,22 @@ public class FightCombat : MonoBehaviour
             }
         }
     }
+    void DrawHitBoxGizmo(GameObject hitbox, Color color)
+    {
+        if (hitbox != null && hitbox.activeSelf)
+        {
+            Gizmos.color = color;
+            Gizmos.DrawWireCube(hitbox.transform.position, hitbox.transform.localScale);
+        }
+    }
 
+    private void OnDrawGizmos()
+    {
+        DrawHitBoxGizmo(_rightPunchHitbox, Color.red);
+        DrawHitBoxGizmo(_leftPunchHitbox, Color.blue);
+        DrawHitBoxGizmo(_lowKickHitbox, Color.green);
+        DrawHitBoxGizmo(_hightKickHitbox, Color.yellow);
+    }
     void ResetAttack()
     {
         _isAtacking = false;

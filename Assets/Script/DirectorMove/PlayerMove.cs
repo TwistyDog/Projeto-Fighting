@@ -8,7 +8,7 @@ public class PlayerMove : MonoBehaviour
     [SerializeField] protected bool _groundedPlayer;
     [SerializeField] protected float _playerSpeed = 6.0f;
     [SerializeField] protected float _jumpHeight = 5.0f;
-    [SerializeField] protected float _gravityValue = -9.81f;
+    [SerializeField] protected float _gravityValue = -5.81f;
     [SerializeField] protected float _crouchHeight = 0.5f;
 
     private protected float _originalHeight;
@@ -99,6 +99,7 @@ public class PlayerMove : MonoBehaviour
         _isBlocking = _groundedPlayer &&
                                      ((transform.forward.x > 0 && horizontalInput < -0.5f) ||
                                      (transform.forward.x < 0 && horizontalInput > -0.5f));
+        Debug.Log("defesa");
 
 
     }
