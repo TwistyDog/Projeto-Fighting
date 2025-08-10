@@ -221,8 +221,8 @@ Transform:
   m_GameObject: {fileID: 94771728}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.19, z: 0.65}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: -1.01, z: 0.53}
+  m_LocalScale: {x: 0.24, y: 0.72, z: 0.64}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1599609311}
@@ -330,7 +330,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.12, z: 0.8}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.24, y: 0.72, z: 0.64}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1599609311}
@@ -744,8 +744,8 @@ Transform:
   m_GameObject: {fileID: 871252184}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.32, z: -0.93}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: -0.96, z: -0.56}
+  m_LocalScale: {x: 0.24, y: 0.72, z: 0.64}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1599609311}
@@ -765,6 +765,7 @@ GameObject:
   - component: {fileID: 1599609315}
   - component: {fileID: 1599609314}
   - component: {fileID: 1599609316}
+  - component: {fileID: 1599609317}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -934,6 +935,100 @@ MonoBehaviour:
   _isCrounching: 0
   _isBlocking: 0
   _damageReduction: 0.5
+--- !u!114 &1599609317
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1599609307}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: c7afdce5b199e05478a3164bf6fa5e00, type: 3}
+  m_NotificationBehavior: 2
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1599609315}
+        m_TargetAssemblyTypeName: FightCombat, Assembly-CSharp
+        m_MethodName: OnRightPunch
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
+    m_ActionId: c51b4bd5-688e-4345-960b-10056a530c0a
+    m_ActionName: 'CombatMap/RightPuch[/Keyboard/j]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1599609315}
+        m_TargetAssemblyTypeName: FightCombat, Assembly-CSharp
+        m_MethodName: OnLeftPunch
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
+    m_ActionId: d1401ff8-8aab-4c17-bdc3-c089b81597d2
+    m_ActionName: 'CombatMap/LeftPunch[/Keyboard/k]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1599609315}
+        m_TargetAssemblyTypeName: FightCombat, Assembly-CSharp
+        m_MethodName: OnHightKick
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
+    m_ActionId: ed17a3c0-9336-40c0-8cd8-7ab7ea363693
+    m_ActionName: 'CombatMap/HightKick[/Keyboard/u]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1599609315}
+        m_TargetAssemblyTypeName: FightCombat, Assembly-CSharp
+        m_MethodName: OnLowKick
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
+    m_ActionId: b4fcb706-44ac-4a7c-b5fc-b1f6ec06a3c4
+    m_ActionName: 'CombatMap/LowKick[/Keyboard/u]'
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: InputCombatAction
+  m_DefaultActionMap: Combat
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!1 &1712179509
 GameObject:
   m_ObjectHideFlags: 0
@@ -948,7 +1043,7 @@ GameObject:
   - component: {fileID: 1712179510}
   m_Layer: 0
   m_Name: "Bra\xE7oEsquerdo"
-  m_TagString: Untagged
+  m_TagString: BracoEsquerdo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1037,7 +1132,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.03, z: -0.76}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.24, y: 0.72, z: 0.64}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1599609311}

@@ -1,0 +1,100 @@
+{
+    "name": "MoveandCombat",
+    "maps": [
+        {
+            "name": "Combat",
+            "id": "dc6d55a3-0443-4e95-9029-ac39476fe308",
+            "actions": [
+                {
+                    "name": "RightPuch",
+                    "type": "Button",
+                    "id": "c51b4bd5-688e-4345-960b-10056a530c0a",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "LeftPunch",
+                    "type": "Button",
+                    "id": "d1401ff8-8aab-4c17-bdc3-c089b81597d2",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "HightKick",
+                    "type": "Button",
+                    "id": "ed17a3c0-9336-40c0-8cd8-7ab7ea363693",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "LowKick",
+                    "type": "Button",
+                    "id": "b4fcb706-44ac-4a7c-b5fc-b1f6ec06a3c4",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "11f1bd92-0267-4a2b-b74c-c4385c0e0ad5",
+                    "path": "<Keyboard>/j",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";InputCombatAction",
+                    "action": "RightPuch",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "90709f63-d0e6-4253-8941-fd950d3a01e2",
+                    "path": "<Keyboard>/k",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "LeftPunch",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8d522894-df5f-4bd0-9f8d-db0c008d20ea",
+                    "path": "<Keyboard>/u",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "HightKick",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "872e17f7-7ff8-439a-a8dd-3203f6529165",
+                    "path": "<Keyboard>/u",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "LowKick",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": [
+        {
+            "name": "InputCombatAction",
+            "bindingGroup": "InputCombatAction",
+            "devices": []
+        }
+    ]
+}

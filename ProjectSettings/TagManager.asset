@@ -7,6 +7,7 @@ TagManager:
   - Ground
   - BracoDireito
   - Enemy
+  - BracoEsquerdo
   layers:
   - Default
   - TransparentFX

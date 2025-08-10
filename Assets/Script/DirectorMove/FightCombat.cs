@@ -1,5 +1,6 @@
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class FightCombat : MonoBehaviour
 {
@@ -7,13 +8,14 @@ public class FightCombat : MonoBehaviour
     private float _attackCooldown = 0.3f;
 
     // golpes
+    [Header("HitBoxes")]
     [SerializeField] private GameObject _rightPunchHitbox;
     [SerializeField] private GameObject _leftPunchHitbox;
     [SerializeField] private GameObject _hightKickHitbox;
     [SerializeField] private GameObject _lowKickHitbox;
 
     // Dano dos golpes
-
+     [Header("Damage")]
     [SerializeField] private int _rightPunchDamage = 10;
     [SerializeField] private int _leftPunchDamage = 12;
     [SerializeField] private int _highKickDamage = 15;
@@ -23,34 +25,46 @@ public class FightCombat : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        OnDrawGizmos();
+       
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!_isAtacking)
-        {
-            if (Input.GetKeyDown(KeyCode.J))
-            {
-                RightPuch();
-            }
-        }
-        else if (Input.GetKeyDown(KeyCode.K))
-        {
-            LeftPuch();
-        }
-        else if (Input.GetKeyDown(KeyCode.U))
-        {
-            HighKick();
-        }
-        else if (Input.GetKeyDown(KeyCode.I))
-        {
-            LowKick();
-        }
-
+        
         
     }
+    void Awake()
+    {
+        var playerInput = GetComponent<PlayerInput>();
+        playerInput.SwitchCurrentActionMap("Combat");
+    }
+
+    public void OnRightPunch(InputAction.CallbackContext context)
+    {
+        if (context.performed && !_isAtacking)
+        {
+            Debug.Log("Soco Direito");
+            RightPuch();
+        }
+    }
+    public void OnLeftPunch(InputAction.CallbackContext context)
+    {
+        if (context.performed && !_isAtacking)
+        {
+            Debug.Log("Soco Esquerdo");
+            LeftPuch();
+        }
+    }
+    public void OnHightKick(InputAction.CallbackContext context)
+     {
+        HighKick();
+     }
+    public void OnLowKick(InputAction.CallbackContext context)
+     {
+        LowKick();
+     }
+        
 
     void RightPuch()
     {
@@ -98,24 +112,7 @@ public class FightCombat : MonoBehaviour
             }
         }
     }
-    void DrawHitBoxGizmo(GameObject hitbox, Color color)
-    {
-        if (hitbox != null && hitbox.activeSelf)
-        {
-            Gizmos.color = color;
-            Gizmos.DrawWireCube(hitbox.transform.position, hitbox.transform.localScale);
-        }
-    }
 
-    private void OnDrawGizmos()
-    {
-        DrawHitBoxGizmo(_rightPunchHitbox, Color.red);
-        DrawHitBoxGizmo(_leftPunchHitbox, Color.blue);
-        DrawHitBoxGizmo(_lowKickHitbox, Color.green);
-        DrawHitBoxGizmo(_hightKickHitbox, Color.yellow);
-    }
-    void ResetAttack()
-    {
-        _isAtacking = false;
-    }
+    void ResetAttack() => _isAtacking = false;
+    
 }
