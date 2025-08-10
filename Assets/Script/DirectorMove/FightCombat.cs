@@ -43,7 +43,7 @@ public class FightCombat : MonoBehaviour
 
     public void OnRightPunch(InputAction.CallbackContext context)
     {
-        Debug.Log("Right Puch event triggered, phase" + context.phase);
+       
         if (context.performed && !_isAtacking)
             RightPuch();
     }

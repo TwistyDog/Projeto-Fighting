@@ -79,7 +79,7 @@
                 {
                     "name": "",
                     "id": "872e17f7-7ff8-439a-a8dd-3203f6529165",
-                    "path": "<Keyboard>/u",
+                    "path": "<Keyboard>/i",
                     "interactions": "",
                     "processors": "",
                     "groups": ";InputCombatAction",
@@ -94,7 +94,13 @@
         {
             "name": "InputCombatAction",
             "bindingGroup": "InputCombatAction",
-            "devices": []
+            "devices": [
+                {
+                    "devicePath": "<Keyboard>",
+                    "isOptional": false,
+                    "isOR": false
+                }
+            ]
         }
     ]
 }
