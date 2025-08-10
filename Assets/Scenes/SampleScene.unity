@@ -973,7 +973,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 1
+        m_CallState: 2
     m_ActionId: c51b4bd5-688e-4345-960b-10056a530c0a
     m_ActionName: 'CombatMap/RightPuch[/Keyboard/j]'
   - m_PersistentCalls:
@@ -989,14 +989,14 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 1
+        m_CallState: 2
     m_ActionId: d1401ff8-8aab-4c17-bdc3-c089b81597d2
     m_ActionName: 'CombatMap/LeftPunch[/Keyboard/k]'
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1599609315}
         m_TargetAssemblyTypeName: FightCombat, Assembly-CSharp
-        m_MethodName: OnHightKick
+        m_MethodName: OnHighKick
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1005,7 +1005,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 1
+        m_CallState: 2
     m_ActionId: ed17a3c0-9336-40c0-8cd8-7ab7ea363693
     m_ActionName: 'CombatMap/HightKick[/Keyboard/u]'
   - m_PersistentCalls:
@@ -1021,7 +1021,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 1
+        m_CallState: 2
     m_ActionId: b4fcb706-44ac-4a7c-b5fc-b1f6ec06a3c4
     m_ActionName: 'CombatMap/LowKick[/Keyboard/u]'
   m_NeverAutoSwitchControlSchemes: 0

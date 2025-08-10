@@ -1,10 +1,11 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.XR;
 
 public class PlayerMove : MonoBehaviour
 {
     [SerializeField] protected CharacterController _controller;
-    [SerializeField] protected Vector3 _playerVelocity;
+    [SerializeField] protected Vector2 _playerVelocity;
     [SerializeField] protected bool _groundedPlayer;
     [SerializeField] protected float _playerSpeed = 6.0f;
     [SerializeField] protected float _jumpHeight = 5.0f;
@@ -29,16 +30,14 @@ public class PlayerMove : MonoBehaviour
     // Update is called once per frame
     protected virtual void Update()
     {
-        Move();
         Gravity();
+
+        Move();
         Jump();
         Crouch();
 
+       
     }
-
-
-
-
 
 
     protected virtual void Move()
@@ -62,9 +61,18 @@ public class PlayerMove : MonoBehaviour
         Vector3 finalMove = (move * _playerSpeed) + (_playerVelocity.y * Vector3.up);
         _controller.Move(finalMove * Time.deltaTime);
     }
+
+
+
+
+
     protected virtual void Gravity()
     {
         // Apply gravity
+        if (_groundedPlayer && _playerVelocity.y < 0)
+        {
+            _playerVelocity.y = 0f;
+        }
         _playerVelocity.y += _gravityValue * Time.deltaTime;
     }
 

@@ -1,3 +1,4 @@
+using System;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -15,7 +16,7 @@ public class FightCombat : MonoBehaviour
     [SerializeField] private GameObject _lowKickHitbox;
 
     // Dano dos golpes
-     [Header("Damage")]
+    [Header("Damage")]
     [SerializeField] private int _rightPunchDamage = 10;
     [SerializeField] private int _leftPunchDamage = 12;
     [SerializeField] private int _highKickDamage = 15;
@@ -25,14 +26,14 @@ public class FightCombat : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-       
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
-        
+
+
     }
     void Awake()
     {
@@ -42,29 +43,25 @@ public class FightCombat : MonoBehaviour
 
     public void OnRightPunch(InputAction.CallbackContext context)
     {
+        Debug.Log("Right Puch event triggered, phase" + context.phase);
         if (context.performed && !_isAtacking)
-        {
-            Debug.Log("Soco Direito");
             RightPuch();
-        }
     }
     public void OnLeftPunch(InputAction.CallbackContext context)
     {
         if (context.performed && !_isAtacking)
-        {
-            Debug.Log("Soco Esquerdo");
             LeftPuch();
-        }
     }
-    public void OnHightKick(InputAction.CallbackContext context)
-     {
-        HighKick();
-     }
+    public void OnHighKick(InputAction.CallbackContext context)
+    {
+        if (context.performed && !_isAtacking)
+            HighKick();
+    }
     public void OnLowKick(InputAction.CallbackContext context)
-     {
-        LowKick();
-     }
-        
+    {
+        if (context.performed && !_isAtacking)
+            LowKick();
+    }    
 
     void RightPuch()
     {
