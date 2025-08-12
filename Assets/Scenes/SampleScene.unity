@@ -1495,7 +1495,6 @@ GameObject:
   - component: {fileID: 2052808418}
   - component: {fileID: 2052808419}
   - component: {fileID: 2052808420}
-  - component: {fileID: 2052808421}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -1651,28 +1650,6 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &2052808421
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2052808413}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6245d705dbc053743b9e21ca83df6767, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _controller: {fileID: 0}
-  _playerVelocity: {x: 0, y: 0}
-  _groundedPlayer: 0
-  _playerSpeed: 6
-  _jumpHeight: 5
-  _gravityValue: -5.81
-  _crouchHeight: 0.5
-  _isCrounching: 0
-  _isBlocking: 0
-  _damageReduction: 0.5
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
