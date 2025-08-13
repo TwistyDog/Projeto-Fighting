@@ -6,6 +6,7 @@ public class PlayerMove : MonoBehaviour
 {
     [SerializeField] protected CharacterController _controller;
     [SerializeField] protected Vector2 _playerVelocity;
+    [SerializeField] protected Vector3 _moveInput;
     [SerializeField] protected bool _groundedPlayer;
     [SerializeField] protected float _playerSpeed = 6.0f;
     [SerializeField] protected float _jumpHeight = 5.0f;
@@ -28,7 +29,7 @@ public class PlayerMove : MonoBehaviour
     }
 
     // Update is called once per frame
-    protected virtual void Update()
+    protected virtual void FixedUpdate()
     {
         Gravity();
 
@@ -48,8 +49,7 @@ public class PlayerMove : MonoBehaviour
             _playerVelocity.y = 0f;
         }
 
-        float horizontalInput = Input.GetAxis("Horizontal");
-        Vector3 move = new Vector3(horizontalInput, 0, 0);
+        Vector3 move = new Vector3(_playerVelocity.x, 0, 0);
 
         if (move.x != 0)
         {
@@ -62,7 +62,10 @@ public class PlayerMove : MonoBehaviour
         _controller.Move(finalMove * Time.deltaTime);
     }
 
-
+    public void OnMove(InputAction.CallbackContext context)
+    {
+        _playerVelocity = context.ReadValue<Vector2>();
+    }
 
 
 
