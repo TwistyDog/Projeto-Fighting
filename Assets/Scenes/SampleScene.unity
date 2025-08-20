@@ -1164,9 +1164,9 @@ MonoBehaviour:
   _playerVelocity: {x: 0, y: 0}
   _moveInput: {x: 0, y: 0, z: 0}
   _groundedPlayer: 0
-  _playerSpeed: 6
+  _playerSpeed: 4
   _jumpHeight: 4
-  _gravityValue: -20
+  _gravityValue: -30
   _crouchHeight: 0.5
   _isCrounching: 0
   _isBlocking: 0

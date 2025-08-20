@@ -19,6 +19,8 @@ public class PlayerMove : MonoBehaviour
     [SerializeField] protected bool _isBlocking = false;
     [SerializeField] protected float _damageReduction = 0.5f;
 
+    
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     protected virtual void Start()
@@ -71,12 +73,9 @@ public class PlayerMove : MonoBehaviour
 
     protected virtual void Gravity()
     {
-        // Apply gravity
-        if (_groundedPlayer && _playerVelocity.y < 0)
-        {
-            _playerVelocity.y = 0f;
-        }
+
         _playerVelocity.y += _gravityValue * Time.deltaTime;
+        _controller.Move(_playerVelocity * Time.deltaTime);
     }
 
     protected virtual void Jump()
