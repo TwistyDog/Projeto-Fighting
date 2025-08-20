@@ -5,12 +5,12 @@ using UnityEngine.InputSystem.XR;
 public class PlayerMove : MonoBehaviour
 {
     [SerializeField] protected CharacterController _controller;
-    [SerializeField] protected Vector2 _playerVelocity;
-    [SerializeField] protected Vector3 _moveInput;
+    [SerializeField] protected Vector2 _moveInput;
+    [SerializeField] protected Vector3 _playerVelocity;
     [SerializeField] protected bool _groundedPlayer;
     [SerializeField] protected float _playerSpeed = 6.0f;
-    [SerializeField] protected float _jumpHeight = 5.0f;
-    [SerializeField] protected float _gravityValue = -5.81f;
+    [SerializeField] protected float _jumpHeight = 3.0f;
+    [SerializeField] protected float _gravityValue = -9.81f;
     [SerializeField] protected float _crouchHeight = 0.5f;
 
     private protected float _originalHeight;
@@ -36,7 +36,7 @@ public class PlayerMove : MonoBehaviour
         Gravity();
 
         Move();
-        Jump();
+       // Jump();
         Crouch();
 
        
@@ -51,7 +51,7 @@ public class PlayerMove : MonoBehaviour
             _playerVelocity.y = 0f;
         }
 
-        Vector3 move = new Vector3(_playerVelocity.x, 0, 0);
+        Vector3 move = new Vector3(_moveInput.x, 0, 0);
 
         if (move.x != 0)
         {
@@ -59,33 +59,35 @@ public class PlayerMove : MonoBehaviour
             transform.rotation = Quaternion.Euler(0, targetAngle, 0f);
         }
 
-        // Combine horizontal and vertical movement
-        Vector3 finalMove = (move * _playerSpeed) + (_playerVelocity.y * Vector3.up);
-        _controller.Move(finalMove * Time.deltaTime);
+        _controller.Move(move * _playerSpeed * Time.deltaTime);
     }
 
     public void OnMove(InputAction.CallbackContext context)
     {
-        _playerVelocity = context.ReadValue<Vector2>();
+        _moveInput = context.ReadValue<Vector2>();
     }
 
-
+    public void OnJump(InputAction.CallbackContext context)
+    {
+        if (_groundedPlayer == true)
+        {
+            _playerVelocity.y += Mathf.Sqrt(_jumpHeight * -1.0f * _gravityValue);    
+        }
+    }
 
     protected virtual void Gravity()
     {
-
+        _groundedPlayer = _controller.isGrounded;
+        if (_groundedPlayer && _playerVelocity.y < 0)
+        {
+            _playerVelocity.y = -3f;
+        }
+        
         _playerVelocity.y += _gravityValue * Time.deltaTime;
         _controller.Move(_playerVelocity * Time.deltaTime);
     }
 
-    protected virtual void Jump()
-    {
-        // Jump
-        if (_groundedPlayer && Input.GetAxisRaw("Vertical") > 0.5f)
-        {
-            _playerVelocity.y = Mathf.Sqrt(_jumpHeight * -2.0f * _gravityValue);
-        }
-    }
+    
 
     protected virtual void Crouch()
     {
