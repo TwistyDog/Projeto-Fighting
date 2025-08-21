@@ -1108,7 +1108,7 @@ GameObject:
   - component: {fileID: 3241690118169404625}
   - component: {fileID: 5320995474707265236}
   - component: {fileID: 6975405502099004184}
-  - component: {fileID: 6975405502099004183}
+  - component: {fileID: 6975405502099004185}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -1489,21 +1489,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &6975405502099004183
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3005399485609112992}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a08c97e8da551cd49b3806fc7e7426df, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _agent: {fileID: 6975405502099004184}
-  _player: {fileID: 4785992180343539577, guid: c0fb9f9b9a1a73d49bd056447edfca44, type: 3}
-  _stoppingDistance: 0.5
 --- !u!195 &6975405502099004184
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1526,6 +1511,26 @@ NavMeshAgent:
   m_BaseOffset: 0.5
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &6975405502099004185
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3005399485609112992}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a08c97e8da551cd49b3806fc7e7426df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _agent: {fileID: 6975405502099004184}
+  _player: {fileID: 1486136242319892557}
+  _stoppingDistance: 2
+  _arenaMinX: -8
+  _arenaManX: 8
+  _changeStateTime: 2
+  _retreatDistance: 3
+  _forwardDistance: 5
 --- !u!65 &7021887837244214076
 BoxCollider:
   m_ObjectHideFlags: 0

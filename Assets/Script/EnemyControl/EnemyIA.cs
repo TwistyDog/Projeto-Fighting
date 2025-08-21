@@ -8,14 +8,26 @@ public class EnemyIA : MonoBehaviour
     [SerializeField] private Transform _player;
     [SerializeField] private float _stoppingDistance = 2f;
 
-    private float patrolTime;
-    private Vector3 _patrolPoint;
+    [Header("Arena Limites")]
+    [SerializeField] private float _arenaMinX = -8f;
+    [SerializeField] private float _arenaManX = 8f;
+
+    [Header("Configuração de Movimento")]
+    [SerializeField] private float _changeStateTime = 2f;
+    [SerializeField] private float _retreatDistance = 3f;
+    [SerializeField] private float _forwardDistance = 5f;
+
+    private float _startTime;
+    private EnemyState _currentState;
+
+    private enum EnemyState {Idle, Advance, Retreat, Chase}
     void Start()
     {
         _agent = GetComponent<NavMeshAgent>();
         
         _agent.updateRotation = false;
         _agent.updateUpAxis = false;
+        _agent.stoppingDistance = 0f;
     }
 
     // Update is called once per frame
