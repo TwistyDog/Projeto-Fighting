@@ -26,6 +26,8 @@ public class EnemyIA : MonoBehaviour
         Vector3 targetPosition = new Vector3(_player.position.x, transform.position.y, transform.position.z);
         
         float distance = Mathf.Abs(transform.position.x - _player.position.x);
+        
+
 
         if (distance > _stoppingDistance)
         {
