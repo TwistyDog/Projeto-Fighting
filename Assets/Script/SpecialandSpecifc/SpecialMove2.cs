@@ -8,5 +8,9 @@ public class SpecialMove2 : PlayerMove
         
     }
 
+    protected virtual void Awake()
+    {
+        
+    }
     
 }

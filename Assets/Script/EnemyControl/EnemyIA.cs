@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Rendering;
 
-public class EnemyIA : MonoBehaviour
+public class EnemyIA : SpecialMove2
 {
     [SerializeField] private NavMeshAgent _agent;
     [SerializeField] private Transform _player;
@@ -21,20 +21,27 @@ public class EnemyIA : MonoBehaviour
     private EnemyState _currentState;
 
     private enum EnemyState {Idle, Advance, Retreat, Chase}
-    private void Start()
+    
+    protected override void Awake()
     {
-        _agent = GetComponent<NavMeshAgent>();
+        base.Awake();
+        
+            _agent = GetComponent<NavMeshAgent>();
         
         _agent.updateRotation = false;
         _agent.updateUpAxis = false;
         _agent.stoppingDistance = 0f;
 
+        _agent.updatePosition = false;
+
         ChangeState();
     }
 
     // Update is called once per frame
-    private void Update()
+    protected virtual void Update()
     {
+
+        base.FixedUpdate();
         if (_player == null) return;
 
         _startTime -= Time.deltaTime;
@@ -52,14 +59,14 @@ public class EnemyIA : MonoBehaviour
         HandleMovement();
     }
 
-    private void ChangeState()
+    protected virtual void ChangeState()
     {
         int rand = Random.Range(0, 4);
         _currentState = (EnemyState)rand;
         _startTime = Random.Range(_changeStateTime * 0.7f, _changeStateTime * 1.3f);
     }
 
-    private void HandleMovement()
+    protected void HandleMovement()
     {
         float targetX = transform.position.x;
 
@@ -91,5 +98,10 @@ public class EnemyIA : MonoBehaviour
 
         Vector3 targetPosition = new Vector3(targetX, transform.position.y, transform.position.z);
         _agent.SetDestination(targetPosition);
+
+        Vector3 direction = (_agent.nextPosition - transform.position).normalized;
+        Vector3 velocity = direction * _agent.speed;
+
+        _controller.Move(velocity * Time.deltaTime);
     }
 }

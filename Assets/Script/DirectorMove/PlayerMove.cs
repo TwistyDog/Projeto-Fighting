@@ -120,6 +120,11 @@ public class PlayerMove : MonoBehaviour
     {
         float finalDamage = _isBlocking ? damage * _damageReduction : damage;
         Debug.Log($"Dano Recebido: {finalDamage}(Bloqueado: {_isBlocking})");
-    }                        
+    }
+    
+    protected virtual void Awake()
+    {
+        _controller = GetComponent<CharacterController>();
+    }
 }
 
