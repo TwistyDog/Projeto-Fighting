@@ -21,38 +21,75 @@ public class EnemyIA : MonoBehaviour
     private EnemyState _currentState;
 
     private enum EnemyState {Idle, Advance, Retreat, Chase}
-    void Start()
+    private void Start()
     {
         _agent = GetComponent<NavMeshAgent>();
         
         _agent.updateRotation = false;
         _agent.updateUpAxis = false;
         _agent.stoppingDistance = 0f;
+
+        ChangeState();
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         if (_player == null) return;
 
-        Vector3 targetPosition = new Vector3(_player.position.x, transform.position.y, transform.position.z);
-        
-        float distance = Mathf.Abs(transform.position.x - _player.position.x);
-        
-
-
-        if (distance > _stoppingDistance)
+        _startTime -= Time.deltaTime;
+        if (_startTime <= 0)
         {
-            _agent.SetDestination(targetPosition);
+            ChangeState();
         }
-        else
-        {
-            _agent.ResetPath();
-        }
+
 
         if (_player.position.x > transform.position.x)
             transform.rotation = Quaternion.Euler(0, 0, 0);
         else
             transform.rotation = Quaternion.Euler(0,180f,0);
+
+        HandleMovement();
+    }
+
+    private void ChangeState()
+    {
+        int rand = Random.Range(0, 4);
+        _currentState = (EnemyState)rand;
+        _startTime = Random.Range(_changeStateTime * 0.7f, _changeStateTime * 1.3f);
+    }
+
+    private void HandleMovement()
+    {
+        float targetX = transform.position.x;
+
+        switch( _currentState )
+        {
+            case EnemyState.Idle:
+                _agent.ResetPath();
+                return;
+
+                case EnemyState.Advance:
+                targetX = Mathf.MoveTowards(transform.position.x, _player.position.x, 1f);
+                break;
+
+            case EnemyState.Retreat:
+
+                if (_player.position.x > transform.position.x)
+                    targetX = transform.position.x - 2f;
+                else
+                    targetX = transform.position.x + 2f;
+                break;
+
+            case EnemyState.Chase:
+
+                targetX = _player.position.x;
+                break;
+        }
+
+        targetX = Mathf.Clamp(targetX, _arenaMinX, _arenaManX);
+
+        Vector3 targetPosition = new Vector3(targetX, transform.position.y, transform.position.z);
+        _agent.SetDestination(targetPosition);
     }
 }
