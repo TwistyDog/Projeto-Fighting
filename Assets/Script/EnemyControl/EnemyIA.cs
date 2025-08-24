@@ -12,7 +12,7 @@ public class EnemyIA : SpecialMove2
     [SerializeField] private float _arenaMinX = -8f;
     [SerializeField] private float _arenaManX = 8f;
 
-    [Header("Configuração de Movimento")]
+    [Header("Configuraï¿½ï¿½o de Movimento")]
     [SerializeField] private float _changeStateTime = 2f;
     [SerializeField] private float _retreatDistance = 3f;
     [SerializeField] private float _forwardDistance = 5f;
@@ -21,13 +21,13 @@ public class EnemyIA : SpecialMove2
     private EnemyState _currentState;
 
     private enum EnemyState {Idle, Advance, Retreat, Chase}
-    
+
     protected override void Awake()
     {
+
         base.Awake();
-        
-            _agent = GetComponent<NavMeshAgent>();
-        
+        _agent = GetComponent<NavMeshAgent>();
+
         _agent.updateRotation = false;
         _agent.updateUpAxis = false;
         _agent.stoppingDistance = 0f;
@@ -35,13 +35,14 @@ public class EnemyIA : SpecialMove2
         _agent.updatePosition = false;
 
         ChangeState();
+        
     }
 
     // Update is called once per frame
-    protected virtual void Update()
+    protected override void Update()
     {
 
-        base.FixedUpdate();
+
         if (_player == null) return;
 
         _startTime -= Time.deltaTime;
@@ -54,9 +55,11 @@ public class EnemyIA : SpecialMove2
         if (_player.position.x > transform.position.x)
             transform.rotation = Quaternion.Euler(0, 0, 0);
         else
-            transform.rotation = Quaternion.Euler(0,180f,0);
+            transform.rotation = Quaternion.Euler(0, 180f, 0);
 
         HandleMovement();
+        
+
     }
 
     protected virtual void ChangeState()

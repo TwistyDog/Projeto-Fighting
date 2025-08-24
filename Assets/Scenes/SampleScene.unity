@@ -958,8 +958,8 @@ GameObject:
   - component: {fileID: 4672218180080643743}
   - component: {fileID: 6956231102261265231}
   - component: {fileID: 2954754976153892160}
-  - component: {fileID: 7254731031845845913}
   - component: {fileID: 3183247156299655947}
+  - component: {fileID: 8674525901626139144}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1207,8 +1207,8 @@ MonoBehaviour:
     m_ActionName: 'CombatMap/LowKick[/Keyboard/u]'
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7254731031845845913}
-        m_TargetAssemblyTypeName: PlayerMove, Assembly-CSharp
+      - m_Target: {fileID: 8674525901626139144}
+        m_TargetAssemblyTypeName: NewPlayMove, Assembly-CSharp
         m_MethodName: OnMove
         m_Mode: 0
         m_Arguments:
@@ -1223,8 +1223,8 @@ MonoBehaviour:
     m_ActionName: 'Combat/Move[/Keyboard/a,/Keyboard/d]'
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7254731031845845913}
-        m_TargetAssemblyTypeName: PlayerMove, Assembly-CSharp
+      - m_Target: {fileID: 8674525901626139144}
+        m_TargetAssemblyTypeName: NewPlayMove, Assembly-CSharp
         m_MethodName: OnJump
         m_Mode: 0
         m_Arguments:
@@ -1523,6 +1523,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a08c97e8da551cd49b3806fc7e7426df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _controller: {fileID: 0}
+  _playerSpeed: 6
+  _jumpHeight: 3
+  _gravityValue: -9.81
+  _crouchHeight: 0.5
+  _isBlocking: 0
+  _damageReduction: 0.5
   _agent: {fileID: 6975405502099004184}
   _player: {fileID: 1486136242319892557}
   _stoppingDistance: 2
@@ -1567,29 +1574,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1486136242319892557}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7254731031845845913
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1920783833206286528}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 947ced43880c33841bdf46dac2b049fc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _controller: {fileID: 0}
-  _moveInput: {x: 0, y: 0}
-  _playerVelocity: {x: 0, y: 0, z: 0}
-  _groundedPlayer: 0
-  _playerSpeed: 4
-  _jumpHeight: 2
-  _gravityValue: -9.81
-  _crouchHeight: 0.5
-  _isCrounching: 0
-  _isBlocking: 0
-  _damageReduction: 0.5
 --- !u!1 &7274342869116671215
 GameObject:
   m_ObjectHideFlags: 0
@@ -1670,6 +1654,25 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &8674525901626139144
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1920783833206286528}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82df7c95e21924649b083d4e69c83acd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _controller: {fileID: 0}
+  _playerSpeed: 6
+  _jumpHeight: 5
+  _gravityValue: -9.81
+  _crouchHeight: 0.5
+  _isBlocking: 0
+  _damageReduction: 0.5
 --- !u!23 &8815215461522700534
 MeshRenderer:
   m_ObjectHideFlags: 0

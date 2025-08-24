@@ -1,8 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.InputSystem.XR;
 
-public class PlayerMove : MonoBehaviour
+public class NewPlayMove : MonoBehaviour
 {
     [Header("Components")]
     [SerializeField] protected CharacterController _controller;
@@ -83,27 +82,18 @@ public class PlayerMove : MonoBehaviour
             if (Input.GetAxisRaw("Vertical") < -0.5f)
             {
                 _isCrouching = true;
-                float heightDiff = _controller.height - _crouchHeight;
                 _controller.height = _crouchHeight;
-
                 Vector3 center = _controller.center;
                 center.y = _crouchHeight / 2f;
                 _controller.center = center;
-
-                transform.position += new Vector3(0, heightDiff / 2f, 0);
             }
-            else if (Input.GetAxisRaw("Vertical") >= -0.5f && _isCrouching)
+            else if (_isCrouching)
             {
                 _isCrouching = false;
-
-                float heightDiff = _originalHeight - _controller.height;
                 _controller.height = _originalHeight;
-
                 Vector3 center = _controller.center;
                 center.y = _originalHeight / 2f;
                 _controller.center = center;
-
-                transform.position += new Vector3(0, heightDiff / 2f, 0);
             }
         }
     }
