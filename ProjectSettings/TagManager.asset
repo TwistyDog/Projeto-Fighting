@@ -8,6 +8,8 @@ TagManager:
   - Enemy
   - BracoEsquerdo
   - BracoDireito
+  - Parede
+  - HallParedes
   layers:
   - Default
   - TransparentFX
