@@ -673,7 +673,6 @@ GameObject:
   - component: {fileID: 1731706295}
   - component: {fileID: 1731706294}
   - component: {fileID: 1731706293}
-  - component: {fileID: 1731706297}
   m_Layer: 0
   m_Name: Ground
   m_TagString: Ground
@@ -770,38 +769,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1731706297
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1731706292}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SerializedVersion: 0
-  m_AgentTypeID: 0
-  m_CollectObjects: 0
-  m_Size: {x: 10, y: 10, z: 10}
-  m_Center: {x: 0, y: 2, z: 0}
-  m_LayerMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_UseGeometry: 0
-  m_DefaultArea: 2
-  m_GenerateLinks: 1
-  m_IgnoreNavMeshAgent: 1
-  m_IgnoreNavMeshObstacle: 1
-  m_OverrideTileSize: 0
-  m_TileSize: 256
-  m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.04
-  m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: a5d9d8323505f3c4eb33d291d340000a, type: 2}
-  m_BuildHeightMesh: 1
 --- !u!4 &373327704011950299
 Transform:
   m_ObjectHideFlags: 0
@@ -1107,7 +1074,6 @@ GameObject:
   - component: {fileID: 4550897349616328860}
   - component: {fileID: 3241690118169404625}
   - component: {fileID: 5320995474707265236}
-  - component: {fileID: 6975405502099004184}
   - component: {fileID: 6975405502099004185}
   m_Layer: 0
   m_Name: Enemy
@@ -1489,28 +1455,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!195 &6975405502099004184
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3005399485609112992}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.5
-  m_Speed: 3.5
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 1
-  m_BaseOffset: 0.5
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
 --- !u!114 &6975405502099004185
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1530,16 +1474,14 @@ MonoBehaviour:
   _crouchHeight: 0.5
   _isBlocking: 0
   _damageReduction: 0.5
-  _agent: {fileID: 6975405502099004184}
   _player: {fileID: 1486136242319892557}
-  _playerMove: {fileID: 6975405502099004185}
-  _playerMovee: {fileID: 3628046293257919661, guid: c0fb9f9b9a1a73d49bd056447edfca44, type: 3}
   _stoppingDistance: 2
   _arenaMinX: -8
   _arenaManX: 8
   _changeStateTime: 2
   _retreatDistance: 3
   _forwardDistance: 5
+  _moveSpeed: 3
 --- !u!65 &7021887837244214076
 BoxCollider:
   m_ObjectHideFlags: 0

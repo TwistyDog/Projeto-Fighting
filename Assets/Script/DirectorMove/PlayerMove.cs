@@ -18,7 +18,7 @@ public class PlayerMove : MonoBehaviour
     [SerializeField] protected float _damageReduction = 0.5f;
 
     protected Vector3 _playerVelocity;
-    protected bool _groundedPlayer;
+    [SerializeField] protected bool _groundedPlayer;
     protected float _originalHeight;
     protected bool _isCrouching = false;
 

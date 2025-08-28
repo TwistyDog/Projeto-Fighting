@@ -6,10 +6,9 @@ using UnityEngine.Rendering;
 
 public class EnemyIA : SpecialMove2
 {
-    [SerializeField] private NavMeshAgent _agent;
+    
     [SerializeField] private Transform _player;
-    [SerializeField] private SpecialMove2 _playerMove;
-    [SerializeField] private SpecialMoves1 _playerMovee;
+   
     [SerializeField] private float _stoppingDistance = 2f;
 
     [Header("Arena Limites")]
@@ -20,10 +19,12 @@ public class EnemyIA : SpecialMove2
     [SerializeField] private float _changeStateTime = 2f;
     [SerializeField] private float _retreatDistance = 3f;
     [SerializeField] private float _forwardDistance = 5f;
+    [SerializeField] private float _moveSpeed = 3f;
 
     private float _startTime;
     private EnemyState _currentState;
 
+    private SpecialMoves1 _playerMovei;
 
     private bool _playerWasGrounded;
 
@@ -33,19 +34,13 @@ public class EnemyIA : SpecialMove2
     {
 
         base.Awake();
-        _agent = GetComponent<NavMeshAgent>();
-
-        _agent.updateRotation = false;
-        _agent.updateUpAxis = false;
-        _agent.stoppingDistance = 0f;
-
-        _agent.updatePosition = false;
+        
 
         ChangeState();
 
         if (_player != null)
         {
-            _playerMovee = _player.GetComponent<SpecialMoves1>();
+            _playerMovei = _player.GetComponent<SpecialMoves1>();
         }
 
     }
@@ -70,8 +65,9 @@ public class EnemyIA : SpecialMove2
             transform.rotation = Quaternion.Euler(0, 180f, 0);
 
         HandleMovement();
-        HandleIA();
+        //HandleIA();
         HandleJumpReaction();
+        
 
     }
 
@@ -91,72 +87,78 @@ public class EnemyIA : SpecialMove2
         switch (_currentState)
         {
             case EnemyState.Idle:
-                _agent.ResetPath();
                 return;
 
             case EnemyState.Advance:
-                targetX = Mathf.MoveTowards(transform.position.x, _player.position.x, 1f);
+                targetX = Mathf.MoveTowards(transform.position.x, _player.position.x, _moveSpeed * Time.deltaTime);
                 break;
 
             case EnemyState.Retreat:
 
                 if (_player.position.x > transform.position.x)
-                    targetX = transform.position.x - 2f;
+                    targetX = transform.position.x - (_moveSpeed * Time.deltaTime);
                 else
-                    targetX = transform.position.x + 2f;
+                    targetX = transform.position.x + (_moveSpeed * Time.deltaTime);
                 break;
 
             case EnemyState.Chase:
 
-                targetX = _player.position.x;
+                targetX = Mathf.MoveTowards(transform.position.x, _player.position.x, _moveSpeed * Time.deltaTime);
                 break;
         }
 
         targetX = Mathf.Clamp(targetX, _arenaMinX, _arenaManX);
 
         Vector3 targetPosition = new Vector3(targetX, transform.position.y, transform.position.z);
-        _agent.SetDestination(targetPosition);
+        //_agent.SetDestination(targetPosition);
 
-        Vector3 direction = (_agent.steeringTarget - transform.position).normalized;
-        Vector3 horizontal = new Vector3(direction.x, 0, direction.z) * _agent.speed;
+        Vector3 direction = (targetPosition - transform.position).normalized;
+        Vector3 velocity = direction * _moveSpeed;
 
-        _playerVelocity.y += _gravityValue * Time.deltaTime;
+        //_playerVelocity.y += _gravityValue * Time.deltaTime;
 
-        Vector3 finalMove = new Vector3(horizontal.x, _playerVelocity.y, horizontal.z);
+        //Vector3 finalMove = new Vector3(horizontal.x, _playerVelocity.y, horizontal.z);
 
-        _controller.Move(finalMove * Time.deltaTime);
+        _controller.Move(velocity * Time.deltaTime);
     }
 
-    protected void HandleIA()
-    {
-        float distance = Vector3.Distance(transform.position, _player.position);
-
-        bool shouldCrouch = distance < 1.5f;
-
-        CrouchIA(shouldCrouch);
-
-        if (_groundedPlayer && Random.value < 0.09f)
-        {
-            JumpIA();
-        }
-
-        bool shoudBlock = distance < 2f && Random.value < 0.5f;
-        BlockIA(shoudBlock);
-    }
+   
 
     private void HandleJumpReaction()
     {
-        bool playerGround = _playerMovee.IsGrounded;
-        if (_playerWasGrounded && !playerGround)
+        if (_playerMovei != null && _playerMovei.IsGrounded == false && _groundedPlayer)
         {
-            if (_groundedPlayer && Random.value < 0.6f)
-            {
-                JumpIA();
-            }
+            if(Random.value > 0.5f)
+               JumpAI();
+            
+            
         }
-        _playerWasGrounded = playerGround;
 
     }
 
-     
+    public void JumpAI()
+    {
+        if(_groundedPlayer && !_isCrouching)
+        {
+            _playerVelocity.y = Mathf.Sqrt(_jumpHeight * -2f * _gravityValue);
+        }
+    } 
+
+    public void CrouchAI(bool crouch)
+    {
+        if (crouch && !_isCrouching)
+        {
+            _isCrouching = true;
+            _controller.height = _crouchHeight;
+            Vector3 center = _controller.center;
+            center.y = _controller.height / 2f;
+            _controller.center = center;
+            transform.position += new Vector3(0, (_crouchHeight - _originalHeight) / 2f, 0);
+        }
+    }
+
+    public void BlockAI(bool block)
+    {
+        _isBlocking = block;
+    }
 }
