@@ -9,7 +9,7 @@ public class SpecialMoves1 : NewPlayMove
 
     }
 
-    public bool IsGrounded => _groundedPlayer; 
+     
 
 
     
