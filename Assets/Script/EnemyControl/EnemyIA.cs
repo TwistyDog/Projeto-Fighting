@@ -12,7 +12,7 @@ public class EnemyIA : SpecialMoves1
 {
     
     [SerializeField] private Transform _player;
-    [SerializeField] private NewPlayMove moverPlayer;   
+    [SerializeField] public NewPlayMove moverPlayer;   
     [SerializeField] private float _stoppingDistance = 2f;
 
     [Header("Arena Limites")]

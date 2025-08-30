@@ -22,6 +22,8 @@ public class FightCombat : MonoBehaviour
     [SerializeField] private int _highKickDamage = 15;
     [SerializeField] private int _lowKickDamage = 8;
 
+    public bool IsAtacking => _isAtacking;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -41,55 +43,37 @@ public class FightCombat : MonoBehaviour
         playerInput.SwitchCurrentActionMap("Combat");
     }
 
-    public void OnRightPunch(InputAction.CallbackContext context)
-    {
-       
-        if (context.performed && !_isAtacking)
-            RightPuch();
-    }
-    public void OnLeftPunch(InputAction.CallbackContext context)
-    {
-        if (context.performed && !_isAtacking)
-            LeftPuch();
-    }
-    public void OnHighKick(InputAction.CallbackContext context)
-    {
-        if (context.performed && !_isAtacking)
-            HighKick();
-    }
-    public void OnLowKick(InputAction.CallbackContext context)
-    {
-        if (context.performed && !_isAtacking)
-            LowKick();
-    }    
+    //
 
-    void RightPuch()
+    public void RightPuch()
     {
+        if (_isAtacking) return;
         _isAtacking = true;
-        Debug.Log("Soco Direito");
+        Debug.Log($"{gameObject.name} deu soco direito");
         ActiveHitBox(_rightPunchHitbox, _rightPunchDamage);
         Invoke("ResetAttack", _attackCooldown);
     }
 
-    void LeftPuch()
+    public void LeftPuch()
     {
+        if (_isAtacking) return;
         _isAtacking = true;
-        Debug.Log("Soco Esquerdo");
+        Debug.Log($"{gameObject.name} deu soco esquerdo");
         ActiveHitBox(_leftPunchHitbox, _leftPunchDamage);
         Invoke("ResetAttack", _attackCooldown);
     }
-    void HighKick()
+    public void HighKick()
     {
         _isAtacking = true;
-        Debug.Log("Chute Alto");
+        Debug.Log($"{gameObject.name} deu um chute forte");
         ActiveHitBox(_hightKickHitbox, _highKickDamage);
         Invoke("ResetAttack", _attackCooldown);
     }
 
-    void LowKick()
+    public void LowKick()
     {
         _isAtacking = true;
-        Debug.Log("Chute baixo");
+        Debug.Log($"{gameObject.name} deu um chute fraco");
         ActiveHitBox(_lowKickHitbox, _lowKickDamage);
         Invoke("ResetAttack", _attackCooldown);
     }
