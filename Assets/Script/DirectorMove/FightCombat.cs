@@ -40,7 +40,10 @@ public class FightCombat : MonoBehaviour
     void Awake()
     {
         var playerInput = GetComponent<PlayerInput>();
-        playerInput.SwitchCurrentActionMap("Combat");
+        if (playerInput != null) // troca o mapa de input se for player
+        {
+            playerInput.SwitchCurrentActionMap("Combat");
+        }
     }
 
     //
