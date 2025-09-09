@@ -1357,6 +1357,7 @@ GameObject:
   - component: {fileID: 6819218117716198870}
   - component: {fileID: 5166751677656767528}
   - component: {fileID: 8396099325878399700}
+  - component: {fileID: 8396099325878399701}
   m_Layer: 0
   m_Name: NewEnemy
   m_TagString: Enemy
@@ -2466,6 +2467,22 @@ MonoBehaviour:
   _leftPunchDamage: 12
   _highKickDamage: 15
   _lowKickDamage: 8
+--- !u!114 &8396099325878399701
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2548458467037856815}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a82492b9680d74642a9c2ec5c94276ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _player: {fileID: 1486136242319892557}
+  _attackRange: 2
+  _minAttackDelay: 1
+  _maxAttackDelay: 2.5
 --- !u!33 &8411240151778818632
 MeshFilter:
   m_ObjectHideFlags: 0
