@@ -29,7 +29,7 @@ public class EnemyControllerFight : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (_player != null) return;
+        if (_player == null) return;
 
         float distance = Vector3.Distance(transform.position, _player.position);
 
@@ -47,10 +47,10 @@ public class EnemyControllerFight : MonoBehaviour
         int randomAttack = Random.Range(0, 4);
         switch (randomAttack)
         {
-            case 0: _combat.RightPuch(); break;
-            case 1: _combat.LeftPuch(); break;
-            case 2: _combat.HighKick(); break;
-            case 3: _combat.LowKick(); break;
+            case 0: Debug.Log ("Inimigo deu SOCO DIREITO"); _combat.RightPuch(); break;
+            case 1: Debug.Log("Inimigo deu SOCO ESQUERDO");  _combat.LeftPuch(); break;
+            case 2: Debug.Log("Inimigo deu CHUTE ALTO");  _combat.HighKick(); break;
+            case 3: Debug.Log("Inimigo deu CHUTE BAIXO");  _combat.LowKick(); break;
         }
     }
 }
