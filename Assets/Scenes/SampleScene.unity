@@ -1705,7 +1705,7 @@ GameObject:
   - component: {fileID: 2198165580750143039}
   - component: {fileID: 2492565897701125355}
   m_Layer: 0
-  m_Name: BRACOESQUERDO
+  m_Name: puchLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1838,7 +1838,7 @@ GameObject:
   - component: {fileID: 1407159464555431389}
   - component: {fileID: 4969031441543344296}
   m_Layer: 0
-  m_Name: PERNADIREITA
+  m_Name: legRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2049,7 +2049,7 @@ GameObject:
   - component: {fileID: 3704943815117223517}
   - component: {fileID: 4058723445872131681}
   m_Layer: 0
-  m_Name: PERNAESQUERDA
+  m_Name: legLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2341,7 +2341,7 @@ GameObject:
   - component: {fileID: 654634031366069309}
   - component: {fileID: 178575238089389146}
   m_Layer: 0
-  m_Name: BRACODIREITO
+  m_Name: puchRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

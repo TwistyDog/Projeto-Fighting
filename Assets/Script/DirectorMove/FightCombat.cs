@@ -85,14 +85,17 @@ public class FightCombat : MonoBehaviour
     {
         if (hitbox != null)
         {
-            hitbox.SetActive(true);
-            Collider[] hitEnemies = Physics.OverlapBox(hitbox.transform.position, hitbox.transform.localScale / 2, hitbox.transform.rotation);
-            foreach (Collider enemy in hitEnemies)
+            Debug.LogWarning($"{gameObject.name} tentou usar um hitbox que não está configurado!");
+            return;
+        }
+
+        hitbox.SetActive(true);
+        Collider[] hitEnemies = Physics.OverlapBox(hitbox.transform.position, hitbox.transform.localScale / 2, hitbox.transform.rotation);
+        foreach (Collider enemy in hitEnemies)
+        {
+            if (enemy.CompareTag("Player"))
             {
-                if (enemy.CompareTag("Enemy"))
-                {
-                    enemy.GetComponent<EnemyHealth>().TakeDamage(damage);
-                }
+                
             }
         }
     }
