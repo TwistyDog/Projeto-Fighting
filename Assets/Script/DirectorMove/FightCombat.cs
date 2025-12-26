@@ -26,78 +26,68 @@ public class FightCombat : MonoBehaviour
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-
-    }
+    
     void Awake()
     {
         var playerInput = GetComponent<PlayerInput>();
-        if (playerInput != null) // troca o mapa de input se for player
-        {
+        if (playerInput != null)
             playerInput.SwitchCurrentActionMap("Combat");
-        }
     }
 
     //
 
     public void RightPuch()
     {
-        if (_isAtacking) return;
-        _isAtacking = true;
-        Debug.Log($"{gameObject.name} deu soco direito");
-        ActiveHitBox(_rightPunchHitbox, _rightPunchDamage);
-        Invoke("ResetAttack", _attackCooldown);
+        TryAttack(_rightPunchHitbox, _rightPunchDamage);
     }
 
     public void LeftPuch()
     {
-        if (_isAtacking) return;
-        _isAtacking = true;
-        Debug.Log($"{gameObject.name} deu soco esquerdo");
-        ActiveHitBox(_leftPunchHitbox, _leftPunchDamage);
-        Invoke("ResetAttack", _attackCooldown);
+        TryAttack(_leftPunchHitbox, _leftPunchDamage);
     }
     public void HighKick()
     {
-        _isAtacking = true;
-        Debug.Log($"{gameObject.name} deu um chute forte");
-        ActiveHitBox(_hightKickHitbox, _highKickDamage);
-        Invoke("ResetAttack", _attackCooldown);
+        TryAttack(_hightKickHitbox, _highKickDamage);
     }
 
     public void LowKick()
     {
-        _isAtacking = true;
-        Debug.Log($"{gameObject.name} deu um chute fraco");
-        ActiveHitBox(_lowKickHitbox, _lowKickDamage);
-        Invoke("ResetAttack", _attackCooldown);
+        TryAttack(_lowKickHitbox, _lowKickDamage);
     }
 
-    void ActiveHitBox(GameObject hitbox, int damage)
+    void TryAttack(GameObject hitbox, int damage)
     {
-        if (hitbox != null)
+        if(_isAtacking) return;
+
+        if (hitbox == null)
+    {
+        Debug.LogWarning($"{gameObject.name} tentou usar um hitbox que n√£o est√° configurado!");
+        return;
+    }
+    _isAtacking = true;
+
+    HitBox hb = hitbox.GetComponent<HitBox>();
+
+    if(hb != null)
         {
-            Debug.LogWarning($"{gameObject.name} tentou usar um hitbox que n„o est· configurado!");
-            return;
+            string targetTag = CompareTag("Player") ? "Enemy" : "Player";
+
+            hb.Setup(damage, targetTag);
         }
 
-        hitbox.SetActive(true);
-        Collider[] hitEnemies = Physics.OverlapBox(hitbox.transform.position, hitbox.transform.localScale / 2, hitbox.transform.rotation);
-        foreach (Collider enemy in hitEnemies)
-        {
-            if (enemy.CompareTag("Player"))
-            {
-                
-            }
-        }
+    hitbox.SetActive(true);
+
+    Invoke(nameof(DisableHitBox), 0.1f);
+    Invoke(nameof(ResetAttack), _attackCooldown);
+
+    }
+
+    void DisableHitBox()
+    {
+        _rightPunchHitbox?.SetActive(false);
+        _leftPunchHitbox?.SetActive(false);
+        _hightKickHitbox?.SetActive(false);
+        _lowKickHitbox?.SetActive(false);
     }
 
     void ResetAttack() => _isAtacking = false;

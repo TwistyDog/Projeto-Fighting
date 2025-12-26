@@ -16,6 +16,7 @@ public class PlayerMove : MonoBehaviour
     [Header("Combat")]
     [SerializeField] protected bool _isBlocking = false;
     [SerializeField] protected float _damageReduction = 0.5f;
+    
 
     protected Vector3 _playerVelocity;
     [SerializeField] protected bool _groundedPlayer;
