@@ -4,7 +4,7 @@ public class HitBox : MonoBehaviour
 {
 
     private int _damage;
-    private string _targetTag;
+    private string _targetTag = "Player";
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public void Setup(int damage, string targetTag)
     {
@@ -14,10 +14,10 @@ public class HitBox : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!other.CompareTag(_targetTag)) return;
+        if (string.IsNullOrEmpty(_targetTag)) return;
+        if (!other.CompareTag(_targetTag))return;
 
-        DamageReceiver receiver = other.GetComponent<DamageReceiver>();
-        if (receiver != null)
+        if(other.TryGetComponent(out DamageReceiver receiver))
         {
             receiver.ReceiveDamaged(_damage);
         }
