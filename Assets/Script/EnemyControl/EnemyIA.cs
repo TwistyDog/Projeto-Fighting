@@ -25,6 +25,7 @@ public class EnemyIA : SpecialMoves1
     [SerializeField] private float _forwardDistance = 5f;
     [SerializeField] private float _moveSpeed = 3f;
     [SerializeField] private float _retreatStep = 2f;
+    [SerializeField] private float _minDistanceToPlayer = 1.5f;
 
     [Header("Reação ao Pulo do Player")]
     [SerializeField, Range(0f, 1f)] private float _jumpReactionChance = 0.6f;
@@ -70,6 +71,12 @@ public class EnemyIA : SpecialMoves1
         if (_groundedPlayer && _playerVelocity.y < 0f)
             _playerVelocity.y = 0f;
 
+        
+        if(_groundedPlayer && _playerVelocity.y < 0)
+        {
+            _playerVelocity.y = -2f;
+        }
+
        // if (_player == null) return;
 
         _startTime -= Time.deltaTime;
@@ -90,7 +97,6 @@ public class EnemyIA : SpecialMoves1
 
         _playerVelocity.y += _gravityValue * Time.deltaTime;
 
-        _controller.Move(new Vector3(0f, _playerVelocity.y, 0f) * Time.deltaTime);
     }
 
 
@@ -128,11 +134,21 @@ public class EnemyIA : SpecialMoves1
 
         desiredX = Mathf.Clamp(desiredX, _arenaMinX, _arenaManX);
 
+        float distance = Mathf.Abs(_player.position.x - transform.position.x);
+
+        if(distance <= _minDistanceToPlayer)
+        {
+            desiredX = transform.position.x;
+        }
+
         float  newX = Mathf.MoveTowards(transform.position.x, desiredX, _moveSpeed * Time.deltaTime);
 
-        Vector3 dx = new Vector3(newX - transform.position.x, 0f, 0f);
-        if(dx.sqrMagnitude > 0f)
-            _controller.Move(dx);
+        Vector3 move = new Vector3(newX - transform.position.x, 0f, 0f);
+        
+        Vector3 finalMove = new Vector3(move.x, _playerVelocity.y, 0);
+
+        _controller.Move(finalMove * Time.deltaTime);
+            
         }
         //
 

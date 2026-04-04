@@ -180,7 +180,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 44.323402
+  field of view: 44.31482
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -207,7 +207,7 @@ Transform:
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
   m_LocalRotation: {x: -9.313227e-10, y: -9.3128055e-10, z: -8.673227e-19, w: 1}
-  m_LocalPosition: {x: 6.707548, y: 4.371751, z: -22.987705}
+  m_LocalPosition: {x: 6.705571, y: 4.372481, z: -21.828259}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1795,7 +1795,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -1829,7 +1829,7 @@ GameObject:
   - component: {fileID: 1125893901219242405}
   - component: {fileID: 2430199069202373505}
   - component: {fileID: 6831230535151139230}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: PernaEsquerda
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2100,7 +2100,7 @@ GameObject:
   - component: {fileID: 8674525901626139145}
   - component: {fileID: 8674525901626139146}
   - component: {fileID: 8674525901626139147}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -2120,7 +2120,7 @@ GameObject:
   - component: {fileID: 8815215461522700534}
   - component: {fileID: 6616736522179352848}
   - component: {fileID: 8815215461522700535}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: "Bra\xE7oEsquerdo"
   m_TagString: BracoEsquerdo
   m_Icon: {fileID: 0}
@@ -2253,7 +2253,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -2277,7 +2277,7 @@ GameObject:
   - component: {fileID: 8396099325878399701}
   - component: {fileID: 8396099325878399703}
   - component: {fileID: 8396099325878399702}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: NewEnemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -2501,7 +2501,7 @@ GameObject:
   - component: {fileID: 2367953449062466981}
   - component: {fileID: 4828624111692340910}
   - component: {fileID: 7468832657271430765}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: PernaDireita
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2580,7 +2580,7 @@ GameObject:
   - component: {fileID: 2198165580750143039}
   - component: {fileID: 2492565897701125355}
   - component: {fileID: 9131775534109334180}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: puchLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2687,7 +2687,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -2714,7 +2714,7 @@ GameObject:
   - component: {fileID: 1407159464555431389}
   - component: {fileID: 4969031441543344296}
   - component: {fileID: 7556943721739064125}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: legRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2814,7 +2814,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -2865,8 +2865,9 @@ MonoBehaviour:
   _forwardDistance: 5
   _moveSpeed: 3
   _retreatStep: 2
+  _minDistanceToPlayer: 1.5
   _jumpReactionChance: 0.6
-  _minReactDistance: 0
+  _minReactDistance: 4
 --- !u!33 &5166928166269838632
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -2888,7 +2889,7 @@ GameObject:
   - component: {fileID: 3704943815117223517}
   - component: {fileID: 4058723445872131681}
   - component: {fileID: 5794937172605984367}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: legLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3073,7 +3074,7 @@ GameObject:
   - component: {fileID: 9021033819578727884}
   - component: {fileID: 7021887837244214076}
   - component: {fileID: 9021033819578727885}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: BracoDireito
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3133,7 +3134,7 @@ GameObject:
   - component: {fileID: 654634031366069309}
   - component: {fileID: 178575238089389146}
   - component: {fileID: 7762853083828996735}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: puchRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
