@@ -25,11 +25,18 @@ public class EnemyIA : SpecialMoves1
     [SerializeField] private float _forwardDistance = 5f;
     [SerializeField] private float _moveSpeed = 3f;
     [SerializeField] private float _retreatStep = 2f;
-    [SerializeField] private float _minDistanceToPlayer = 1.5f;
+    
 
     [Header("Reação ao Pulo do Player")]
     [SerializeField, Range(0f, 1f)] private float _jumpReactionChance = 0.6f;
     [SerializeField] private float _minReactDistance = 0f;
+
+    [Header("Cooldown de Pulo")]
+    [SerializeField] private float _jumpCoolDown = 2f;
+    [SerializeField] private float _minJumpDistance = 1.5f;
+    [SerializeField] private float _maxJumpDistance = 6f;
+
+    private float _jumpTimer;
 
     private float _startTime;
     private EnemyState _currentState;
@@ -39,6 +46,13 @@ public class EnemyIA : SpecialMoves1
     private bool _playerWasGrounded;
 
     private enum EnemyState { Idle, Advance, Retreat, Chase }
+
+    [SerializeField] private float _groundCheckDistance = 0.2f;
+    [SerializeField] private LayerMask _groundLayer;
+    [SerializeField] private float _groundedBufferTime = 0.1f;
+
+
+    private float _groundedTimer;
 
     protected override void Awake()
     {
@@ -67,35 +81,34 @@ public class EnemyIA : SpecialMoves1
     // Update is called once per frame
     protected override void Update()
     {
-        _groundedPlayer = _controller.isGrounded;
-        if (_groundedPlayer && _playerVelocity.y < 0f)
-            _playerVelocity.y = 0f;
+        _jumpTimer -= Time.deltaTime;
 
-        
-        if(_groundedPlayer && _playerVelocity.y < 0)
-        {
-            _playerVelocity.y = -2f;
-        }
+        if (_groundedPlayer && _playerVelocity.y < 0)
+    {
+        _playerVelocity.y = -2f; // cola no chão
+    }
 
-       // if (_player == null) return;
+    _playerVelocity.y += _gravityValue * Time.deltaTime;
 
-        _startTime -= Time.deltaTime;
-        if (_startTime <= 0)
-        {
-            ChangeState();
-        }
+    _startTime -= Time.deltaTime;
+    if (_startTime <= 0)
+    {
+        ChangeState();
+    }
 
+    // ROTAÇÃO
+    if (_player.position.x > transform.position.x)
+        transform.rotation = Quaternion.Euler(0, 0, 0);
+    else
+        transform.rotation = Quaternion.Euler(0, 180f, 0);
 
-        if (_player.position.x > transform.position.x)
-            transform.rotation = Quaternion.Euler(0, 0, 0);
-        else
-            transform.rotation = Quaternion.Euler(0, 180f, 0);
+    HandleMovement();
+    HandleJumpReaction();
 
-        HandleMovement();
-        //HandleIA();
-        HandleJumpReaction();
+    // 👇 AGORA ATUALIZA GROUNDED (DEPOIS DO MOVE)
+      UptadeGroundedStable();
 
-        _playerVelocity.y += _gravityValue * Time.deltaTime;
+      AlignWithPlayer();
 
     }
 
@@ -136,18 +149,13 @@ public class EnemyIA : SpecialMoves1
 
         float distance = Mathf.Abs(_player.position.x - transform.position.x);
 
-        if(distance <= _minDistanceToPlayer)
-        {
-            desiredX = transform.position.x;
-        }
-
         float  newX = Mathf.MoveTowards(transform.position.x, desiredX, _moveSpeed * Time.deltaTime);
 
         Vector3 move = new Vector3(newX - transform.position.x, 0f, 0f);
         
         Vector3 finalMove = new Vector3(move.x, _playerVelocity.y, 0);
 
-        _controller.Move(finalMove * Time.deltaTime);
+        _controller.Move(new Vector3(move.x, _playerVelocity.y * Time.deltaTime, 0));
             
         }
         //
@@ -156,24 +164,30 @@ public class EnemyIA : SpecialMoves1
     {
         if (_player == null) return;
 
-        bool playerGrounded =
-            (_playerMovei != null) ? _playerMovei._groundedPlayer :
+    bool playerGrounded =
+        (_playerMovei != null) ? _playerMovei._groundedPlayer :
+        (_player.TryGetComponent(out CharacterController pc) ? pc.isGrounded : true);
 
-            (_player.TryGetComponent(out CharacterController pc) ? pc.isGrounded : true);
+    float distance = Mathf.Abs(_player.position.x - transform.position.x);
 
-        if (_playerWasGrounded && !playerGrounded)
+    // 👇 só reage quando player acabou de pular
+    if (_playerWasGrounded && !playerGrounded)
+    {
+        // 👇 condições inteligentes
+        bool withinDistance = distance >= _minJumpDistance && distance <= _maxJumpDistance;
+        bool canJump = _jumpTimer <= 0f;
+        bool randomPass = Random.value < _jumpReactionChance;
+
+        if (_groundedPlayer && withinDistance && canJump && randomPass)
         {
+            JumpAI();
 
-            if (_minReactDistance <= 0f || Mathf.Abs(_player.position.x - transform.position.x) <= _minReactDistance)
-            {
-                if (_groundedPlayer && Random.value < _jumpReactionChance)
-                {
-                    JumpAI();
-                }
-            }
+            // 👇 reseta cooldown
+            _jumpTimer = _jumpCoolDown;
         }
+    }
 
-        _playerWasGrounded = playerGrounded;
+    _playerWasGrounded = playerGrounded;
     }
 
 
@@ -202,6 +216,37 @@ public class EnemyIA : SpecialMoves1
     }
 
     public void BlockAI(bool block) => _isBlocking = block;
+
+
+    void UptadeGroundedStable()
+    {
+        bool controllerGrounded = _controller.isGrounded;
+
+    Vector3 origin = transform.position + Vector3.up * 0.1f;
+    bool rayGrounded = Physics.Raycast(origin, Vector3.down, _groundCheckDistance, _groundLayer);
+
+    if (controllerGrounded || rayGrounded)
+    {
+        _groundedTimer = _groundedBufferTime;
+    }
+    else
+    {
+        _groundedTimer -= Time.deltaTime;
+    }
+
+    _groundedPlayer = _groundedTimer > 0f;
+    }
+
+    void AlignWithPlayer()
+    {
+        if(_player == null) return;
+
+        Vector3 pos = transform.position;
+
+        pos.z = Mathf.Lerp(pos.z, _player.position.z, 10f * Time.deltaTime);
+
+        transform.position = pos;
+    }
    
 
     }

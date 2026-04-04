@@ -799,7 +799,7 @@ GameObject:
   - component: {fileID: 909773763}
   - component: {fileID: 909773762}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: HUDCanvasLife
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1573,7 +1573,7 @@ GameObject:
   - component: {fileID: 1731706295}
   - component: {fileID: 1731706294}
   - component: {fileID: 1731706293}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Ground
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -2565,7 +2565,7 @@ CapsuleCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Height: 2
-  m_Direction: 1
+  m_Direction: 2
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &3550518630932441086
 GameObject:
@@ -2776,7 +2776,7 @@ CapsuleCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Height: 2
-  m_Direction: 1
+  m_Direction: 2
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!65 &4828624111692340910
 BoxCollider:
@@ -2849,7 +2849,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _controller: {fileID: 0}
   _playerSpeed: 6
-  _jumpHeight: 5
+  _jumpHeight: 3
   _gravityValue: -9.81
   _crouchHeight: 0.5
   _isBlocking: 0
@@ -2865,9 +2865,16 @@ MonoBehaviour:
   _forwardDistance: 5
   _moveSpeed: 3
   _retreatStep: 2
-  _minDistanceToPlayer: 1.5
-  _jumpReactionChance: 0.6
-  _minReactDistance: 4
+  _jumpReactionChance: 0.863
+  _minReactDistance: 10
+  _jumpCoolDown: 2
+  _minJumpDistance: 1.5
+  _maxJumpDistance: 6
+  _groundCheckDistance: 0.2
+  _groundLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  _groundedBufferTime: 0.1
 --- !u!33 &5166928166269838632
 MeshFilter:
   m_ObjectHideFlags: 0
