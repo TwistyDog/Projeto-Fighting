@@ -29,5 +29,7 @@ public class DamageReceiver : MonoBehaviour
 
         if(damage > 0)
         _health.TakeDamage(damage);
+
+        Debug.Log("Recebeu dano. Blocking: " + _isBlocking);
     }
 }

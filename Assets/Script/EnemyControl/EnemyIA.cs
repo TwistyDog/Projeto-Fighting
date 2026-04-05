@@ -50,6 +50,7 @@ public class EnemyIA : SpecialMoves1
     [SerializeField] private float _groundCheckDistance = 0.2f;
     [SerializeField] private LayerMask _groundLayer;
     [SerializeField] private float _groundedBufferTime = 0.1f;
+    [SerializeField] DamageReceiver _damageReceiver;
 
 
     private float _groundedTimer;
@@ -58,6 +59,8 @@ public class EnemyIA : SpecialMoves1
     {
 
         base.Awake();
+
+        _damageReceiver = GetComponent<DamageReceiver>();
         
 
         ChangeState();
@@ -215,7 +218,13 @@ public class EnemyIA : SpecialMoves1
         }
     }
 
-    public void BlockAI(bool block) => _isBlocking = block;
+    public void BlockAI(bool block)
+    {
+        _isBlocking = block;
+
+        if(_damageReceiver != null)
+           _damageReceiver.SetBlocking(block);
+    }
 
 
     void UptadeGroundedStable()
