@@ -33,6 +33,17 @@ public class HealthForAll : MonoBehaviour
     void Die()
     {
         Debug.Log($"{gameObject.name} foi derrotado");
+
+        var controller = GetComponent<CharacterController>();
+        if(controller != null ) controller.enabled = false;
+
+        var combat = GetComponent<FightCombat>();
+        if (combat != null) combat.enabled = false;
+
+        var input = GetComponent<UnityEngine.InputSystem.PlayerInput>();
+        if (input != null) input.enabled = false;
+
+        gameObject.SetActive(false);
         // aqui depois: animação KO, freeze, etc
     }
 }
