@@ -1,0 +1,498 @@
+fileFormatVersion: 2
+guid: 09543a00c47ff864c944ab66a12887f1
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: BOTOES DO MENU PRINCIPAL (1)_0
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 607
+        width: 304
+        height: 155
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd66ff18a792cbb468239974a906a320
+      internalID: 849624439
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BOTOES DO MENU PRINCIPAL (1)_1
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 592
+        width: 303
+        height: 168
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 85e8e5b03d72bce40b56248592b56c4d
+      internalID: -1701380422
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BOTOES DO MENU PRINCIPAL (1)_2
+      rect:
+        serializedVersion: 2
+        x: 700
+        y: 592
+        width: 295
+        height: 167
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c8939c8822ba9a47b2a065201ba0c4f
+      internalID: 1414135082
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BOTOES DO MENU PRINCIPAL (1)_3
+      rect:
+        serializedVersion: 2
+        x: 1038
+        y: 596
+        width: 300
+        height: 166
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45d64e647b3ba964688722f47b629bb9
+      internalID: -20798678
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BOTOES DO MENU PRINCIPAL (1)_4
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 436
+        width: 296
+        height: 154
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dbd55ba9493031c4181a3346b52c7e5e
+      internalID: -1024816557
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BOTOES DO MENU PRINCIPAL (1)_5
+      rect:
+        serializedVersion: 2
+        x: 351
+        y: 421
+        width: 303
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc55d617f232e554f84aa35002fdb3a7
+      internalID: 2016012727
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BOTOES DO MENU PRINCIPAL (1)_6
+      rect:
+        serializedVersion: 2
+        x: 700
+        y: 418
+        width: 294
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7acbb5169fc247a459a897259d6178ff
+      internalID: -1874280934
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BOTOES DO MENU PRINCIPAL (1)_7
+      rect:
+        serializedVersion: 2
+        x: 1038
+        y: 423
+        width: 300
+        height: 168
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb0c01c7db7a3f24e82b517c50c5c7cb
+      internalID: 372083393
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BOTOES DO MENU PRINCIPAL (1)_8
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 265
+        width: 293
+        height: 154
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c4ca2595068a284e9f71f5c8c0b0b8b
+      internalID: -1768806306
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BOTOES DO MENU PRINCIPAL (1)_9
+      rect:
+        serializedVersion: 2
+        x: 345
+        y: 238
+        width: 302
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19912ce48c42f0d429793e7c06a5ebf7
+      internalID: -1675154233
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BOTOES DO MENU PRINCIPAL (1)_10
+      rect:
+        serializedVersion: 2
+        x: 705
+        y: 245
+        width: 291
+        height: 172
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 673664ae4fe2a344982a05df349603ee
+      internalID: -1961718708
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BOTOES DO MENU PRINCIPAL (1)_11
+      rect:
+        serializedVersion: 2
+        x: 1042
+        y: 251
+        width: 299
+        height: 172
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cadf9b9dcad6c9e418945839e454c9d2
+      internalID: -293626413
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BOTOES DO MENU PRINCIPAL (1)_12
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 40
+        width: 317
+        height: 198
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b6ab24951419bc244bd534e087531f28
+      internalID: 570839170
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BOTOES DO MENU PRINCIPAL (1)_13
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 41
+        width: 319
+        height: 198
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c99a480a5f39b7b4ba8b7f50b7ffdcef
+      internalID: 186880749
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BOTOES DO MENU PRINCIPAL (1)_14
+      rect:
+        serializedVersion: 2
+        x: 708
+        y: 38
+        width: 321
+        height: 199
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 466473dd0f652c14086ac68f3b13ffb4
+      internalID: 1963219127
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BOTOES DO MENU PRINCIPAL (1)_15
+      rect:
+        serializedVersion: 2
+        x: 1051
+        y: 39
+        width: 316
+        height: 200
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5141546921f95d439633903d8d63ad6
+      internalID: -1380645820
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 8b95f377d55b92545a243ad1cee455d9
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      BOTOES DO MENU PRINCIPAL (1)_0: 849624439
+      BOTOES DO MENU PRINCIPAL (1)_1: -1701380422
+      BOTOES DO MENU PRINCIPAL (1)_10: -1961718708
+      BOTOES DO MENU PRINCIPAL (1)_11: -293626413
+      BOTOES DO MENU PRINCIPAL (1)_12: 570839170
+      BOTOES DO MENU PRINCIPAL (1)_13: 186880749
+      BOTOES DO MENU PRINCIPAL (1)_14: 1963219127
+      BOTOES DO MENU PRINCIPAL (1)_15: -1380645820
+      BOTOES DO MENU PRINCIPAL (1)_2: 1414135082
+      BOTOES DO MENU PRINCIPAL (1)_3: -20798678
+      BOTOES DO MENU PRINCIPAL (1)_4: -1024816557
+      BOTOES DO MENU PRINCIPAL (1)_5: 2016012727
+      BOTOES DO MENU PRINCIPAL (1)_6: -1874280934
+      BOTOES DO MENU PRINCIPAL (1)_7: 372083393
+      BOTOES DO MENU PRINCIPAL (1)_8: -1768806306
+      BOTOES DO MENU PRINCIPAL (1)_9: -1675154233
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
