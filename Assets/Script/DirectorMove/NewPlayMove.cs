@@ -29,6 +29,9 @@ public class NewPlayMove : MonoBehaviour
 
     protected virtual void Update()
     {
+        if(!GameManager.Instance.podeControlar)
+           return;
+
         _groundedPlayer = _controller.isGrounded;
 
         HandleCrouch();

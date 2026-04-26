@@ -84,6 +84,10 @@ public class EnemyIA : SpecialMoves1
     // Update is called once per frame
     protected override void Update()
     {
+        if(!GameManager.Instance.podeControlar)
+           return;
+        
+        base.Update();
         _jumpTimer -= Time.deltaTime;
 
         if (_groundedPlayer && _playerVelocity.y < 0)
