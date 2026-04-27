@@ -19,7 +19,8 @@ public class DamageReceiver : MonoBehaviour
 
     public void Morrer()
     {
-        UITextFight.instance.OnKO();
+        bool isPlayer = CompareTag("Player");
+        UITextFight.instance.OnKO(isPlayer);
     }
 
     public void ReceiveDamaged(int damage)

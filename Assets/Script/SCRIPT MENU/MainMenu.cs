@@ -5,6 +5,8 @@ public class MainMenu : MonoBehaviour
 {
     [SerializeField] string nomeCenaJogo = "Area de Rua";
     public string nomeOpcoes = "OptionScene";
+
+    
     
     public void NovoJogo()
     {
@@ -21,4 +23,5 @@ public class MainMenu : MonoBehaviour
         Debug.Log("Saindo do Jogo");
         Application.Quit();
     }
+
 }

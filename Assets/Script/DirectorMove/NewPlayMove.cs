@@ -58,6 +58,12 @@ public class NewPlayMove : MonoBehaviour
         }
     }
 
+    public void ResetState()
+    {
+        _playerVelocity = Vector3.zero;
+        _isCrouching = false;
+    }
+
     #endregion
 
     #region Movement

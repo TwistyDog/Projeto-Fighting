@@ -43,7 +43,8 @@ public class HealthForAll : MonoBehaviour
     {
         if(UITextFight.instance != null)
         {
-            UITextFight.instance.OnKO();
+            bool isPlayer = CompareTag("Player");
+            UITextFight.instance.OnKO(isPlayer);
         }
 
         Debug.Log($"{gameObject.name} foi derrotado");

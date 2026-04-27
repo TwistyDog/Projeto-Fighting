@@ -2,6 +2,7 @@ using System.Collections;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class UITextFight : MonoBehaviour
 {
@@ -12,6 +13,15 @@ public class UITextFight : MonoBehaviour
 
     private int roundAtual = 1;
     private bool lutaAtiva = false;
+
+    public int playerWins = 0;
+    public int enemyWins = 0;
+
+    [SerializeField] private int maxRounds = 3;
+
+    [SerializeField] private GameObject painelFinal;
+
+    private bool lutaFinalizada = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
     void Awake()
@@ -39,9 +49,15 @@ public class UITextFight : MonoBehaviour
         GameManager.Instance.LiberarControle();
     }
 
-    public void OnKO()
+    public void OnKO(bool morreuPlayer)
     {
-        if(!lutaAtiva) return;
+        if(!lutaAtiva || lutaFinalizada) return;
+
+        if(morreuPlayer)
+           enemyWins++;
+        
+        else
+           playerWins++;
 
         StartCoroutine(SequenciaKO());
     }
@@ -55,6 +71,13 @@ public class UITextFight : MonoBehaviour
 
         yield return new WaitForSeconds(1f);
 
+        if(playerWins >= 2 || enemyWins >= 2)
+        {
+            lutaFinalizada = true;
+            StartCoroutine(TelaFinal());
+            yield break;
+        }
+
         roundAtual++;
 
         ResetarLuta();
@@ -64,6 +87,38 @@ public class UITextFight : MonoBehaviour
         StartCoroutine(SequenciaRound());
 
 
+    }
+
+    IEnumerator TelaFinal()
+    {
+        string vencedor = playerWins > enemyWins ? "PLAYER VENCEU" : "INIMIGO VENCEU SEU FRACO";
+
+        yield return StartCoroutine(MostrarTexto(vencedor));
+
+        MostrarOpcoesFinais();
+    }
+
+    void MostrarOpcoesFinais()
+    {
+        painelFinal.SetActive(true);
+    }
+
+    public void JogarNovamente()
+    {
+        painelFinal.SetActive(false);
+
+        playerWins = 0;
+        enemyWins = 0;
+        roundAtual = 1;
+        lutaFinalizada = false;
+
+        ResetarLuta();
+        StartCoroutine(SequenciaRound());
+    }
+
+    public void MenuPrincipal()
+    {
+        SceneManager.LoadScene("menuprincipal");
     }
 
     void ResetarLuta()
@@ -77,38 +132,35 @@ public class UITextFight : MonoBehaviour
             return;
         }
 
-        Player.SetActive(true);
-        NewEnemy.SetActive(true);
+        var pController = Player.GetComponent<CharacterController>();
+        var eController = NewEnemy.GetComponent<CharacterController>();
+
+        if (pController != null) pController.enabled = true;
+        if (eController != null) eController.enabled = true;
 
         Player.transform.position = new Vector3(-7.524553f, 6.141839f, 2.323583f);
         NewEnemy.transform.position = new Vector3(9.035446f, 4.741839f, 2.593583f);
+        
+        Player.GetComponent<NewPlayMove>()?.ResetState();
+        NewEnemy.GetComponent<EnemyIA>()?.ResetState();
 
-        ResetarComponentes(Player);
-        ResetarComponentes(NewEnemy);
 
 
         Player.GetComponent<HealthForAll>()?.ResetarVida();
         NewEnemy.GetComponent<HealthForAll>()?.ResetarVida();
 
+        ResetarComponentes(Player);
+        ResetarComponentes(NewEnemy);
 
     }
 
     void ResetarComponentes(GameObject obj)
     {
-        var controller = obj.GetComponent<FightCombat>();
-        if(controller != null) controller.enabled = true;
-
         var combat = obj.GetComponent<FightCombat>();
-        if(combat != null) controller.enabled = true;
+        if(combat != null) combat.enabled = true;
 
         var input = obj.GetComponent<UnityEngine.InputSystem.PlayerInput>();
         if(input != null) input.enabled = true;
-
-        var move = obj.GetComponent<NewPlayMove>();
-        if(move != null)
-        {
-            move._playerVelocity = Vector3.zero;
-        }
 
     }
 

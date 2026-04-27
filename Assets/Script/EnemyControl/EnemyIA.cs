@@ -23,7 +23,7 @@ public class EnemyIA : SpecialMoves1
     [SerializeField] private float _changeStateTime = 2f;
     [SerializeField] private float _retreatDistance = 3f;
     [SerializeField] private float _forwardDistance = 5f;
-    [SerializeField] private float _moveSpeed = 3f;
+    [SerializeField] private float _moveSpeed = 4f;
     [SerializeField] private float _retreatStep = 2f;
     
 
@@ -58,7 +58,7 @@ public class EnemyIA : SpecialMoves1
     protected override void Awake()
     {
 
-        base.Awake();
+       
 
         _damageReceiver = GetComponent<DamageReceiver>();
         
@@ -91,14 +91,14 @@ public class EnemyIA : SpecialMoves1
         if(!GameManager.Instance.podeControlar)
            return;
         
-        base.Update();
+        
         _jumpTimer -= Time.deltaTime;
 
         if (_groundedPlayer && _playerVelocity.y < 0)
-    {
-        _playerVelocity.y = -0.5f; // cola no chão
-    }
-
+        {
+            _playerVelocity.y = -0.5f;
+        }
+   
     _playerVelocity.y += _gravityValue * Time.deltaTime;
 
     _startTime -= Time.deltaTime;
@@ -164,12 +164,14 @@ public class EnemyIA : SpecialMoves1
         float distance = Mathf.Abs(_player.position.x - transform.position.x);
 
         float  newX = Mathf.MoveTowards(transform.position.x, desiredX, _moveSpeed * Time.deltaTime);
+        float moveX = newX - transform.position.x;
 
-        Vector3 move = new Vector3(newX - transform.position.x, 0f, 0f);
+        float moveY = _playerVelocity.y * Time.deltaTime;
         
 
-        Vector3 finalMove = new Vector3(move.x, _playerVelocity.y, 0);
-        _controller.Move(finalMove * Time.deltaTime);
+        Vector3 finalMove = new Vector3(moveX, moveY, 0);
+
+        _controller.Move(finalMove);
             
         }
         //
@@ -209,6 +211,13 @@ public class EnemyIA : SpecialMoves1
     {
         if (_groundedPlayer && !_isCrouching)
             _playerVelocity.y = Mathf.Sqrt(_jumpHeight * -2 * _gravityValue);
+    }
+
+    public void ResetStateEnemy()
+    {
+        _playerVelocity = Vector3.zero;
+        _isCrouching = false;
+        _jumpTimer = 0f;
     }
 
     public void CrouchIA(bool crouch)
