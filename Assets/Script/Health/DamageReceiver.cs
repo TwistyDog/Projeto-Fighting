@@ -17,6 +17,11 @@ public class DamageReceiver : MonoBehaviour
         _isBlocking = block;
     }
 
+    public void Morrer()
+    {
+        UITextFight.instance.OnKO();
+    }
+
     public void ReceiveDamaged(int damage)
     {
         if (_health == null) return;

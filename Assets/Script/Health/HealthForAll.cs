@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -30,8 +31,21 @@ public class HealthForAll : MonoBehaviour
             Die();
     }
 
+    public void ResetarVida()
+    {
+        _currentHealth = _maxHealth;
+
+        if(_healthSlider != null)
+           _healthSlider.value = _currentHealth;
+    }
+
     void Die()
     {
+        if(UITextFight.instance != null)
+        {
+            UITextFight.instance.OnKO();
+        }
+
         Debug.Log($"{gameObject.name} foi derrotado");
 
         var controller = GetComponent<CharacterController>();
@@ -43,7 +57,8 @@ public class HealthForAll : MonoBehaviour
         var input = GetComponent<UnityEngine.InputSystem.PlayerInput>();
         if (input != null) input.enabled = false;
 
-        gameObject.SetActive(false);
+        
         // aqui depois: animação KO, freeze, etc
     }
+
 }

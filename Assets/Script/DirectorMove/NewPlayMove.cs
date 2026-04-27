@@ -16,7 +16,8 @@ public class NewPlayMove : MonoBehaviour
     [SerializeField] protected bool _isBlocking = false;
     [SerializeField] protected float _damageReduction = 0.5f;
 
-    protected Vector3 _playerVelocity;
+    public Vector3 _playerVelocity;
+    
     [SerializeField] public bool _groundedPlayer;
     protected float _originalHeight;
     protected bool _isCrouching = false;
@@ -29,6 +30,9 @@ public class NewPlayMove : MonoBehaviour
 
     protected virtual void Update()
     {
+        if (_controller == null || !_controller.enabled)
+        return;
+
         if(!GameManager.Instance.podeControlar)
            return;
 
@@ -60,6 +64,10 @@ public class NewPlayMove : MonoBehaviour
 
     protected virtual void HandleMove()
     {
+        
+        if (_controller == null || !_controller.enabled)
+        return;
+
         // Aplica gravidade
         if (_groundedPlayer && _playerVelocity.y < 0)
             _playerVelocity.y = 0f;

@@ -65,13 +65,13 @@ public class EnemyIA : SpecialMoves1
 
         ChangeState();
 
-        if (_player != null)
+        if (_player == null)
         {
             var go = GameObject.FindGameObjectWithTag("Player");
             if (go) _player = go.transform;
         }
 
-        if (_player == null)
+        if (_player != null)
         {
             _playerMovei = _player.GetComponent<SpecialMoves1>();
             if(_playerMovei == null)
@@ -84,6 +84,10 @@ public class EnemyIA : SpecialMoves1
     // Update is called once per frame
     protected override void Update()
     {
+
+        if(_controller == null || !_controller.enabled)
+           return;
+
         if(!GameManager.Instance.podeControlar)
            return;
         
@@ -92,7 +96,7 @@ public class EnemyIA : SpecialMoves1
 
         if (_groundedPlayer && _playerVelocity.y < 0)
     {
-        _playerVelocity.y = -2f; // cola no chão
+        _playerVelocity.y = -0.5f; // cola no chão
     }
 
     _playerVelocity.y += _gravityValue * Time.deltaTime;
@@ -130,6 +134,9 @@ public class EnemyIA : SpecialMoves1
 
     protected void HandleMovement()
     {
+        if(_controller == null || !_controller.enabled)
+           return;
+
         if (_player == null) return;
 
         float desiredX = transform.position.x;
@@ -160,9 +167,9 @@ public class EnemyIA : SpecialMoves1
 
         Vector3 move = new Vector3(newX - transform.position.x, 0f, 0f);
         
-        Vector3 finalMove = new Vector3(move.x, _playerVelocity.y, 0);
 
-        _controller.Move(new Vector3(move.x, _playerVelocity.y * Time.deltaTime, 0));
+        Vector3 finalMove = new Vector3(move.x, _playerVelocity.y, 0);
+        _controller.Move(finalMove * Time.deltaTime);
             
         }
         //

@@ -1452,7 +1452,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'ROUND 1    '
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2816,6 +2816,7 @@ MonoBehaviour:
   _crouchHeight: 0.5
   _isBlocking: 0
   _damageReduction: 0.5
+  _playerVelocity: {x: 0, y: 0, z: 0}
   _groundedPlayer: 0
 --- !u!4 &1801376963680838329
 Transform:
@@ -2890,6 +2891,7 @@ MonoBehaviour:
   _crouchHeight: 0.5
   _isBlocking: 0
   _damageReduction: 0.5
+  _playerVelocity: {x: 0, y: 0, z: 0}
   _groundedPlayer: 0
   _player: {fileID: 2437506752413052473}
   moverPlayer: {fileID: 1557967550040786909}
