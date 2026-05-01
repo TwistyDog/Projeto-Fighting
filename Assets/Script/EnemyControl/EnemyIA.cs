@@ -8,7 +8,7 @@ using URandom = System.Random;
 
 
 
-public class EnemyIA : SpecialMoves1
+public class EnemyIA : SpecialMove2
 {
     
     [SerializeField] private Transform _player;
@@ -220,23 +220,6 @@ public class EnemyIA : SpecialMoves1
         _jumpTimer = 0f;
     }
 
-    public void CrouchIA(bool crouch)
-    {
-        if (crouch && !_isCrouching)
-        {
-            _isCrouching = true;
-            _controller.height = _crouchHeight;
-            var c = _controller.center; c.y = _crouchHeight / 2f; _controller.center = c;
-            transform.position += new Vector3(0, (_originalHeight - _crouchHeight) / 2f, 0);
-        }
-        else if (!crouch && _isCrouching)
-        {
-            _isCrouching = false;
-            _controller.height = _originalHeight;
-            var c = _controller.center; c.y = _originalHeight / 2f; _controller.center = c;
-            transform.position += new Vector3(0, (_crouchHeight - _originalHeight) / 2f, 0);
-        }
-    }
 
     public void BlockAI(bool block)
     {

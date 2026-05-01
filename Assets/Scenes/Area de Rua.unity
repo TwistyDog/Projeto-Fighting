@@ -1353,6 +1353,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 969192725}
   m_CullTransparentMesh: 1
+--- !u!1 &1018432459
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1018432460}
+  m_Layer: 3
+  m_Name: FirePoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1018432460
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1018432459}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.55, y: 0.09, z: -0.11}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2437506752413052473}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1038261892
 GameObject:
   m_ObjectHideFlags: 0
@@ -2583,9 +2614,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
-  m_PreserveAspect: 0
+  m_Sprite: {fileID: -236610992, guid: f4c93c9ed039c4d4f9f9b91405a4d0ee, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -3348,6 +3379,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 24be80ff-31c3-41ec-bf6d-2d55d353ccf8
     m_ActionName: 'Combat/Jump[/Keyboard/w]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1557967550040786909}
+        m_TargetAssemblyTypeName: SpecialMoves1, Assembly-CSharp
+        m_MethodName: OnSpecial
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 2db85cf2-2c03-4708-83f8-70e96984bdd9
+    m_ActionName: 'Combat/Special[/Keyboard/e]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: InputCombatAction
   m_DefaultActionMap: Combat
@@ -3440,6 +3487,9 @@ MonoBehaviour:
   _damageReduction: 0.5
   _playerVelocity: {x: 0, y: 0, z: 0}
   _groundedPlayer: 0
+  projectillePrefab: {fileID: 2734460811523693115, guid: a7a8cb4c8f20fe24c80d1fa4f5e250e9, type: 3}
+  firePoint: {fileID: 1018432460}
+  specialCoolDown: 1.5
 --- !u!4 &1801376963680838329
 Transform:
   m_ObjectHideFlags: 0
@@ -3615,6 +3665,7 @@ Transform:
   - {fileID: 1403960338486958492}
   - {fileID: 7593693428712209583}
   - {fileID: 7795901191675823354}
+  - {fileID: 1018432460}
   m_Father: {fileID: 1176068293}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &2438863206933143121
