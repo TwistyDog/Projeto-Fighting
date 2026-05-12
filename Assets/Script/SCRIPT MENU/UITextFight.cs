@@ -21,6 +21,13 @@ public class UITextFight : MonoBehaviour
 
     [SerializeField] private GameObject painelFinal;
 
+    [Header("Timer")]
+    [SerializeField] private TextMeshProUGUI _timerText;
+    [SerializeField] private float _tempoRound;
+
+    private float _tempoAtual;
+    private bool _timerRodando = false;
+
     private bool lutaFinalizada = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
@@ -44,9 +51,49 @@ public class UITextFight : MonoBehaviour
 
         yield return StartCoroutine(MostrarTexto("LUTEEEEEM"));
 
+        _tempoAtual = _tempoRound;
+        _timerRodando = true;
+
         lutaAtiva = true;
 
         GameManager.Instance.LiberarControle();
+    }
+
+    void AtualizarTime()
+    {
+        if(!_timerRodando || !lutaAtiva)
+           return;
+        
+        _tempoAtual -= Time.deltaTime;
+
+        if(_tempoAtual < 0)
+           _tempoAtual = 0;
+        
+        _timerText.text = Mathf.CeilToInt(_tempoAtual).ToString();
+
+        if(_tempoAtual <= 0)
+        {
+            _timerRodando = false;
+
+            
+        }
+    }
+
+    void VerificarVencedorPorTempo()
+    {
+        lutaAtiva = false;
+
+        GameObject player = GameObject.FindWithTag("Player");
+        GameObject enemy = GameObject.FindWithTag("Enemy");
+
+        if(player == null || enemy == null)
+           return;
+
+        
+        HealthForAll playerHP = player.GetComponent<HealthForAll>();
+        HealthForAll enemyHP = enemy.GetComponent<HealthForAll>();
+
+        // finalizado nessa parte aqui
     }
 
     public void OnKO(bool morreuPlayer)
