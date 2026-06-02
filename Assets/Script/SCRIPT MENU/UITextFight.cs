@@ -35,6 +35,11 @@ public class UITextFight : MonoBehaviour
     {
         instance = this;
     }
+
+    private void Update()
+    {
+        AtualizarTime();
+    }
     void Start()
     {
         StartCoroutine(SequenciaRound());
@@ -73,8 +78,11 @@ public class UITextFight : MonoBehaviour
 
         if(_tempoAtual <= 0)
         {
+            _tempoAtual = 0;
             _timerRodando = false;
 
+            VerificarVencedorPorTempo();
+            
             
         }
     }
