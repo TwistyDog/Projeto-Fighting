@@ -2,23 +2,30 @@ using UnityEngine;
 
 public class Projectille : MonoBehaviour
 {
-    public float speed = 10f;
+    public float speed = 5f;
     public int damage = 10;
+
+    [SerializeField] private float arenaLimit = 12f;
 
     private Vector3 direction;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public void SetDirection(Vector3 dir)
     {
         direction = dir.normalized;
-        Destroy(gameObject, 5f);
+        
     }
 
     void Update()
     {
         transform.position += direction * speed * Time.deltaTime;
+
+        if(Mathf.Abs(transform.position.x) > arenaLimit)
+        {
+            Destroy(gameObject);
+        }
     }
 
-    private void OiggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
        var _damageReceiver = other.GetComponent<DamageReceiver>();
 

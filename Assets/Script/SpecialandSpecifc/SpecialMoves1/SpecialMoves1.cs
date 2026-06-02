@@ -39,7 +39,9 @@ public class SpecialMoves1 : NewPlayMove
     {
         if (projectillePrefab == null || firePoint == null) return;
 
-        GameObject proj = Instantiate(projectillePrefab, firePoint.position, Quaternion.identity);
+        Vector3 spawnPos = firePoint.position + transform.right * 0.7f;
+
+        GameObject proj = Instantiate(projectillePrefab, spawnPos, Quaternion.identity);
 
         Vector3 dir = transform.right;
 
