@@ -178,6 +178,9 @@ public class UITextFight : MonoBehaviour
 
     void ResetarLuta()
     {
+        _tempoAtual = _tempoRound;
+        _timerText.text = Mathf.CeilToInt(_tempoAtual).ToString();
+        
         GameObject Player = GameObject.FindWithTag("Player");
         GameObject NewEnemy = GameObject.FindWithTag("Enemy");
 

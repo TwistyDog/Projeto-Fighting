@@ -29,6 +29,10 @@ public class EnemyControllerFight : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        if(!GameManager.Instance.podeControlar)
+           return;
+           
         if (_player == null) return;
 
         float distance = Vector3.Distance(transform.position, _player.position);
@@ -42,7 +46,7 @@ public class EnemyControllerFight : MonoBehaviour
 
     private void DoRandomAttack()
     {
-        if (_combat.IsAtacking) return; // não ataca enquanto estiver animando outro golpe
+        if (_combat.IsAtacking) return; // nï¿½o ataca enquanto estiver animando outro golpe
 
         int randomAttack = Random.Range(0, 4);
         switch (randomAttack)

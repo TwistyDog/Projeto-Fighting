@@ -17,6 +17,10 @@ public class Projectille : MonoBehaviour
 
     void Update()
     {
+        if(!GameManager.Instance.podeControlar)
+            return;
+        
+        
         transform.position += direction * speed * Time.deltaTime;
 
         if(Mathf.Abs(transform.position.x) > arenaLimit)
