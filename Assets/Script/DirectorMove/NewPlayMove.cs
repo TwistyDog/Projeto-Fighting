@@ -6,6 +6,8 @@ public class NewPlayMove : MonoBehaviour
     [Header("Components")]
     [SerializeField] protected CharacterController _controller;
 
+    [SerializeField] private Transform _enemy;
+
     [Header("Movement")]
     [SerializeField] protected float _playerSpeed = 6f;
     [SerializeField] protected float _jumpHeight = 5f;
@@ -26,6 +28,15 @@ public class NewPlayMove : MonoBehaviour
     {
         _controller = GetComponent<CharacterController>();
         _originalHeight = _controller.height;
+
+        if(_enemy == null)
+        {
+            GameObject enemyObj = GameObject.FindGameObjectWithTag("Enemy");
+
+
+            if(enemyObj != null)
+               _enemy = enemyObj.transform;
+        }
     }
 
     protected virtual void Update()
@@ -37,6 +48,9 @@ public class NewPlayMove : MonoBehaviour
            return;
 
         _groundedPlayer = _controller.isGrounded;
+
+
+        FaceEnemy();
 
         HandleCrouch();
         HandleMove();
@@ -80,16 +94,22 @@ public class NewPlayMove : MonoBehaviour
 
         _playerVelocity.y += _gravityValue * Time.deltaTime;
 
-        // Rotação do personagem
-        if (_playerVelocity.x != 0)
-        {
-            float targetAngle = _playerVelocity.x > 0 ? 0f : 180f;
-            transform.rotation = Quaternion.Euler(0f, targetAngle, 0f);
-        }
 
         // Move o CharacterController
         Vector3 move = new Vector3(_playerVelocity.x, _playerVelocity.y, 0);
         _controller.Move(move * Time.deltaTime);
+    }
+
+    protected virtual void FaceEnemy()
+    {
+        if(_enemy == null)
+           return;
+        
+        if(_enemy.position.x > transform.position.x)
+          transform.rotation = Quaternion.Euler(0f,0f,0f);
+        
+        else
+          transform.rotation = Quaternion.Euler(0f,180f,0f);
     }
 
     protected virtual void HandleCrouch()

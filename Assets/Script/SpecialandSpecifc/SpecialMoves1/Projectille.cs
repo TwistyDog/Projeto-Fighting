@@ -17,8 +17,6 @@ public class Projectille : MonoBehaviour
 
     void Update()
     {
-        if(!GameManager.Instance.podeControlar)
-            return;
         
         
         transform.position += direction * speed * Time.deltaTime;
@@ -31,14 +29,17 @@ public class Projectille : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-       var _damageReceiver = other.GetComponent<DamageReceiver>();
+        Debug.Log("Acertou" + other.name);
 
-       if(_damageReceiver != null)
+       DamageReceiver damageReceiver = other.GetComponentInParent<DamageReceiver>();
+
+       if(damageReceiver != null)
         {
-            _damageReceiver.ReceiveDamaged(damage);
+            damageReceiver.ReceiveDamaged(damage);
+            Destroy(gameObject);
 
         } 
 
-        Destroy(gameObject);
+        //Destroy(gameObject);
     }
 }

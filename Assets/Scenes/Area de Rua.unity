@@ -3664,8 +3664,8 @@ Transform:
   m_GameObject: {fileID: 8090244353565091771}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -17.13, y: -2.28, z: 3.48}
-  m_LocalScale: {x: 0.15, y: 4.19, z: 2.82}
+  m_LocalPosition: {x: -21.9, y: 0.8, z: 3.48}
+  m_LocalScale: {x: 0.15, y: 18.18, z: 32.82}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3332169052740205190}
@@ -3734,6 +3734,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _controller: {fileID: 0}
+  _enemy: {fileID: 0}
   _playerSpeed: 6
   _jumpHeight: 3
   _gravityValue: -9.81
@@ -3812,6 +3813,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _controller: {fileID: 0}
+  _enemy: {fileID: 0}
   _playerSpeed: 6
   _jumpHeight: 3
   _gravityValue: -9.81
@@ -5140,8 +5142,8 @@ Transform:
   m_GameObject: {fileID: 3346844372841892387}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 12.895, y: -2.28, z: 3.425}
-  m_LocalScale: {x: 0.15, y: 4.19, z: 2.82}
+  m_LocalPosition: {x: 23.7, y: -0.6, z: 3.425}
+  m_LocalScale: {x: 0.15, y: 18.18, z: 32.82}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3332169052740205190}

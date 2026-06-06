@@ -161,7 +161,7 @@ public class EnemyIA : SpecialMove2
 
         desiredX = Mathf.Clamp(desiredX, _arenaMinX, _arenaManX);
 
-        float distance = Mathf.Abs(_player.position.x - transform.position.x);
+        //float distance = Mathf.Abs(_player.position.x - transform.position.x);
 
         float  newX = Mathf.MoveTowards(transform.position.x, desiredX, _moveSpeed * Time.deltaTime);
         float moveX = newX - transform.position.x;

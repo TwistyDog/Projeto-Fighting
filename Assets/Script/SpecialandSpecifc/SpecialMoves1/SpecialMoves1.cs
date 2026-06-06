@@ -25,6 +25,11 @@ public class SpecialMoves1 : NewPlayMove
 
     public void OnSpecial(InputAction.CallbackContext context)
     {
+
+        if(!GameManager.Instance.podeControlar)
+          return;
+
+
         if(!context.performed) return;
 
         if(Time.time < lastSpecialTime + specialCoolDown)
@@ -37,6 +42,11 @@ public class SpecialMoves1 : NewPlayMove
 
     void ShootProjectille()
     {
+
+        if(!GameManager.Instance.podeControlar)
+           return;
+
+    
         if (projectillePrefab == null || firePoint == null) return;
 
         Vector3 spawnPos = firePoint.position + transform.right * 0.7f;
