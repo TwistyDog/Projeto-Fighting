@@ -6,11 +6,22 @@ public class MainMenu : MonoBehaviour
     [SerializeField] string nomeCenaJogo = "Area de Rua";
     public string nomeOpcoes = "OptionScene";
 
+    [Header("Paineis")]
+    [SerializeField] GameObject _mainMenuPainel;
+    [SerializeField] GameObject _characterSelectPanel;
+
     
     
     public void NovoJogo()
     {
-        SceneManager.LoadScene(nomeCenaJogo);
+        _mainMenuPainel.SetActive(false);
+        _characterSelectPanel.SetActive(true);
+    }
+
+    public void VoltarMenu()
+    {
+        _characterSelectPanel.SetActive(false);
+        _mainMenuPainel.SetActive(true);
     }
 
     public void Opcoes()

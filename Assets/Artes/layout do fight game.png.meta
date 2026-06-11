@@ -1,0 +1,338 @@
+fileFormatVersion: 2
+guid: a8902f9160ecb564697088dea1e6c41c
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: layout do fight game_0
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 875
+        width: 272
+        height: 173
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee872ae56d301c042ba30737003677db
+      internalID: 1734176458
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: layout do fight game_4
+      rect:
+        serializedVersion: 2
+        x: 952
+        y: 232
+        width: 892
+        height: 800
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1861e88cbb49fc843a01794863e864f4
+      internalID: -2138252977
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: layout do fight game_12
+      rect:
+        serializedVersion: 2
+        x: 331
+        y: 493
+        width: 221
+        height: 204
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92b71d8dd09f58f4a9713d2f8c5a00eb
+      internalID: -396430222
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: layout do fight game_18
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 503
+        width: 216
+        height: 197
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b3f6e1360ad6cb4da603f92a7acdbd1
+      internalID: 528342349
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: layout do fight game_41
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 288
+        width: 188
+        height: 172
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a8d4d27f51e3a241b2edfdcabd63f28
+      internalID: 704806479
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: layout do fight game_43
+      rect:
+        serializedVersion: 2
+        x: 359
+        y: 287
+        width: 171
+        height: 154
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4db81224604ad74b9668c3fdae6a92f
+      internalID: 1072650637
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: layout do fight game_1
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 703
+        width: 261
+        height: 158
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d58c0b7a8441ff4e9cbb322ea4ac46c
+      internalID: 1430978278
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 2c9b735e7ba716a4c97dfe52175567ba
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      layout do fight game_0: 1734176458
+      layout do fight game_1: 1430978278
+      layout do fight game_10: 1720787171
+      layout do fight game_11: 1205198528
+      layout do fight game_12: -396430222
+      layout do fight game_13: 1250571298
+      layout do fight game_14: -636866634
+      layout do fight game_15: -1423539884
+      layout do fight game_16: 2016058493
+      layout do fight game_17: -1543456011
+      layout do fight game_18: 528342349
+      layout do fight game_19: -2067771967
+      layout do fight game_2: 85316543
+      layout do fight game_20: 1340510931
+      layout do fight game_21: -1446272377
+      layout do fight game_22: -285893721
+      layout do fight game_23: 1388251655
+      layout do fight game_24: 1380261096
+      layout do fight game_25: -1762708557
+      layout do fight game_26: 851529478
+      layout do fight game_27: -1869856393
+      layout do fight game_28: -2098016041
+      layout do fight game_29: 2088463068
+      layout do fight game_3: 1899336473
+      layout do fight game_30: 311579331
+      layout do fight game_31: -69508123
+      layout do fight game_32: -202888912
+      layout do fight game_33: 1012658084
+      layout do fight game_34: 851093793
+      layout do fight game_35: -1635149549
+      layout do fight game_36: 1380528022
+      layout do fight game_37: 1764800249
+      layout do fight game_38: 237263825
+      layout do fight game_39: -1825813568
+      layout do fight game_4: -2138252977
+      layout do fight game_40: -188536898
+      layout do fight game_41: 704806479
+      layout do fight game_42: -653000251
+      layout do fight game_43: 1072650637
+      layout do fight game_44: -537973555
+      layout do fight game_45: 838159813
+      layout do fight game_46: 470196433
+      layout do fight game_47: -1882282149
+      layout do fight game_48: 1629307717
+      layout do fight game_49: 161475751
+      layout do fight game_5: 663149117
+      layout do fight game_50: 1931414088
+      layout do fight game_51: -442001155
+      layout do fight game_6: -1389271236
+      layout do fight game_7: -889436980
+      layout do fight game_8: -533686887
+      layout do fight game_9: -197643131
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

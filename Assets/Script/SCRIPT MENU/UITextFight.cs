@@ -3,6 +3,7 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class UITextFight : MonoBehaviour
 {
@@ -29,6 +30,11 @@ public class UITextFight : MonoBehaviour
     private bool _timerRodando = false;
 
     private bool lutaFinalizada = false;
+
+    [Header("WinCounter")]
+    [SerializeField] private Image[] playerWinIcons;
+    [SerializeField] private Image[] enemyWinIcons;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
     void Awake()
@@ -42,6 +48,7 @@ public class UITextFight : MonoBehaviour
     }
     void Start()
     {
+        AtualizarHUDVitorias();
         StartCoroutine(SequenciaRound());
     }
 
@@ -87,6 +94,20 @@ public class UITextFight : MonoBehaviour
         }
     }
 
+    void AtualizarHUDVitorias()
+    {
+        // Player
+        for(int i = 0; i  < playerWinIcons.Length; i++)
+        {
+            playerWinIcons[i].gameObject.SetActive(i < playerWins);
+        }
+
+        for (int i = 0; i < enemyWinIcons.Length; i++)
+        {
+            enemyWinIcons[i].gameObject.SetActive(i < enemyWins);
+        }
+    }
+
     void VerificarVencedorPorTempo()
     {
         lutaAtiva = false;
@@ -113,6 +134,8 @@ public class UITextFight : MonoBehaviour
         
         else
            playerWins++;
+
+        AtualizarHUDVitorias();
 
         StartCoroutine(SequenciaKO());
     }
@@ -164,6 +187,7 @@ public class UITextFight : MonoBehaviour
 
         playerWins = 0;
         enemyWins = 0;
+        AtualizarHUDVitorias();
         roundAtual = 1;
         lutaFinalizada = false;
 
