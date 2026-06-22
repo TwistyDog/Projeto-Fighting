@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: b84cb912b287a6c408dbda72305790a8
+guid: 47d2ec1d71bb6b74f93ac711d446e130
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: logo death fight_4
+      name: options sprite2_1
       rect:
         serializedVersion: 2
-        x: 621
-        y: 3221
-        width: 11749
-        height: 860
+        x: 424
+        y: 0
+        width: 1263
+        height: 1072
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -125,8 +125,30 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 72d1d648b85055e448eb45670b3f39c4
-      internalID: -1295426924
+      spriteID: 2d3e80182cc24474bb6df454a815f3b2
+      internalID: 1744450141
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: options sprite2_10
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 5
+        width: 4
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c81a6e272562b4c49bb8c0e16ba7c7d0
+      internalID: -1870099659
       vertices: []
       indices: 
       edges: []
@@ -135,7 +157,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 15754613b0f9b4d40a410f7b8daf7134
+    spriteID: e31467370df9983489d0a3ef4451e83e
     internalID: 0
     vertices: []
     indices: 
@@ -147,19 +169,17 @@ TextureImporter:
       - key: SpriteEditor.SliceSettings
         value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      logo death fight_0: -1697434635
-      logo death fight_1: 76634636
-      logo death fight_10: -992280015
-      logo death fight_11: -1239062953
-      logo death fight_12: -885715801
-      logo death fight_2: -1227686490
-      logo death fight_3: 1613299516
-      logo death fight_4: -1295426924
-      logo death fight_5: -1815247331
-      logo death fight_6: -1070030076
-      logo death fight_7: -714021654
-      logo death fight_8: 1554990439
-      logo death fight_9: -1314778980
+      options sprite2_0: 10923165
+      options sprite2_1: 1744450141
+      options sprite2_10: -1870099659
+      options sprite2_2: -955824116
+      options sprite2_3: 1851862784
+      options sprite2_4: -1293547078
+      options sprite2_5: 2089201274
+      options sprite2_6: -1189185920
+      options sprite2_7: -900996173
+      options sprite2_8: -2109376837
+      options sprite2_9: 1133858535
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

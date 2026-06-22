@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: b84cb912b287a6c408dbda72305790a8
+guid: 3fd00280c5204ab4cbdf145104710ac5
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: logo death fight_4
+      name: options sprite_0
       rect:
         serializedVersion: 2
-        x: 621
-        y: 3221
-        width: 11749
-        height: 860
+        x: 186
+        y: 0
+        width: 525
+        height: 1027
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -125,8 +125,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 72d1d648b85055e448eb45670b3f39c4
-      internalID: -1295426924
+      spriteID: eb3fd9995d9871e4caf66c9423ca7abd
+      internalID: -1034090995
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 15754613b0f9b4d40a410f7b8daf7134
+    spriteID: 7c8c0566fa3c90d41b961ebd1a3b6d4e
     internalID: 0
     vertices: []
     indices: 
@@ -147,19 +147,7 @@ TextureImporter:
       - key: SpriteEditor.SliceSettings
         value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      logo death fight_0: -1697434635
-      logo death fight_1: 76634636
-      logo death fight_10: -992280015
-      logo death fight_11: -1239062953
-      logo death fight_12: -885715801
-      logo death fight_2: -1227686490
-      logo death fight_3: 1613299516
-      logo death fight_4: -1295426924
-      logo death fight_5: -1815247331
-      logo death fight_6: -1070030076
-      logo death fight_7: -714021654
-      logo death fight_8: 1554990439
-      logo death fight_9: -1314778980
+      options sprite_0: -1034090995
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
