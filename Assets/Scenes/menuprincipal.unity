@@ -442,6 +442,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c4539ca8c6141248a9f56dbc740533b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CharacterSelect
+  loadingManager: {fileID: 0}
 --- !u!1 &652667880
 GameObject:
   m_ObjectHideFlags: 0
@@ -1018,6 +1019,7 @@ GameObject:
   - component: {fileID: 1066669463}
   - component: {fileID: 1066669467}
   - component: {fileID: 1066669466}
+  - component: {fileID: 1066669468}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1167,6 +1169,22 @@ MonoBehaviour:
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
   m_Version: 2
+--- !u!114 &1066669468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1066669462}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d02540b0bc638d742a34f80e38bbcd41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LoadingManager
+  loadingPanel: {fileID: 0}
+  loadingText: {fileID: 0}
+  loadingBar: {fileID: 0}
+  chineseSymbols: {fileID: 0}
 --- !u!1 &1123773383
 GameObject:
   m_ObjectHideFlags: 0

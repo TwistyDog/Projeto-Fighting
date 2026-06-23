@@ -1,0 +1,251 @@
+fileFormatVersion: 2
+guid: 4b884711c99ea6a4aa5abe2ea68dd98c
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: CARREGANDO_10
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 851
+        width: 4430
+        height: 638
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c9cc549dafba0f74081153730805ed0a
+      internalID: 135336582
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CARREGANDO_32
+      rect:
+        serializedVersion: 2
+        x: 4876
+        y: 817
+        width: 611
+        height: 636
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 727b63152a3d81f42bc7838911ac26a0
+      internalID: 40851290
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 2340e70427cc3a14fa9d6c6ec6a84453
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      CARREGANDO_0: -1387616754
+      CARREGANDO_1: 2031571907
+      CARREGANDO_10: 135336582
+      CARREGANDO_11: -1804276314
+      CARREGANDO_12: 485531504
+      CARREGANDO_13: -134182238
+      CARREGANDO_14: -985565747
+      CARREGANDO_15: -1149854624
+      CARREGANDO_16: 816801323
+      CARREGANDO_17: -1654178549
+      CARREGANDO_18: 1280453274
+      CARREGANDO_19: 1117858759
+      CARREGANDO_2: -727019404
+      CARREGANDO_20: 1840316092
+      CARREGANDO_21: -1444231754
+      CARREGANDO_22: -771379283
+      CARREGANDO_23: 352448866
+      CARREGANDO_24: -517748380
+      CARREGANDO_25: -775034061
+      CARREGANDO_26: 777300367
+      CARREGANDO_27: -552684959
+      CARREGANDO_28: -1731602098
+      CARREGANDO_29: 415682141
+      CARREGANDO_3: 1438027732
+      CARREGANDO_30: -1426084889
+      CARREGANDO_31: 183978228
+      CARREGANDO_32: 40851290
+      CARREGANDO_33: 458556992
+      CARREGANDO_34: -771922989
+      CARREGANDO_35: -478872486
+      CARREGANDO_36: -516976070
+      CARREGANDO_37: 1067078898
+      CARREGANDO_38: 1543739457
+      CARREGANDO_39: -798697636
+      CARREGANDO_4: 2018839319
+      CARREGANDO_40: -598320083
+      CARREGANDO_41: -1096862729
+      CARREGANDO_42: -1701089112
+      CARREGANDO_43: -866159167
+      CARREGANDO_44: 1189541037
+      CARREGANDO_45: -497480894
+      CARREGANDO_46: 2061628486
+      CARREGANDO_47: -1154438241
+      CARREGANDO_48: -1332712988
+      CARREGANDO_49: 846923329
+      CARREGANDO_5: 1807991814
+      CARREGANDO_50: -845584303
+      CARREGANDO_51: 1170455161
+      CARREGANDO_52: 1467756532
+      CARREGANDO_53: -641623371
+      CARREGANDO_54: 1487460001
+      CARREGANDO_55: -1143031126
+      CARREGANDO_56: -452684051
+      CARREGANDO_57: -1577857283
+      CARREGANDO_58: 996714875
+      CARREGANDO_59: 1805150107
+      CARREGANDO_6: -220247521
+      CARREGANDO_60: -2097374605
+      CARREGANDO_61: 1781258068
+      CARREGANDO_62: -36248480
+      CARREGANDO_63: -967307647
+      CARREGANDO_64: -1041713341
+      CARREGANDO_65: -902732636
+      CARREGANDO_66: -785659679
+      CARREGANDO_67: 2076155099
+      CARREGANDO_68: 334160500
+      CARREGANDO_69: -1265862137
+      CARREGANDO_7: 1846228388
+      CARREGANDO_70: -159743539
+      CARREGANDO_71: 535613648
+      CARREGANDO_72: -2018076720
+      CARREGANDO_73: -1620250849
+      CARREGANDO_74: 2133997817
+      CARREGANDO_75: -1929204846
+      CARREGANDO_76: 1352683067
+      CARREGANDO_77: -1703904391
+      CARREGANDO_78: -62201878
+      CARREGANDO_79: 1613366923
+      CARREGANDO_8: -543253255
+      CARREGANDO_80: -961573134
+      CARREGANDO_81: 1340686691
+      CARREGANDO_82: -1030103946
+      CARREGANDO_83: -2127400609
+      CARREGANDO_84: 32439900
+      CARREGANDO_85: -1347903384
+      CARREGANDO_86: -1240283743
+      CARREGANDO_87: -1767782268
+      CARREGANDO_9: 1428168159
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
