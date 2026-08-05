@@ -27,8 +27,8 @@ public class MainMenu : MonoBehaviour
     private void Start()
     {
         AnimateMenuButtons();
-        UptadeSelection();
-        
+        //UptadeSelection();
+
     }
 
     public void SelectedButton(int index)
@@ -43,7 +43,7 @@ public class MainMenu : MonoBehaviour
         {
             currentIndex++;
 
-            if(currentIndex >= menuButtons.Length)
+            if (currentIndex >= menuButtons.Length)
                 currentIndex = 0;
 
             UptadeSelection();
@@ -53,9 +53,9 @@ public class MainMenu : MonoBehaviour
         {
             currentIndex--;
 
-            if(currentIndex < 0)
+            if (currentIndex < 0)
                 currentIndex = menuButtons.Length - 1;
-            
+
             UptadeSelection();
         }
 
@@ -165,22 +165,76 @@ public class MainMenu : MonoBehaviour
 
     void AnimateMenuButtons()
     {
+        //Desativa todos os botoes no inicio
+        foreach (Button button in menuButtons)
+        {
+            button.interactable = false;
+
+            CanvasGroup canvasGroup = button.gameObject.GetComponent<CanvasGroup>();
+
+            if (canvasGroup == null)
+                canvasGroup = button.gameObject.AddComponent<CanvasGroup>();
+
+            canvasGroup.alpha = 0f;
+        }
+
+        Sequence sequence = DOTween.Sequence();
+
         for (int i = 0; i < menuButtons.Length; i++)
         {
-            RectTransform rect =
-                menuButtons[i].GetComponent<RectTransform>();
+            Button button = menuButtons[i];
+
+            RectTransform rect = button.GetComponent<RectTransform>();
+            CanvasGroup canvasGroup = button.GetComponent<CanvasGroup>();
 
             Vector2 originalPos = rect.anchoredPosition;
 
+            //Começa fora da tela 
             rect.anchoredPosition =
-                new Vector2(originalPos.x -800f, originalPos.y);
+                new Vector2(originalPos.x - 800f, originalPos.y);
 
-            rect.DOAnchorPos(
-            originalPos,
-            0.8f)
-            .SetEase(Ease.OutBack)
-            .SetDelay(i * 0.1f);
+            // Movimento do Botão
+            sequence.Insert(
+                i * 0.1f,
+                rect.DOAnchorPos(originalPos, 0.8f)
+                    .SetEase(Ease.OutBack)
+                    );
         }
+
+        //Tempo necessário para todos os botões terminarem de entrar
+
+        float tempoEntrada =
+            0.8f + ((menuButtons.Length - 1) * 0.1f);
+
+        //Depois que todos chegaram, começa o Fade
+
+        sequence.InsertCallback(tempoEntrada, () =>
+        {
+            Sequence fadeSequence = DOTween.Sequence();
+
+            for (int i = 0; i < menuButtons.Length; i++)
+            {
+                CanvasGroup canvasGroup =
+                    menuButtons[i].GetComponent<CanvasGroup>();
+
+                fadeSequence.Insert(
+                    i * 0.1f,
+                    canvasGroup.DOFade(1f, 0.35f)
+                    .SetEase(Ease.OutQuad));
+            }
+
+            //Depois do Fade, libera os botões
+            fadeSequence.OnComplete(() =>
+            {
+                foreach (Button button in menuButtons)
+                {
+                    button.interactable = true;
+                }
+
+                UptadeSelection();
+            });
+        });
+
     }
 
 }
