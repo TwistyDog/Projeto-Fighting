@@ -105,6 +105,19 @@ public class CharacterSpawner : MonoBehaviour
             );
         }
 
+        EnemyControllerFight enemyControllerFight =
+            _spawnedEnemy.GetComponent<EnemyControllerFight>();
+
+        if(enemyControllerFight != null)
+        {
+            enemyControllerFight.SetPlayer(_spawnedPlayer.transform);
+        }
+        else
+        {
+            Debug.LogError(
+                "CharacterSpawner: Enemy não possui EnemyControllerFight");
+        }
+
 
     }
 

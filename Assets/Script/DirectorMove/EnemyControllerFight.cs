@@ -13,17 +13,17 @@ public class EnemyControllerFight : MonoBehaviour
 
 
     private float _nextAttackTime;
-    void Start()
+
+    private void Awake()
     {
         _combat = GetComponent<FightCombat>();
-       if( _player != null)
-        {
-            GameObject go = GameObject.FindGameObjectWithTag("Player");
-            if (go != null) _player = go.transform;
-            
-        }
-
-       _nextAttackTime = Time.time + Random.Range(_minAttackDelay, _maxAttackDelay);
+    }
+    void Start()
+    {
+        _nextAttackTime = 
+            Time.time + Random.Range(
+                _minAttackDelay,
+                _maxAttackDelay );
     }
 
     // Update is called once per frame
@@ -44,8 +44,22 @@ public class EnemyControllerFight : MonoBehaviour
         }
     }
 
+    public void SetPlayer(Transform player)
+    {
+        _player = player;
+
+        if(_player != null)
+        {
+            Debug.Log(
+                "EnemyFightController recebeu o Player" + _player.name);
+        }
+    }
+
     private void DoRandomAttack()
     {
+
+        if (_combat == null) return;
+
         if (_combat.IsAtacking) return; // n�o ataca enquanto estiver animando outro golpe
 
         int randomAttack = Random.Range(0, 4);
