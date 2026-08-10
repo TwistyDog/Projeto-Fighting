@@ -35,7 +35,8 @@ public class EnemyControllerFight : MonoBehaviour
            
         if (_player == null) return;
 
-        float distance = Vector3.Distance(transform.position, _player.position);
+        float distance = Mathf.Abs(
+            transform.position.x - _player.position.x);
 
         if (distance <= _attackRange && Time.time >= _nextAttackTime)
         {
