@@ -57,28 +57,17 @@ public class EnemyIA : SpecialMove2
 
     protected override void Awake()
     {
-
-       
-
         _damageReceiver = GetComponent<DamageReceiver>();
         
 
         ChangeState();
 
-        if (_player == null)
-        {
-            var go = GameObject.FindGameObjectWithTag("Player");
-            if (go) _player = go.transform;
-        }
-
         if (_player != null)
-        {
-            _playerMovei = _player.GetComponent<SpecialMoves1>();
-            if(_playerMovei == null)
-            {
-                Debug.LogWarning("EnemyIA: o Player não tem PlayerMove (base) anexado. Exponha GroundePlayer no Script dele ou use fallback por CharacterController");
-            }
-        }
+    {
+        _playerMovei =
+            _player.GetComponent<SpecialMoves1>();
+    }
+
     }
 
     // Update is called once per frame
@@ -258,6 +247,22 @@ public class EnemyIA : SpecialMove2
         pos.z = Mathf.Lerp(pos.z, _player.position.z, 10f * Time.deltaTime);
 
         transform.position = pos;
+    }
+    
+
+    public void SetPlayer(Transform player)
+    {
+        _player = player;
+
+        if(_player != null)
+        {
+            _playerMovei = _player.GetComponent<SpecialMoves1>();
+
+            Debug.Log(
+            "EnemyIA recebeu o Player: " + _player.name
+        );
+
+        }
     }
    
 
