@@ -6,7 +6,7 @@ TextureImporter:
   serializedVersion: 13
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 1
+    enableMipMap: 0
     sRGBTexture: 1
     linearTexture: 0
     fadeOut: 0
@@ -37,13 +37,13 @@ TextureImporter:
     filterMode: 1
     aniso: 1
     mipBias: 0
-    wrapU: 0
-    wrapV: 0
+    wrapU: 1
+    wrapV: 1
     wrapW: 0
-  nPOTScale: 1
+  nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 0
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -52,9 +52,9 @@ TextureImporter:
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
-  alphaIsTransparency: 0
+  alphaIsTransparency: 1
   spriteTessellationDetail: -1
-  textureType: 0
+  textureType: 8
   textureShape: 1
   singleChannelComponent: 0
   flipbookRows: 1
@@ -72,7 +72,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -93,27 +93,80 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Painel Pause Jogo de Luta_botoes_6
+      rect:
+        serializedVersion: 2
+        x: 722
+        y: 681
+        width: 479
+        height: 113
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb0b7bad23f88874e941eb6b96ad66c3
+      internalID: -1754190050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Painel Pause Jogo de Luta_botoes_22
+      rect:
+        serializedVersion: 2
+        x: 722
+        y: 442
+        width: 479
+        height: 113
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 87483caf1b917c44caacac025ffa7438
+      internalID: 1030197776
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Painel Pause Jogo de Luta_botoes_34
+      rect:
+        serializedVersion: 2
+        x: 722
+        y: 178
+        width: 479
+        height: 113
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23c79a4456f181745866c3717586062c
+      internalID: 1382629561
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 1a7e82b6af1d9f047a0c2f98ef316997
     internalID: 0
     vertices: []
     indices: 
@@ -121,8 +174,81 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
-    nameFileIdTable: {}
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      Painel Pause Jogo de Luta_botoes_0: -842008038
+      Painel Pause Jogo de Luta_botoes_1: -26947886
+      Painel Pause Jogo de Luta_botoes_10: -954392179
+      Painel Pause Jogo de Luta_botoes_11: 1877476972
+      Painel Pause Jogo de Luta_botoes_12: -503762219
+      Painel Pause Jogo de Luta_botoes_13: 117104384
+      Painel Pause Jogo de Luta_botoes_14: -884536382
+      Painel Pause Jogo de Luta_botoes_15: 1269473916
+      Painel Pause Jogo de Luta_botoes_16: -435148708
+      Painel Pause Jogo de Luta_botoes_17: 273829473
+      Painel Pause Jogo de Luta_botoes_18: -619438976
+      Painel Pause Jogo de Luta_botoes_19: 351165459
+      Painel Pause Jogo de Luta_botoes_2: -1838910305
+      Painel Pause Jogo de Luta_botoes_20: -2005488841
+      Painel Pause Jogo de Luta_botoes_21: 486301199
+      Painel Pause Jogo de Luta_botoes_22: 1030197776
+      Painel Pause Jogo de Luta_botoes_23: 1621098349
+      Painel Pause Jogo de Luta_botoes_24: -866485612
+      Painel Pause Jogo de Luta_botoes_25: -1889285027
+      Painel Pause Jogo de Luta_botoes_26: -1480729653
+      Painel Pause Jogo de Luta_botoes_27: 170727793
+      Painel Pause Jogo de Luta_botoes_28: -707765548
+      Painel Pause Jogo de Luta_botoes_29: -1690643244
+      Painel Pause Jogo de Luta_botoes_3: 318388743
+      Painel Pause Jogo de Luta_botoes_30: -2018447158
+      Painel Pause Jogo de Luta_botoes_31: 1309482873
+      Painel Pause Jogo de Luta_botoes_32: -1211781710
+      Painel Pause Jogo de Luta_botoes_33: 1707712798
+      Painel Pause Jogo de Luta_botoes_34: 1382629561
+      Painel Pause Jogo de Luta_botoes_35: -126914618
+      Painel Pause Jogo de Luta_botoes_36: -2104664317
+      Painel Pause Jogo de Luta_botoes_37: -1150307620
+      Painel Pause Jogo de Luta_botoes_38: 416731096
+      Painel Pause Jogo de Luta_botoes_39: 1877124249
+      Painel Pause Jogo de Luta_botoes_4: 1718043353
+      Painel Pause Jogo de Luta_botoes_40: -713999382
+      Painel Pause Jogo de Luta_botoes_41: 1931109023
+      Painel Pause Jogo de Luta_botoes_42: 609245542
+      Painel Pause Jogo de Luta_botoes_43: -1726918706
+      Painel Pause Jogo de Luta_botoes_44: -256888765
+      Painel Pause Jogo de Luta_botoes_45: 995918644
+      Painel Pause Jogo de Luta_botoes_46: 414911930
+      Painel Pause Jogo de Luta_botoes_47: -1527361759
+      Painel Pause Jogo de Luta_botoes_48: -1049422941
+      Painel Pause Jogo de Luta_botoes_49: -1945697581
+      Painel Pause Jogo de Luta_botoes_5: 1892720437
+      Painel Pause Jogo de Luta_botoes_50: 1612668628
+      Painel Pause Jogo de Luta_botoes_51: 1392719459
+      Painel Pause Jogo de Luta_botoes_52: 827849824
+      Painel Pause Jogo de Luta_botoes_53: -247987979
+      Painel Pause Jogo de Luta_botoes_54: -1393258205
+      Painel Pause Jogo de Luta_botoes_55: -1942831629
+      Painel Pause Jogo de Luta_botoes_56: -1871218604
+      Painel Pause Jogo de Luta_botoes_57: -1174541781
+      Painel Pause Jogo de Luta_botoes_58: 1716547695
+      Painel Pause Jogo de Luta_botoes_59: 1573706749
+      Painel Pause Jogo de Luta_botoes_6: -1754190050
+      Painel Pause Jogo de Luta_botoes_60: -1844153547
+      Painel Pause Jogo de Luta_botoes_61: 188380964
+      Painel Pause Jogo de Luta_botoes_62: -945031551
+      Painel Pause Jogo de Luta_botoes_63: -2056787094
+      Painel Pause Jogo de Luta_botoes_64: 1611088813
+      Painel Pause Jogo de Luta_botoes_65: 1612904853
+      Painel Pause Jogo de Luta_botoes_66: -712722595
+      Painel Pause Jogo de Luta_botoes_67: -1289039292
+      Painel Pause Jogo de Luta_botoes_68: -598625417
+      Painel Pause Jogo de Luta_botoes_69: -660297882
+      Painel Pause Jogo de Luta_botoes_7: -1042557643
+      Painel Pause Jogo de Luta_botoes_70: -1880244713
+      Painel Pause Jogo de Luta_botoes_8: 1934107563
+      Painel Pause Jogo de Luta_botoes_9: 1695541519
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
