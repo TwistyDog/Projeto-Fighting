@@ -1,12 +1,13 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class LogicGameControl : MonoBehaviour
 {
     [Header("Painel de Pause")]
     [SerializeField] private GameObject _pausePanel;
 
-    [Header("Animação")]
+    [Header("Animaï¿½ï¿½o")]
     [SerializeField] private float _animationDuration = 0.25f;
 
     [SerializeField] private Vector3 startScale = new Vector3(0.85f, 0.85f, 1f);
@@ -14,7 +15,7 @@ public class LogicGameControl : MonoBehaviour
     [Header("Canvas do Pause")]
     [SerializeField] private CanvasGroup _pauseCanvasGroup;
 
-    [Header("Seleção")]
+    [Header("Seleï¿½ï¿½o")]
     [SerializeField] private GameObject _firstSelectedButton;
 
     private RectTransform _pauseRect;
@@ -27,11 +28,33 @@ public class LogicGameControl : MonoBehaviour
 
     private void Awake()
     {
+        if(_pausePanel == null)
+        {
+            Debug.LogError(
+                "LogicGameControl: Pause Panel nÃ£o foi confifurado!"
+            );
+
+            return;
+        }
+
+        _pauseRect = _pausePanel.GetComponent<RectTransform>();
+
+        if(_pauseCanvasGroup == null)
+        {
+            _pauseCanvasGroup = 
+                   _pausePanel.AddComponent<CanvasGroup>();
+        }
+
+        _pausePanel.SetActive(false);
         
     }
 
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            TogglePause();
+        }
         
     }
 
@@ -171,11 +194,45 @@ public class LogicGameControl : MonoBehaviour
 
     private void SelectedFirstButton()
     {
+        if(_firstSelectedButton == null)
+           return;
+        
+        EventSystem eventSystem =
+             EventSystem.current;
+        
+        if(eventSystem == null)
+           return;
+        
+        eventSystem.SetSelectedGameObject(null);
+
+        eventSystem.SetSelectedGameObject(
+            _firstSelectedButton
+        );
 
     }
 
     public void ForceResume()
     {
+        if(!isPaused)
+           return;
+        
+        if(_currentAnimation != null)
+           StopCoroutine(_currentAnimation);
+        
+        _pausePanel.SetActive(false);
 
+        _pauseCanvasGroup.alpha = 0;
+        _pauseRect.localScale = startScale;
+
+        isPaused = false;
+        isAnimated = false;
+
+        Time.timeScale = 1f;
+
+    }
+
+    private void OnDestroy()
+    {
+        Time.timeScale = 1f;
     }
 }
