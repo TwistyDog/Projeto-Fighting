@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 public class LogicGameControl : MonoBehaviour
 {
@@ -234,5 +235,34 @@ public class LogicGameControl : MonoBehaviour
     private void OnDestroy()
     {
         Time.timeScale = 1f;
+    }
+
+    public void Continuar()
+    {
+        if (!isPaused)
+            return;
+
+        ResumeGame();
+    }
+
+    public void ReiniciarLuta()
+    {
+        if (isAnimated)
+            return;
+
+        Time.timeScale = 1f;
+
+        SceneManager.LoadScene(
+            SceneManager.GetActiveScene().name);
+    }
+
+    public void VoltarMenu()
+    {
+        if (isAnimated)
+            return;
+
+        Time.timeScale = 1f;
+
+        SceneManager.LoadScene("menuprincipal");
     }
 }
