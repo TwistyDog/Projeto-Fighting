@@ -1,3 +1,4 @@
+
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -21,12 +22,24 @@ public class NewPlayMove : MonoBehaviour
     public Vector3 _playerVelocity;
     
     [SerializeField] public bool _groundedPlayer;
+
+    protected Vector2 _moveInput;
     protected float _originalHeight;
     protected bool _isCrouching = false;
 
     protected virtual void Start()
     {
         _controller = GetComponent<CharacterController>();
+
+        if(_controller == null)
+        {
+            Debug.LogError(
+                $"{gameObject.name}: CharacterController não encontrado!"
+            );
+
+            return;
+        }
+
         _originalHeight = _controller.height;
 
         if(_enemy == null)
@@ -54,27 +67,49 @@ public class NewPlayMove : MonoBehaviour
 
         HandleCrouch();
         HandleMove();
+        // Permite que classes derivadas executem lógica própria
+
+        UpdateSpecialLogic();
+    }
+
+    protected virtual void UpdateSpecialLogic()
+    {
+        // Vazio no Player Normal
+        //SpeciaMoves1 irá sobrescrever
     }
 
     #region Input Actions
 
-    public void OnMove(InputAction.CallbackContext context)
+    public virtual void OnMove(InputAction.CallbackContext context)
     {
-        Vector2 input = context.ReadValue<Vector2>();
-        _playerVelocity.x = input.x * _playerSpeed;
+        _moveInput = context.ReadValue<Vector2>();
+        _playerVelocity.x = _moveInput.x * _playerSpeed;
     }
 
     public void OnJump(InputAction.CallbackContext context)
     {
+        if(!context.performed)
+           return;
+        
+        if(!GameManager.Instance.podeControlar)
+           return;
+        
+        if(_controller != null)
+           _groundedPlayer = _controller.isGrounded;
+
+
         if (context.performed && _groundedPlayer && !_isCrouching)
         {
             _playerVelocity.y = Mathf.Sqrt(_jumpHeight * -2f * _gravityValue);
+
+            Debug.Log("Player Pulouu");
         }
     }
 
     public void ResetState()
     {
         _playerVelocity = Vector3.zero;
+        _moveInput = Vector2.zero;
         _isCrouching = false;
     }
 
@@ -90,7 +125,7 @@ public class NewPlayMove : MonoBehaviour
 
         // Aplica gravidade
         if (_groundedPlayer && _playerVelocity.y < 0)
-            _playerVelocity.y = 0f;
+            _playerVelocity.y = -0.5f;
 
         _playerVelocity.y += _gravityValue * Time.deltaTime;
 
@@ -114,24 +149,43 @@ public class NewPlayMove : MonoBehaviour
 
     protected virtual void HandleCrouch()
     {
-        if (_groundedPlayer)
+        if (!_groundedPlayer)
+            return;
+
+        if (_moveInput.y < -0.5f)
         {
-            if (Input.GetAxisRaw("Vertical") < -0.5f)
+            if (!_isCrouching)
             {
                 _isCrouching = true;
-                _controller.height = _crouchHeight;
-                Vector3 center = _controller.center;
-                center.y = _crouchHeight / 2f;
-                _controller.center = center;
+
+                _controller.height =
+                    _crouchHeight;
+
+                Vector3 center =
+                    _controller.center;
+
+                center.y =
+                    _crouchHeight / 2f;
+
+                _controller.center =
+                    center;
             }
-            else if (_isCrouching)
-            {
-                _isCrouching = false;
-                _controller.height = _originalHeight;
-                Vector3 center = _controller.center;
-                center.y = _originalHeight / 2f;
-                _controller.center = center;
-            }
+        }
+        else if (_isCrouching)
+        {
+            _isCrouching = false;
+
+            _controller.height =
+                _originalHeight;
+
+            Vector3 center =
+                _controller.center;
+
+            center.y =
+                _originalHeight / 2f;
+
+            _controller.center =
+                center;
         }
     }
 
@@ -141,11 +195,11 @@ public class NewPlayMove : MonoBehaviour
 
     protected virtual void CheckBlock()
     {
-        float horizontalInput = Input.GetAxis("Horizontal");
+        float horizontalInput = _moveInput.x;
 
         _isBlocking = _groundedPlayer &&
                       ((transform.forward.x > 0 && horizontalInput < -0.5f) ||
-                       (transform.forward.x < 0 && horizontalInput > -0.5f));
+                       (transform.forward.x < 0 && horizontalInput > 0.5f));
     }
 
     protected virtual void TakeDamage(float damage)

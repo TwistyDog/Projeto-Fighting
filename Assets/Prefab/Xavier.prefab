@@ -780,7 +780,7 @@ MonoBehaviour:
     m_ActionId: 2db85cf2-2c03-4708-83f8-70e96984bdd9
     m_ActionName: 'Combat/Special[/Keyboard/e]'
   m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: InputCombatAction
+  m_DefaultControlScheme: 
   m_DefaultActionMap: Combat
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
@@ -809,6 +809,9 @@ MonoBehaviour:
   projectillePrefab: {fileID: 2734460811523693115, guid: a7a8cb4c8f20fe24c80d1fa4f5e250e9, type: 3}
   firePoint: {fileID: 5173313622922547508}
   specialCoolDown: 1.5
+  _chargeTime: 1
+  _backwardInputThreshold: -0.5
+  _forwardInputThreshold: 0.5
 --- !u!114 &6987133546551047333
 MonoBehaviour:
   m_ObjectHideFlags: 0

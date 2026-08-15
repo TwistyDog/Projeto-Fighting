@@ -18,6 +18,12 @@ public class LogicGameControl : MonoBehaviour
 
     [Header("Sele��o")]
     [SerializeField] private GameObject _firstSelectedButton;
+    [SerializeField] private GameObject[] _pauseButtons;
+
+    [Header("Destaque dos Botões")]
+    [SerializeField] private float _normalButtonScale = 1f;
+    [SerializeField] private float _selectedScale = 1.08f;
+    [SerializeField] private float _scaleSpeed = 10f;
 
     private RectTransform _pauseRect;
 
@@ -57,6 +63,45 @@ public class LogicGameControl : MonoBehaviour
             TogglePause();
         }
         
+        UpdateHiglightButton();
+    }
+
+    private void UpdateHiglightButton()
+    {
+        if(_pauseButtons == null || _pauseButtons.Length == 0)
+           return;
+        
+        EventSystem eventSystem = EventSystem.current;
+
+        if(eventSystem == null)
+           return;
+        
+        GameObject selectedObject = eventSystem.currentSelectedGameObject;
+
+        foreach (GameObject button in _pauseButtons)
+        {
+            if(button == null)
+              continue;
+            
+            RectTransform rect = button.GetComponent<RectTransform>();
+
+            if(rect == null)
+              continue;
+            
+            float targetScale = 
+                  button == selectedObject
+                  ? _selectedScale
+                  : _normalButtonScale;
+            
+            Vector3 target =
+               Vector3.one * targetScale;
+            
+            rect.localScale = Vector3.Lerp(
+                rect.localScale,
+                target,
+                _scaleSpeed * Time.unscaledDeltaTime
+            );
+        }
     }
 
     public void TogglePause()

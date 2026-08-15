@@ -1,4 +1,5 @@
 {
+    "version": 1,
     "name": "MoveandCombat",
     "maps": [
         {
@@ -172,17 +173,5 @@
             ]
         }
     ],
-    "controlSchemes": [
-        {
-            "name": "InputCombatAction",
-            "bindingGroup": "InputCombatAction",
-            "devices": [
-                {
-                    "devicePath": "<Keyboard>",
-                    "isOptional": false,
-                    "isOR": false
-                }
-            ]
-        }
-    ]
+    "controlSchemes": []
 }
