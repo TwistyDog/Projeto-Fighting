@@ -1083,8 +1083,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -324, y: -217}
-  m_SizeDelta: {x: 748.29, y: 1080}
+  m_AnchoredPosition: {x: -491, y: -99}
+  m_SizeDelta: {x: 940, y: 902}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &783197501
 MonoBehaviour:
@@ -1106,7 +1106,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -1303910683, guid: 2f9966226504d444fb21ef408ab491a9, type: 3}
+  m_Sprite: {fileID: 484813568, guid: 2473cde52ffce3c46a435a14b6181d8c, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -1428,7 +1428,7 @@ MonoBehaviour:
   - {fileID: 711856366}
   - {fileID: 1584097471}
   _backgroundImage: {fileID: 783197501}
-  playSprite: {fileID: -1303910683, guid: 2f9966226504d444fb21ef408ab491a9, type: 3}
+  playSprite: {fileID: 484813568, guid: 2473cde52ffce3c46a435a14b6181d8c, type: 3}
   OptionsSprite: {fileID: 1744450141, guid: 47d2ec1d71bb6b74f93ac711d446e130, type: 3}
   quitSprite: {fileID: -882662569, guid: cedcd9be1d450e24e83018066421a4d5, type: 3}
 --- !u!114 &1066669467
