@@ -24,11 +24,16 @@ public class FightCombat : MonoBehaviour
 
     public bool IsAtacking => _isAtacking;
 
+    [SerializeField] private Animator _animator;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     
     void Awake()
     {
+        if(_animator == null)
+           _animator = GetComponentInChildren<Animator>();
+
         var playerInput = GetComponent<PlayerInput>();
         if (playerInput != null)
             playerInput.SwitchCurrentActionMap("Combat");
@@ -38,24 +43,25 @@ public class FightCombat : MonoBehaviour
 
     public void RightPuch()
     {
-        TryAttack(_rightPunchHitbox, _rightPunchDamage);
+        TryAttack(_rightPunchHitbox, _rightPunchDamage, "WeakPunch");
+        
     }
 
     public void LeftPuch()
     {
-        TryAttack(_leftPunchHitbox, _leftPunchDamage);
+        TryAttack(_leftPunchHitbox, _leftPunchDamage, "StrongPunch");
     }
     public void HighKick()
     {
-        TryAttack(_hightKickHitbox, _highKickDamage);
+        TryAttack(_hightKickHitbox, _highKickDamage, "HighKick");
     }
 
     public void LowKick()
     {
-        TryAttack(_lowKickHitbox, _lowKickDamage);
+        TryAttack(_lowKickHitbox, _lowKickDamage, "lowKick");
     }
 
-    void TryAttack(GameObject hitbox, int damage)
+    void TryAttack(GameObject hitbox, int damage, string animationSetTrigger)
     {
         if(_isAtacking) return;
 
@@ -65,6 +71,11 @@ public class FightCombat : MonoBehaviour
         return;
     }
     _isAtacking = true;
+
+    if(_animator != null)
+        {
+            _animator.SetTrigger(animationSetTrigger);
+        }
 
     HitBox hb = hitbox.GetComponent<HitBox>();
 

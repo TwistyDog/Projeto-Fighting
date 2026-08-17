@@ -883,7 +883,7 @@ Transform:
   m_GameObject: {fileID: 416956224}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.5, y: 4.1, z: -12.91}
+  m_LocalPosition: {x: -8.49, y: 2.41, z: -12.91}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1136,7 +1136,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CharacterData
   _characters:
   - characterName: Xavier
-    prefab: {fileID: 5718019929776652973, guid: c0fb9f9b9a1a73d49bd056447edfca44, type: 3}
+    prefab: {fileID: 474682694944420074, guid: 7f3c8d9928acd474092d5d464a04c3c3, type: 3}
     portrait: {fileID: 0}
   - characterName: Gomes
     prefab: {fileID: 3112043500955644464, guid: 94d81de2a98361743b92bf741748c380, type: 3}

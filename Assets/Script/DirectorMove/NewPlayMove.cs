@@ -19,6 +19,9 @@ public class NewPlayMove : MonoBehaviour
     [SerializeField] protected bool _isBlocking = false;
     [SerializeField] protected float _damageReduction = 0.5f;
 
+    [Header("Animation")]
+    [SerializeField] protected Animator _animator;
+
     public Vector3 _playerVelocity;
     
     [SerializeField] public bool _groundedPlayer;
@@ -38,6 +41,11 @@ public class NewPlayMove : MonoBehaviour
             );
 
             return;
+        }
+
+        if(_animator == null)
+        {
+            _animator = GetComponentInChildren<Animator>();
         }
 
         _originalHeight = _controller.height;
@@ -67,6 +75,8 @@ public class NewPlayMove : MonoBehaviour
 
         HandleCrouch();
         HandleMove();
+
+        UpdateMoventAnimation();
         // Permite que classes derivadas executem lógica própria
 
         UpdateSpecialLogic();
@@ -84,6 +94,18 @@ public class NewPlayMove : MonoBehaviour
     {
         _moveInput = context.ReadValue<Vector2>();
         _playerVelocity.x = _moveInput.x * _playerSpeed;
+    }
+
+    protected virtual void UpdateMoventAnimation()
+    {
+        if(_animator == null)
+           return;
+        float speed = Mathf.Abs(_moveInput.x);
+
+        _animator.SetFloat(
+            "Speed",
+            speed
+        );
     }
 
     public void OnJump(InputAction.CallbackContext context)
