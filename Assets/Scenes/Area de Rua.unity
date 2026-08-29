@@ -294,7 +294,7 @@ Transform:
   m_GameObject: {fileID: 194974885}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0.9980866, z: 0, w: 0.061832465}
-  m_LocalPosition: {x: 15.17, y: 4.1, z: -12.91}
+  m_LocalPosition: {x: 14.1, y: 4.1, z: -12.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -489,7 +489,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 44.30125
+  field of view: 56.4
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -516,7 +516,7 @@ Transform:
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
   m_LocalRotation: {x: 0.000000014101925, y: -0.000000027416288, z: 3.8662244e-16, w: 1}
-  m_LocalPosition: {x: 6.7348827e-10, y: 3.4639594e-10, z: -0.0122823715}
+  m_LocalPosition: {x: 6.134325, y: 5.04526, z: -22.858414}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -883,7 +883,7 @@ Transform:
   m_GameObject: {fileID: 416956224}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.49, y: 2.41, z: -12.91}
+  m_LocalPosition: {x: -0.9, y: 5.88, z: -12.91}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3111,10 +3111,10 @@ MonoBehaviour:
   RotationMode: 0
   UpdateMethod: 2
   Targets:
-  - Object: {fileID: 2437506752413052473}
+  - Object: {fileID: 416956225}
     Weight: 1
     Radius: 1
-  - Object: {fileID: 1504529110177376358}
+  - Object: {fileID: 194974886}
     Weight: 1
     Radius: 1
   m_LegacyTargets: []
@@ -3127,7 +3127,7 @@ Transform:
   m_GameObject: {fileID: 1252833766}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 6.134325, y: 5.04526, z: -12.858415}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3728,7 +3728,6 @@ GameObject:
   - component: {fileID: 1569320734}
   - component: {fileID: 1569320736}
   - component: {fileID: 1569320732}
-  - component: {fileID: 1569320731}
   m_Layer: 0
   m_Name: CinemachineCamera
   m_TagString: Untagged
@@ -3736,27 +3735,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1569320731
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1569320730}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4eb4843bae7d24943842ea23130dcd55, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  FramingMode: 2
-  FramingSize: 0.71
-  CenterOffset: {x: 0, y: 0}
-  Damping: 2
-  SizeAdjustment: 2
-  LateralAdjustment: 0
-  FovRange: {x: 1, y: 100}
-  DollyRange: {x: -100, y: 100}
-  OrthoSizeRange: {x: 1, y: 1000}
 --- !u!114 &1569320732
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3773,10 +3751,10 @@ MonoBehaviour:
     ScreenPosition: {x: 0, y: 0}
     DeadZone:
       Enabled: 1
-      Size: {x: 0.55, y: 0.64}
+      Size: {x: 0.93, y: 0.78}
     HardLimits:
       Enabled: 0
-      Size: {x: 0.8, y: 1.24}
+      Size: {x: 1, y: 1.24}
       Offset: {x: 0, y: 0}
   CenterOnActivate: 1
   TargetOffset: {x: 0, y: 0, z: 0}
@@ -3810,7 +3788,7 @@ MonoBehaviour:
     LookAtTarget: {fileID: 0}
     CustomLookAtTarget: 0
   Lens:
-    FieldOfView: 44.3
+    FieldOfView: 56.4
     OrthographicSize: 5
     NearClipPlane: 0.3
     FarClipPlane: 1000
@@ -3838,7 +3816,7 @@ Transform:
   m_GameObject: {fileID: 1569320730}
   serializedVersion: 2
   m_LocalRotation: {x: 0.000000014101925, y: -0.000000027416288, z: 4.230422e-16, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: 6.134325, y: 5.04526, z: -22.858414}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
