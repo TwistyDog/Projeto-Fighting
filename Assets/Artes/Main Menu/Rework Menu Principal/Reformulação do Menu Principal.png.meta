@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 9cfd0238b60c69f40a7b5b98bffb27ca
+guid: 74a2b1ae78bef714db6c97ab71de2103
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -93,30 +93,17 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: "Clique_para_WhatsApp_moderno_verde_e_preto_chama_no_zap_tira_d\xFAvidas_loja_de_games-removebg-preview_0"
+      name: "Reformula\xE7\xE3o do Menu Principal_0"
       rect:
         serializedVersion: 2
-        x: 13
-        y: 10
-        width: 732
-        height: 317
+        x: 716
+        y: 32
+        width: 621
+        height: 864
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -125,8 +112,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d72218f20b0d6d247a9117a907538f78
-      internalID: -1292177990
+      spriteID: 724b4dfabd8c00445abc1c6a70da323f
+      internalID: -63590330
       vertices: []
       indices: 
       edges: []
@@ -135,7 +122,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: b04a8790f3a1c4c4f87ae72728b3f57f
+    spriteID: e2456d5e2a5da8c4493f06ea7331431b
     internalID: 0
     vertices: []
     indices: 
@@ -147,7 +134,7 @@ TextureImporter:
       - key: SpriteEditor.SliceSettings
         value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      "Clique_para_WhatsApp_moderno_verde_e_preto_chama_no_zap_tira_d\xFAvidas_loja_de_games-removebg-preview_0": -1292177990
+      "Reformula\xE7\xE3o do Menu Principal_0": -63590330
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

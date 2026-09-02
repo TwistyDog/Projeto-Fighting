@@ -6,7 +6,7 @@ TextureImporter:
   serializedVersion: 13
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 1
+    enableMipMap: 0
     sRGBTexture: 1
     linearTexture: 0
     fadeOut: 0
@@ -37,13 +37,13 @@ TextureImporter:
     filterMode: 1
     aniso: 1
     mipBias: 0
-    wrapU: 0
-    wrapV: 0
+    wrapU: 1
+    wrapV: 1
     wrapW: 0
-  nPOTScale: 1
+  nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 0
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -52,9 +52,9 @@ TextureImporter:
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
-  alphaIsTransparency: 0
+  alphaIsTransparency: 1
   spriteTessellationDetail: -1
-  textureType: 0
+  textureType: 8
   textureShape: 1
   singleChannelComponent: 0
   flipbookRows: 1
@@ -72,7 +72,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -108,12 +108,78 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: botoes_0
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 696
+        width: 696
+        height: 260
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e2692193a90a7140810e729d7052b4f
+      internalID: -1899826267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: botoes_7
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 411
+        width: 708
+        height: 244
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee0e0fe25d6ae6646b9f5af83f9c1d08
+      internalID: -992784914
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: botoes_18
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 129
+        width: 723
+        height: 232
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc2555e973829cc40bd1b43ad806d612
+      internalID: -2129368187
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 4471d1eb800f85145808729c14d6dd4d
     internalID: 0
     vertices: []
     indices: 
@@ -121,8 +187,56 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
-    nameFileIdTable: {}
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      botoes_0: -1899826267
+      botoes_1: 1385307216
+      botoes_10: -794906934
+      botoes_11: -1008478760
+      botoes_12: -1554239945
+      botoes_13: -871990238
+      botoes_14: 2132479665
+      botoes_15: -1070477011
+      botoes_16: 1573976716
+      botoes_17: 762538034
+      botoes_18: -2129368187
+      botoes_19: 1772321989
+      botoes_2: 1082874071
+      botoes_20: -1342833183
+      botoes_21: -1441029311
+      botoes_22: -222775756
+      botoes_23: 1940372420
+      botoes_24: -485360190
+      botoes_25: -2063032649
+      botoes_26: -1418261797
+      botoes_27: -1913617468
+      botoes_28: -1895085281
+      botoes_29: 1822413606
+      botoes_3: 698700008
+      botoes_30: -1835702347
+      botoes_31: -86481754
+      botoes_32: -621913514
+      botoes_33: 1161695715
+      botoes_34: -2042295844
+      botoes_35: 204201790
+      botoes_36: 785910272
+      botoes_37: -581701233
+      botoes_38: -1698358666
+      botoes_39: -410392751
+      botoes_4: -1759558246
+      botoes_40: -2020056513
+      botoes_41: -435969716
+      botoes_42: 559405941
+      botoes_43: -1621403250
+      botoes_44: -153415488
+      botoes_45: 1820986698
+      botoes_5: 815771065
+      botoes_6: 1780074611
+      botoes_7: -992784914
+      botoes_8: 1443724198
+      botoes_9: -842222461
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
