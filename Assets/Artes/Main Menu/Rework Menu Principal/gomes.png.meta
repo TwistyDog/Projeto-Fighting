@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: e938392ade8cb924aad9d9584ab46e85
+guid: 5c33917e5bba5e5498b507dab6959d47
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: izabelasq_treino_0
+      name: gomes_0
       rect:
         serializedVersion: 2
-        x: 136
+        x: 0
         y: 0
-        width: 1391
-        height: 788
+        width: 1522
+        height: 924
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -125,8 +125,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d01f4cd76e3d45a499053a76a47aab09
-      internalID: 361585304
+      spriteID: 9f7dcc43ab4fb4645b38d88a07228513
+      internalID: 751055006
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 2afcffde67da955458e257096432fdb4
+    spriteID: 6bcb42c6900068a4e8b740cc32731c12
     internalID: 0
     vertices: []
     indices: 
@@ -147,12 +147,9 @@ TextureImporter:
       - key: SpriteEditor.SliceSettings
         value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      izabelasq_treino_0: 361585304
-      izabelasq_treino_1: 227589842
-      izabelasq_treino_2: 936681152
-      izabelasq_treino_3: -1170355872
-      izabelasq_treino_4: 1766849127
-      izabelasq_treino_5: -838075498
+      gomes_0: 751055006
+      gomes_1: -366208794
+      gomes_2: 512406518
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

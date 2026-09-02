@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: e938392ade8cb924aad9d9584ab46e85
+guid: 1aabf1e0462487a40b0d8d540f741b42
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: izabelasq_treino_0
+      name: mododejogobotoes_0
       rect:
         serializedVersion: 2
-        x: 136
-        y: 0
-        width: 1391
-        height: 788
+        x: 597
+        y: 792
+        width: 671
+        height: 244
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -125,8 +125,74 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d01f4cd76e3d45a499053a76a47aab09
-      internalID: 361585304
+      spriteID: 1f9330041b0f4ac4195320457792bc9e
+      internalID: 216500318
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mododejogobotoes_6
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 451
+        width: 682
+        height: 232
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb42798c1f634d649983778e811bed38
+      internalID: -1478724654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mododejogobotoes_8
+      rect:
+        serializedVersion: 2
+        x: 1112
+        y: 437
+        width: 692
+        height: 284
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 250903fdd9bc27a409398747e14e7678
+      internalID: -1456841471
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mododejogobotoes_13
+      rect:
+        serializedVersion: 2
+        x: 743
+        y: 34
+        width: 382
+        height: 188
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53b85df34718b884aaa333983effdba6
+      internalID: -596723252
       vertices: []
       indices: 
       edges: []
@@ -135,7 +201,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 2afcffde67da955458e257096432fdb4
+    spriteID: fde1ad0d18e6bc04893dad3ae70f86c0
     internalID: 0
     vertices: []
     indices: 
@@ -147,12 +213,20 @@ TextureImporter:
       - key: SpriteEditor.SliceSettings
         value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      izabelasq_treino_0: 361585304
-      izabelasq_treino_1: 227589842
-      izabelasq_treino_2: 936681152
-      izabelasq_treino_3: -1170355872
-      izabelasq_treino_4: 1766849127
-      izabelasq_treino_5: -838075498
+      mododejogobotoes_0: 216500318
+      mododejogobotoes_1: 1468196121
+      mododejogobotoes_10: -315417278
+      mododejogobotoes_11: 639248974
+      mododejogobotoes_12: 870788767
+      mododejogobotoes_13: -596723252
+      mododejogobotoes_2: 1549739694
+      mododejogobotoes_3: -906221198
+      mododejogobotoes_4: -451441187
+      mododejogobotoes_5: -1193284128
+      mododejogobotoes_6: -1478724654
+      mododejogobotoes_7: 986849598
+      mododejogobotoes_8: -1456841471
+      mododejogobotoes_9: 1424475818
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

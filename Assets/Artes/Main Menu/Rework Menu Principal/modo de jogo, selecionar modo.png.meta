@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: e938392ade8cb924aad9d9584ab46e85
+guid: c933d0473e44c7141b6e32c1a114f6c1
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: izabelasq_treino_0
+      name: modo de jogo, selecionar modo_0
       rect:
         serializedVersion: 2
-        x: 136
-        y: 0
-        width: 1391
-        height: 788
+        x: 288
+        y: 760
+        width: 778
+        height: 193
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -125,8 +125,52 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d01f4cd76e3d45a499053a76a47aab09
-      internalID: 361585304
+      spriteID: f6a107b1a64d2a94bbe822cd0f785942
+      internalID: -748727610
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: modo de jogo, selecionar modo_1
+      rect:
+        serializedVersion: 2
+        x: 1028
+        y: 400
+        width: 691
+        height: 212
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39d163804a549b54cb1093ccf310c0eb
+      internalID: 1418331184
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: modo de jogo, selecionar modo_2
+      rect:
+        serializedVersion: 2
+        x: 172
+        y: 114
+        width: 826
+        height: 219
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a07cc4f88cb0544fbc56efe2aaccf31
+      internalID: 2134208448
       vertices: []
       indices: 
       edges: []
@@ -135,7 +179,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 2afcffde67da955458e257096432fdb4
+    spriteID: f8dc8a26e4be29845ac271e13e232326
     internalID: 0
     vertices: []
     indices: 
@@ -147,12 +191,9 @@ TextureImporter:
       - key: SpriteEditor.SliceSettings
         value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      izabelasq_treino_0: 361585304
-      izabelasq_treino_1: 227589842
-      izabelasq_treino_2: 936681152
-      izabelasq_treino_3: -1170355872
-      izabelasq_treino_4: 1766849127
-      izabelasq_treino_5: -838075498
+      modo de jogo, selecionar modo_0: -748727610
+      modo de jogo, selecionar modo_1: 1418331184
+      modo de jogo, selecionar modo_2: 2134208448
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
