@@ -11,13 +11,13 @@ public class CharacterSelect : MonoBehaviour
 
     [SerializeField] private LoadingManager loadingManager;
 
-    [Header("Cursor de Seleção")]
+    [Header("Cursor de Seleï¿½ï¿½o")]
     [SerializeField] private RectTransform selectionCursor;
 
-    [Header("Posições dos Personagens")]
+    [Header("Posiï¿½ï¿½es dos Personagens")]
     [SerializeField] private RectTransform[] characterPosition;
 
-    [Header("Configurações")]
+    [Header("Configuraï¿½ï¿½es")]
     [SerializeField] private float cursorMoveSpeed = 0.15f;
 
         private int currentCharacters = 0;

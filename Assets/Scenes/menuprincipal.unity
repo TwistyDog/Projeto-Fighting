@@ -1857,6 +1857,10 @@ MonoBehaviour:
   _onlineSprite: {fileID: -351238079, guid: be6b5aa028814a647811de88ac956d18, type: 3}
   _treinamentoSprite: {fileID: 361585304, guid: e938392ade8cb924aad9d9584ab46e85, type: 3}
   _voltarSprite: {fileID: 751055006, guid: 5c33917e5bba5e5498b507dab6959d47, type: 3}
+  _gameModeTile: {fileID: 105632629}
+  _tituloVermelho: {fileID: -748727610, guid: c933d0473e44c7141b6e32c1a114f6c1, type: 3}
+  _tituloAzul: {fileID: 1418331184, guid: c933d0473e44c7141b6e32c1a114f6c1, type: 3}
+  _tituloAmarelo: {fileID: 2134208448, guid: c933d0473e44c7141b6e32c1a114f6c1, type: 3}
 --- !u!114 &1066669467
 MonoBehaviour:
   m_ObjectHideFlags: 0

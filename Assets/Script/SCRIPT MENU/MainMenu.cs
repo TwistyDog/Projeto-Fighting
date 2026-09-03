@@ -33,6 +33,13 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private Sprite _treinamentoSprite;
     [SerializeField] private Sprite _voltarSprite;
 
+    [Header("Titulo Modo de Jogo")]
+    [SerializeField] private Image _gameModeTile;
+
+    [SerializeField] private Sprite _tituloVermelho;
+    [SerializeField] private Sprite _tituloAzul;
+    [SerializeField] private Sprite _tituloAmarelo;
+
 
 
     private int currentIndex = 0;
@@ -87,7 +94,7 @@ public class MainMenu : MonoBehaviour
 
 
         // ==========================================
-        // SELEÇÃO DE MODO
+        // SELEï¿½ï¿½O DE MODO
         // ==========================================
 
         if (_gameModePanel.activeSelf)
@@ -198,23 +205,28 @@ public class MainMenu : MonoBehaviour
     private void ChangeBackGroundGameMode()
     {
         Sprite nextSprite = null;
+        Sprite nextTitleSprite = null;
 
         switch (gameModeIndex)
         {
             case 0:
                 nextSprite = _arcadeSprite;
+                nextTitleSprite = _tituloVermelho;
                 break;
 
             case 1:
                 nextSprite = _onlineSprite;
+                nextTitleSprite = _tituloAmarelo;
                 break;
 
             case 2:
                 nextSprite = _treinamentoSprite;
+                nextTitleSprite = _tituloAzul;
                 break;
 
             case 3:
                 nextSprite = _voltarSprite;
+                nextTitleSprite = _tituloVermelho;
                 break;
         }
 
@@ -223,6 +235,7 @@ public class MainMenu : MonoBehaviour
         seq.AppendCallback(() =>
         {
             _gameModeBackGround.sprite = nextSprite;
+            _gameModeTile.sprite = nextTitleSprite;
 
             _gameModeBackGround.rectTransform.localScale =
                Vector3.one * 1.15f;
@@ -231,6 +244,10 @@ public class MainMenu : MonoBehaviour
         seq.Append(
             _gameModeBackGround
             .DOFade(1f, 0.25f));
+        
+        seq.Join(
+            _gameModeTile.DOFade(1, 0.15f)
+        );
 
 
         _gameModeBackGround.rectTransform
@@ -305,11 +322,11 @@ public class MainMenu : MonoBehaviour
 
             Vector2 originalPos = rect.anchoredPosition;
 
-            //Começa fora da tela 
+            //Comeï¿½a fora da tela 
             rect.anchoredPosition =
                 new Vector2(originalPos.x - 800f, originalPos.y);
 
-            // Movimento do Botão
+            // Movimento do Botï¿½o
             sequence.Insert(
                 i * 0.1f,
                 rect.DOAnchorPos(originalPos, 0.8f)
@@ -317,12 +334,12 @@ public class MainMenu : MonoBehaviour
                     );
         }
 
-        //Tempo necessário para todos os botões terminarem de entrar
+        //Tempo necessï¿½rio para todos os botï¿½es terminarem de entrar
 
         float tempoEntrada =
             0.8f + ((menuButtons.Length - 1) * 0.1f);
 
-        //Depois que todos chegaram, começa o Fade
+        //Depois que todos chegaram, comeï¿½a o Fade
 
         sequence.InsertCallback(tempoEntrada, () =>
         {
@@ -339,7 +356,7 @@ public class MainMenu : MonoBehaviour
                     .SetEase(Ease.OutQuad));
             }
 
-            //Depois do Fade, libera os botões
+            //Depois do Fade, libera os botï¿½es
             fadeSequence.OnComplete(() =>
             {
                 foreach (Button button in menuButtons)
@@ -378,7 +395,7 @@ public class MainMenu : MonoBehaviour
     {
         _selectedMode = (GameMode)modo;
 
-        Debug.Log("Opção selecionada: " + _selectedMode);
+        Debug.Log("Opï¿½ï¿½o selecionada: " + _selectedMode);
 
         switch (_selectedMode)
         {
