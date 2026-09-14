@@ -1,0 +1,332 @@
+fileFormatVersion: 2
+guid: 5315b63eb4b5e4140b4b5f1b8bc925e1
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: botoes de modo de jogo_0
+      rect:
+        serializedVersion: 2
+        x: 1448
+        y: 812
+        width: 380
+        height: 227
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df7b01d95bd1b9b479183bc1b3e795fc
+      internalID: 326590932
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: botoes de modo de jogo_2
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 840
+        width: 560
+        height: 168
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73611b501628009429005ce7505de22c
+      internalID: -1587731467
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: botoes de modo de jogo_11
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 520
+        width: 585
+        height: 172
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 063156d8fac140848a8057091c97a889
+      internalID: -1137806738
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: botoes de modo de jogo_12
+      rect:
+        serializedVersion: 2
+        x: 801
+        y: 662
+        width: 595
+        height: 134
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71be2901c1597f449bd33e277085513a
+      internalID: -1815140403
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: botoes de modo de jogo_13
+      rect:
+        serializedVersion: 2
+        x: 1460
+        y: 456
+        width: 388
+        height: 232
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 052f4d71b54d12943bca6a4cf367074e
+      internalID: 64005875
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: botoes de modo de jogo_17
+      rect:
+        serializedVersion: 2
+        x: 788
+        y: 272
+        width: 572
+        height: 160
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7775dc53fc002114bb430d8f9852321e
+      internalID: -1147055990
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: botoes de modo de jogo_33
+      rect:
+        serializedVersion: 2
+        x: 1364
+        y: 106
+        width: 524
+        height: 198
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 117f247286ba2a6428060778ba688aff
+      internalID: 243227452
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: botoes de modo de jogo_35
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 88
+        width: 613
+        height: 160
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 828873708d4f05a4bb1bb07a4b74007d
+      internalID: -1931789285
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: fc441ff10335a3442b78a19deeb9de77
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      botoes de modo de jogo_0: 326590932
+      botoes de modo de jogo_1: 2042957538
+      botoes de modo de jogo_10: -1150854134
+      botoes de modo de jogo_11: -1137806738
+      botoes de modo de jogo_12: -1815140403
+      botoes de modo de jogo_13: 64005875
+      botoes de modo de jogo_14: 628200317
+      botoes de modo de jogo_15: -70968306
+      botoes de modo de jogo_16: -644309477
+      botoes de modo de jogo_17: -1147055990
+      botoes de modo de jogo_18: 49603437
+      botoes de modo de jogo_19: 1700186822
+      botoes de modo de jogo_2: -1587731467
+      botoes de modo de jogo_20: -1155404347
+      botoes de modo de jogo_21: -1657224512
+      botoes de modo de jogo_22: -231151335
+      botoes de modo de jogo_23: -1565099909
+      botoes de modo de jogo_24: -1462308753
+      botoes de modo de jogo_25: 1896612822
+      botoes de modo de jogo_26: 1183770117
+      botoes de modo de jogo_27: 1180138397
+      botoes de modo de jogo_28: 1651685165
+      botoes de modo de jogo_29: 1767046951
+      botoes de modo de jogo_3: -547030950
+      botoes de modo de jogo_30: -1872494898
+      botoes de modo de jogo_31: 1834202529
+      botoes de modo de jogo_32: 1863196811
+      botoes de modo de jogo_33: 243227452
+      botoes de modo de jogo_34: 564773739
+      botoes de modo de jogo_35: -1931789285
+      botoes de modo de jogo_36: 1146443817
+      botoes de modo de jogo_4: -461457637
+      botoes de modo de jogo_5: 1225860291
+      botoes de modo de jogo_6: -1597809786
+      botoes de modo de jogo_7: -153797935
+      botoes de modo de jogo_8: 1749139061
+      botoes de modo de jogo_9: -1940879
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
