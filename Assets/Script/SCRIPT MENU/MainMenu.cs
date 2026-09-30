@@ -459,6 +459,27 @@ public class MainMenu : MonoBehaviour
         ChangeBackGroundGameMode();
     }
 
+    private void HandleEscape()
+    {
+        /*if (_characterSelectPanel.activeSelf)
+        {
+            VoltarParaGameType();
+            return;
+        }
+        */
+        if (_gameTypePanel.activeSelf)
+        {
+            VoltarParaGameMode();
+            return;
+        }
+
+        if (_gameModePanel.activeSelf)
+        {
+            VoltarMenu();
+            return;
+        }
+    }
+
     public void SelecionarModo(int modo)
     {
         _selectedMode = (GameMode)modo;
