@@ -1,0 +1,1446 @@
+fileFormatVersion: 2
+guid: c34dfab33ff516048b2d1258525f5af6
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: botoes novos de personagens_0
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 716
+        width: 271
+        height: 330
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e20277c7404b514c9b6ef491aa696e9
+      internalID: -737911673
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: botoes novos de personagens_1
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 708
+        width: 239
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05a852f719ff0804dbf637f9dfeb00f5
+      internalID: -1853801459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: botoes novos de personagens_2
+      rect:
+        serializedVersion: 2
+        x: 344
+        y: 416
+        width: 216
+        height: 308
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5a7b4c4cbfe65549a0af4abf970fc46
+      internalID: 2135864663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: botoes novos de personagens_3
+      rect:
+        serializedVersion: 2
+        x: 412
+        y: 720
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f85bd4d6735176b46b39bdbfab673da0
+      internalID: 2080010512
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: botoes novos de personagens_4
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 692
+        width: 4
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa6d9f21cddb80f4aad1b4af185f3acc
+      internalID: 1940700100
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: botoes novos de personagens_5
+      rect:
+        serializedVersion: 2
+        x: 1119
+        y: 645
+        width: 160
+        height: 158
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c74f42e8b0708c4ba43db0bef1ff3f6
+      internalID: -1888402068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: botoes novos de personagens_8
+      rect:
+        serializedVersion: 2
+        x: 1627
+        y: 649
+        width: 160
+        height: 158
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e3a0a12cd1411d41bf34248039d0db4
+      internalID: -1653449073
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: botoes novos de personagens_9
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 692
+        width: 6
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c352524161497434489f19f0cf21915c
+      internalID: -81989598
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: botoes novos de personagens_10
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 687
+        width: 4
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d39e2e8d66b711b4b93af5a5910cb0b8
+      internalID: 1970010065
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: botoes novos de personagens_11
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 692
+        width: 13
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab5e2205b8a145e41b62e03cb998c573
+      internalID: -37435105
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: botoes novos de personagens_12
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 684
+        width: 16
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: abc00a886097bae488f2d42cbb58e60a
+      internalID: -1555364921
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: botoes novos de personagens_13
+      rect:
+        serializedVersion: 2
+        x: 493
+        y: 689
+        width: 6
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d75bea5c05f8941408b1b908346a6fe5
+      internalID: 1629986738
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: botoes novos de personagens_14
+      rect:
+        serializedVersion: 2
+        x: 524
+        y: 688
+        width: 5
+        height: 5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68a07cc422844314299872e23f60f92c
+      internalID: -829313179
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: botoes novos de personagens_15
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 486
+        width: 232
+        height: 202
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd455e144c20a74409b8bb9d08ec2a88
+      internalID: -449757192
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: botoes novos de personagens_16
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 614
+        width: 18
+        height: 42
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 25103fe911d40eb448b1ba38110ac6c6
+      internalID: 1959869486
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: botoes novos de personagens_30
+      rect:
+        serializedVersion: 2
+        x: 1120
+        y: 361
+        width: 160
+        height: 158
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 804a2f7d2aba7e0408187ad9c65f59ea
+      internalID: -1221045066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: botoes novos de personagens_31
+      rect:
+        serializedVersion: 2
+        x: 1630
+        y: 361
+        width: 160
+        height: 158
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6103925bb44696f449fa0284410e942b
+      internalID: -223108843
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: botoes novos de personagens_33
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 530
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 036320768f4609d47b2b3ad2faea560e
+      internalID: -1019874820
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: botoes novos de personagens_34
+      rect:
+        serializedVersion: 2
+        x: 398
+        y: 502
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b7d1ce901d58ba4890eb9fe6c1cb7f3
+      internalID: 184538032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: botoes novos de personagens_35
+      rect:
+        serializedVersion: 2
+        x: 407
+        y: 500
+        width: 5
+        height: 5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be7b53702e0cd70459eabf4bf04232a9
+      internalID: 1230931971
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: botoes novos de personagens_36
+      rect:
+        serializedVersion: 2
+        x: 421
+        y: 499
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c4c039acf6cbc994aa3cf17d7760c511
+      internalID: -1504980498
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: botoes novos de personagens_37
+      rect:
+        serializedVersion: 2
+        x: 467
+        y: 501
+        width: 5
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61c460cd87e1e074ea91ad23fd25fc48
+      internalID: -241020065
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: botoes novos de personagens_38
+      rect:
+        serializedVersion: 2
+        x: 475
+        y: 497
+        width: 5
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea905eea98a46a44a92fd9cac5a1516c
+      internalID: -1120209175
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: botoes novos de personagens_39
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 495
+        width: 50
+        height: 5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b6d8bf87bc51b2a438e042e53e00b56e
+      internalID: -502923768
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: botoes novos de personagens_40
+      rect:
+        serializedVersion: 2
+        x: 481
+        y: 496
+        width: 6
+        height: 5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3fe2e698d5a7064429e67eae9b61d28a
+      internalID: -531270167
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: botoes novos de personagens_41
+      rect:
+        serializedVersion: 2
+        x: 118
+        y: 472
+        width: 20
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee3618ca3fa286245a1cd3694c598c68
+      internalID: 1090567536
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: botoes novos de personagens_42
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 484
+        width: 40
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af2d52c24a8ef084fb94f66ce7a7445e
+      internalID: -2146000429
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: botoes novos de personagens_43
+      rect:
+        serializedVersion: 2
+        x: 328
+        y: 475
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b4489d456c8bf6429197124fbf8d7a2
+      internalID: 1751748784
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: botoes novos de personagens_44
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 288
+        width: 239
+        height: 176
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f6237d1cbd8258947bfcb3b2ed94a93f
+      internalID: -863456195
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: botoes novos de personagens_45
+      rect:
+        serializedVersion: 2
+        x: 227
+        y: 462
+        width: 63
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 739ae93d11966eb49b0535129483488b
+      internalID: 1144521958
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: botoes novos de personagens_46
+      rect:
+        serializedVersion: 2
+        x: 312
+        y: 428
+        width: 30
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9ef13248bbba07445a5513f1c5ee2e4d
+      internalID: 1255302347
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: botoes novos de personagens_47
+      rect:
+        serializedVersion: 2
+        x: 362
+        y: 285
+        width: 165
+        height: 153
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2764d57776eea1e40b5d4a7936439d7b
+      internalID: 397968198
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: botoes novos de personagens_48
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 460
+        width: 4
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a8ce02757f2b9814a9cc889d4c7e2163
+      internalID: 597505835
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: botoes novos de personagens_49
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 468
+        width: 40
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 40eba18f7989a2e48912b74d9b588377
+      internalID: -370137622
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: botoes novos de personagens_50
+      rect:
+        serializedVersion: 2
+        x: 525
+        y: 434
+        width: 4
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c45ae6cb5f40a645b8019cbe083e4ee
+      internalID: 133720602
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: botoes novos de personagens_51
+      rect:
+        serializedVersion: 2
+        x: 572
+        y: 364
+        width: 136
+        height: 112
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52847a80be562a340b02b68d6ce68857
+      internalID: -779691828
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: botoes novos de personagens_52
+      rect:
+        serializedVersion: 2
+        x: 572
+        y: 256
+        width: 196
+        height: 188
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e1926a4c2224134eb1b1e20f41ac5b5
+      internalID: 1700109793
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: botoes novos de personagens_53
+      rect:
+        serializedVersion: 2
+        x: 724
+        y: 437
+        width: 72
+        height: 39
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fda415689765cb84d8207c4c5286f320
+      internalID: -1077904698
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: botoes novos de personagens_54
+      rect:
+        serializedVersion: 2
+        x: 362
+        y: 296
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f487cb4d2fcaa1a41916ad54b762ab6b
+      internalID: -565442361
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: botoes novos de personagens_55
+      rect:
+        serializedVersion: 2
+        x: 527
+        y: 290
+        width: 33
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d703d10e6c7de0449be311cc838c0077
+      internalID: 10989466
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: botoes novos de personagens_56
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 81
+        width: 219
+        height: 195
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc1adcceda21cbe4aa181eff17fdba59
+      internalID: 936357473
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: botoes novos de personagens_57
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 272
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b0db21979a2e7354a8b3c61db05bf013
+      internalID: -1565786465
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: botoes novos de personagens_58
+      rect:
+        serializedVersion: 2
+        x: 332
+        y: 81
+        width: 216
+        height: 197
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a642f4f2c65190a4686e91a9a68da1e1
+      internalID: 1949841946
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: botoes novos de personagens_59
+      rect:
+        serializedVersion: 2
+        x: 372
+        y: 274
+        width: 6
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 29f549ed0a3d28040b79013e8997f1a6
+      internalID: 1781882578
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: botoes novos de personagens_60
+      rect:
+        serializedVersion: 2
+        x: 516
+        y: 276
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 467d2bb4fb0db624c8b35df437248581
+      internalID: 1087138484
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: botoes novos de personagens_61
+      rect:
+        serializedVersion: 2
+        x: 764
+        y: 260
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b89ed75b031c2b04d8189c16a86b9904
+      internalID: -750378964
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: botoes novos de personagens_62
+      rect:
+        serializedVersion: 2
+        x: 316
+        y: 220
+        width: 18
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7109b8773f734b2469acb8f1db76576c
+      internalID: -1829746517
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: botoes novos de personagens_63
+      rect:
+        serializedVersion: 2
+        x: 752
+        y: 256
+        width: 8
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb053ef92ffb29c439d75851d057c0fa
+      internalID: 1450064486
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: botoes novos de personagens_64
+      rect:
+        serializedVersion: 2
+        x: 355
+        y: 222
+        width: 5
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec3cbdc9d93e4f246982dff8d4ec9199
+      internalID: -1523954328
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: botoes novos de personagens_65
+      rect:
+        serializedVersion: 2
+        x: 344
+        y: 212
+        width: 8
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c42051e7c7298ad40847d6408a4b046a
+      internalID: 760450440
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: botoes novos de personagens_66
+      rect:
+        serializedVersion: 2
+        x: 332
+        y: 188
+        width: 5
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c212d63a11be3a54c9e2f11c55ddd141
+      internalID: 1556886916
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: botoes novos de personagens_67
+      rect:
+        serializedVersion: 2
+        x: 359
+        y: 168
+        width: 4
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 130ab0857598fdd4bb8e19b71de685a0
+      internalID: -1981246188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: botoes novos de personagens_68
+      rect:
+        serializedVersion: 2
+        x: 344
+        y: 148
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf882dbfe4c1bb642bb00c52a85e04e8
+      internalID: -1972038782
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: botoes novos de personagens_69
+      rect:
+        serializedVersion: 2
+        x: 332
+        y: 116
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de956dcdafe5dfc4b9a0badfda49769e
+      internalID: 1720194801
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: botoes novos de personagens_70
+      rect:
+        serializedVersion: 2
+        x: 548
+        y: 112
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04dfacd519677df4e88cc04df3481718
+      internalID: -111321656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: botoes novos de personagens_71
+      rect:
+        serializedVersion: 2
+        x: 284
+        y: 104
+        width: 8
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71a8c5d9a2a68b840baa7338a1844daa
+      internalID: -81503741
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: botoes novos de personagens_72
+      rect:
+        serializedVersion: 2
+        x: 392
+        y: 80
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca373dbf9f0cd1149a7e14bb2b7b5f86
+      internalID: -470433734
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 9df0273aa980e854b85f6564011060fa
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      botoes novos de personagens_0: -737911673
+      botoes novos de personagens_1: -1853801459
+      botoes novos de personagens_10: 1970010065
+      botoes novos de personagens_11: -37435105
+      botoes novos de personagens_12: -1555364921
+      botoes novos de personagens_13: 1629986738
+      botoes novos de personagens_14: -829313179
+      botoes novos de personagens_15: -449757192
+      botoes novos de personagens_16: 1959869486
+      botoes novos de personagens_17: 812705185
+      botoes novos de personagens_18: -55420647
+      botoes novos de personagens_19: -1050927337
+      botoes novos de personagens_2: 2135864663
+      botoes novos de personagens_20: -178273673
+      botoes novos de personagens_21: 1906378982
+      botoes novos de personagens_22: -279632395
+      botoes novos de personagens_23: 1092124480
+      botoes novos de personagens_24: 1327741508
+      botoes novos de personagens_25: -1434047707
+      botoes novos de personagens_26: 741379401
+      botoes novos de personagens_27: -1614113838
+      botoes novos de personagens_28: 630258938
+      botoes novos de personagens_29: -880239099
+      botoes novos de personagens_3: 2080010512
+      botoes novos de personagens_30: -1221045066
+      botoes novos de personagens_31: -223108843
+      botoes novos de personagens_32: 1100525161
+      botoes novos de personagens_33: -1019874820
+      botoes novos de personagens_34: 184538032
+      botoes novos de personagens_35: 1230931971
+      botoes novos de personagens_36: -1504980498
+      botoes novos de personagens_37: -241020065
+      botoes novos de personagens_38: -1120209175
+      botoes novos de personagens_39: -502923768
+      botoes novos de personagens_4: 1940700100
+      botoes novos de personagens_40: -531270167
+      botoes novos de personagens_41: 1090567536
+      botoes novos de personagens_42: -2146000429
+      botoes novos de personagens_43: 1751748784
+      botoes novos de personagens_44: -863456195
+      botoes novos de personagens_45: 1144521958
+      botoes novos de personagens_46: 1255302347
+      botoes novos de personagens_47: 397968198
+      botoes novos de personagens_48: 597505835
+      botoes novos de personagens_49: -370137622
+      botoes novos de personagens_5: -1888402068
+      botoes novos de personagens_50: 133720602
+      botoes novos de personagens_51: -779691828
+      botoes novos de personagens_52: 1700109793
+      botoes novos de personagens_53: -1077904698
+      botoes novos de personagens_54: -565442361
+      botoes novos de personagens_55: 10989466
+      botoes novos de personagens_56: 936357473
+      botoes novos de personagens_57: -1565786465
+      botoes novos de personagens_58: 1949841946
+      botoes novos de personagens_59: 1781882578
+      botoes novos de personagens_6: 483061211
+      botoes novos de personagens_60: 1087138484
+      botoes novos de personagens_61: -750378964
+      botoes novos de personagens_62: -1829746517
+      botoes novos de personagens_63: 1450064486
+      botoes novos de personagens_64: -1523954328
+      botoes novos de personagens_65: 760450440
+      botoes novos de personagens_66: 1556886916
+      botoes novos de personagens_67: -1981246188
+      botoes novos de personagens_68: -1972038782
+      botoes novos de personagens_69: 1720194801
+      botoes novos de personagens_7: -110363932
+      botoes novos de personagens_70: -111321656
+      botoes novos de personagens_71: -81503741
+      botoes novos de personagens_72: -470433734
+      botoes novos de personagens_8: -1653449073
+      botoes novos de personagens_9: -81989598
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
