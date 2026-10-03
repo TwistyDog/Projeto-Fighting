@@ -1,6 +1,7 @@
 using DG.Tweening;
 using Unity.VectorGraphics;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -43,41 +44,128 @@ public class CharacterSelect : MonoBehaviour
         Invoke(nameof(EnableSelection), 0.5f);
     }
 
+    private void OnDisable()
+    {
+        canSelect = false;
+
+        CancelInvoke(nameof(EnableSelection));
+    }
+
     private void EnableSelection()
     {
         canSelect = true;
     }
 
-    private void Update()
+    public void OnNavigate(InputAction.CallbackContext context)
     {
+        if (!context.performed)
+            return;
+        
+        if(!canSelect)
+           return;
+        
+        Vector2 input = context.ReadValue<Vector2>();
+
+        if(input.sqrMagnitude < 0.25f)
+           return;
+        
+        MoveSelection(input);
+    }
+
+    public void OnSubmit(InputAction.CallbackContext context)
+    {
+        if(!context.performed)
+           return;
+
+        if(!canSelect)
+           return;
+        
+        ConfirmCharacter();
+    }
+
+    public void OnCancel(InputAction.CallbackContext context)
+    {
+      if (!context.performed)
+            return;
+
         if (!canSelect)
             return;
 
-        if (Input.GetKeyDown(KeyCode.RightArrow))
-        {
-            NextCharacter();
-        }
+        Debug.Log("Voltando do Character Select.");
 
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
-        {
-            PreviousCharacter();
-        }
-
-        if (Input.GetKeyDown(KeyCode.Return))
-        {
-            ConfirmCharacter();
-        }
+        // Aqui você pode chamar o MainMenu posteriormente  
     }
 
-    private void NextCharacter()
-    {
-        currentCharacters++;
 
-        if (currentCharacters >= characterPosition.Length)
-            currentCharacters = 0;
+    private void MoveSelection(Vector2 direction)
+    {
+        if (characterPosition == null || characterPosition.Length == 0)
+            return;
+
+        int bestIndex = -1;
+
+        float bestScore = float.MaxValue;
+
+        Vector3 currentPosition =
+            characterPosition[currentCharacters].position;
+
+        Vector2 normalizedDirection =
+            direction.normalized;
+
+        for (int i = 0; i < characterPosition.Length; i++)
+        {
+            if (i == currentCharacters)
+                continue;
+
+            Vector3 offset =
+                characterPosition[i].position - currentPosition;
+
+            Vector2 offset2D =
+                new Vector2(offset.x, offset.y);
+
+            float distance =
+                offset2D.magnitude;
+
+            if (distance <= 0.01f)
+                continue;
+
+            Vector2 candidateDirection =
+                offset2D.normalized;
+
+            // Verifica se o personagem está na direção
+            // que estamos tentando navegar.
+            float dot =
+                Vector2.Dot(
+                    normalizedDirection,
+                    candidateDirection
+                );
+
+            // Quanto maior o dot, mais alinhado está
+            // com a direção desejada.
+            if (dot < 0.5f)
+                continue;
+
+            // Pontuação:
+            // menor distância = melhor
+            // maior alinhamento = melhor
+            float score =
+                distance / dot;
+
+            if (score < bestScore)
+            {
+                bestScore = score;
+                bestIndex = i;
+            }
+        }
+
+        if (bestIndex == -1)
+            return;
+
+        currentCharacters = bestIndex;
 
         MoveCursor();
     }
+
 
     private void PreviousCharacter()
     {

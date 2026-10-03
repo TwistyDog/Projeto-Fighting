@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using DG.Tweening;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
 
 public class MainMenu : MonoBehaviour
 {
@@ -66,112 +67,6 @@ public class MainMenu : MonoBehaviour
     {
         currentIndex = index;
         UptadeSelection();
-    }
-
-    private void Update()
-    {
-        // ==========================================
-    // MENU PRINCIPAL
-    // ==========================================
-
-    if (_mainMenuPainel.activeSelf)
-    {
-        if (Input.GetKeyDown(KeyCode.DownArrow))
-        {
-            currentIndex++;
-
-            if (currentIndex >= menuButtons.Length)
-                currentIndex = 0;
-
-            UptadeSelection();
-        }
-
-        if (Input.GetKeyDown(KeyCode.UpArrow))
-        {
-            currentIndex--;
-
-            if (currentIndex < 0)
-                currentIndex = menuButtons.Length - 1;
-
-            UptadeSelection();
-        }
-
-        if (Input.GetKeyDown(KeyCode.Return))
-        {
-            ExecuteSelected();
-            return;
-        }
-    }
-
-
-    // ==========================================
-    // MODO DE JOGO
-    // ==========================================
-
-    if (_gameModePanel.activeSelf)
-    {
-        if (Input.GetKeyDown(KeyCode.DownArrow))
-        {
-            gameModeIndex++;
-
-            if (gameModeIndex >= _gameModeButton.Length)
-                gameModeIndex = 0;
-
-            UptadeGameModeSelection();
-        }
-
-        if (Input.GetKeyDown(KeyCode.UpArrow))
-        {
-            gameModeIndex--;
-
-            if (gameModeIndex < 0)
-                gameModeIndex = _gameModeButton.Length - 1;
-
-            UptadeGameModeSelection();
-        }
-
-        if (Input.GetKeyDown(KeyCode.Return))
-        {
-            SelecionarModo(gameModeIndex);
-            return;
-        }
-    }
-
-
-    // ==========================================
-    // TIPO DE PARTIDA
-    // ==========================================
-
-    if (_gameTypePanel.activeSelf)
-    {
-        if (Input.GetKeyDown(KeyCode.DownArrow))
-        {
-            gameTypeIndex++;
-
-            if (gameTypeIndex >= _gameTypeButton.Length)
-                gameTypeIndex = 0;
-
-            UpdateGameTypeSelection();
-        }
-
-        if (Input.GetKeyDown(KeyCode.UpArrow))
-        {
-            gameTypeIndex--;
-
-            if (gameTypeIndex < 0)
-                gameTypeIndex = _gameTypeButton.Length - 1;
-
-            UpdateGameTypeSelection();
-        }
-
-        if (Input.GetKeyDown(KeyCode.Return))
-        {
-            SelecionarTipoDePartida(gameTypeIndex);
-            return;
-        }
-    }
-
-
     }
 
     void UptadeSelection()
@@ -321,6 +216,18 @@ public class MainMenu : MonoBehaviour
             .SetEase(Ease.OutQuad);
     }
 
+    public void VoltarParaGameType()
+    {
+        _characterSelectPanel.SetActive(false);
+        _gameTypePanel.SetActive(true);
+        _gameModePanel.SetActive(false);
+        _mainMenuPainel.SetActive(false);
+  
+         UpdateGameTypeSelection();
+
+        Debug.Log("Voltando para seleção de tipo de partida.");
+    }
+
 
 
     public void NovoJogo()
@@ -339,6 +246,8 @@ public class MainMenu : MonoBehaviour
         _characterSelectPanel.SetActive(false);
         _gameModePanel.SetActive(false);
         _mainMenuPainel.SetActive(true);
+
+        UptadeSelection();
     }
 
     public void VoltarParaGameMode()
@@ -461,12 +370,12 @@ public class MainMenu : MonoBehaviour
 
     private void HandleEscape()
     {
-        /*if (_characterSelectPanel.activeSelf)
+        if (_characterSelectPanel.activeSelf)
         {
             VoltarParaGameType();
             return;
         }
-        */
+        
         if (_gameTypePanel.activeSelf)
         {
             VoltarParaGameMode();
@@ -577,6 +486,101 @@ public class MainMenu : MonoBehaviour
         UpdateGameTypeSelection();
 
         Debug.Log("Abrindo seleção de tipo de partida.");
+    }
+
+    public void OnNavigate(InputAction.CallbackContext context)
+    {
+        if(!context.performed)
+           return;
+
+        
+        Vector2 input = context.ReadValue<Vector2>();
+
+        if(input.y > 0.5f)
+        {
+            MoverSelecao(-1);
+        }
+        else if(input.y < -0.5f)
+        {
+            MoverSelecao(1);
+        }
+    }
+
+    private void MoverSelecao(int direcao)
+    {
+        // MENU PRINCIPAL
+    if (_mainMenuPainel.activeSelf)
+    {
+        currentIndex += direcao;
+
+        if (currentIndex >= menuButtons.Length)
+            currentIndex = 0;
+
+        if (currentIndex < 0)
+            currentIndex = menuButtons.Length - 1;
+
+        UptadeSelection();
+    }
+
+    // MODO DE JOGO
+    else if (_gameModePanel.activeSelf)
+    {
+        gameModeIndex += direcao;
+
+        if (gameModeIndex >= _gameModeButton.Length)
+            gameModeIndex = 0;
+
+        if (gameModeIndex < 0)
+            gameModeIndex = _gameModeButton.Length - 1;
+
+        UptadeGameModeSelection();
+    }
+
+    // TIPO DE PARTIDA
+    else if (_gameTypePanel.activeSelf)
+    {
+        gameTypeIndex += direcao;
+
+        if (gameTypeIndex >= _gameTypeButton.Length)
+            gameTypeIndex = 0;
+
+        if (gameTypeIndex < 0)
+            gameTypeIndex = _gameTypeButton.Length - 1;
+
+        UpdateGameTypeSelection();
+    }
+    }
+
+    public void OnSubmit(InputAction.CallbackContext context)
+    {
+        if(!context.performed)
+           return;
+
+        if (_mainMenuPainel.activeSelf)
+        {
+            ExecuteSelected();
+            return;
+        }
+
+        if (_gameModePanel.activeSelf)
+        {
+            SelecionarModo(gameModeIndex);
+            return;
+        }
+
+        if (_gameTypePanel.activeSelf)
+        {
+            SelecionarTipoDePartida(gameTypeIndex);
+            return;
+        }
+    }
+
+    public void OnCancel(InputAction.CallbackContext context)
+    {
+        if (!context.performed)
+            return;
+        
+        HandleEscape();
     }
 
     public enum GameMode
