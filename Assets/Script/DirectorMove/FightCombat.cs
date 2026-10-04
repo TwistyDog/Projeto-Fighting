@@ -27,12 +27,17 @@ public class FightCombat : MonoBehaviour
     [SerializeField] private Animator _animator;
 
 
+    private CombatSide _combatSide;
+
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     
     void Awake()
     {
         if(_animator == null)
            _animator = GetComponentInChildren<Animator>();
+
+           _combatSide = GetComponent<CombatSide>();
 
         var playerInput = GetComponent<PlayerInput>();
         if (playerInput != null)
@@ -70,6 +75,17 @@ public class FightCombat : MonoBehaviour
         Debug.LogWarning($"{gameObject.name} tentou usar um hitbox que não está configurado!");
         return;
     }
+
+    if(_combatSide == null)
+        {
+            Debug.LogError(
+                $"{gameObject.name} não possui CombatSide!"
+            );
+
+            return;
+            
+        }
+
     _isAtacking = true;
 
     if(_animator != null)
@@ -81,9 +97,18 @@ public class FightCombat : MonoBehaviour
 
     if(hb != null)
         {
-            string targetTag = CompareTag("Player") ? "Enemy" : "Player";
+            CombatSide.Side targetSide =
+                _combatSide.CurrentSide == 
+                CombatSide.Side.Player
 
-            hb.Setup(damage, targetTag);
+                ? CombatSide.Side.Enemy
+
+                : CombatSide.Side.Player;
+
+            hb.Setup(
+                damage,
+                targetSide
+            );
         }
 
     hitbox.SetActive(true);

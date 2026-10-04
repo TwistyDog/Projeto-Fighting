@@ -4,22 +4,36 @@ public class HitBox : MonoBehaviour
 {
 
     private int _damage;
-    private string _targetTag = "Player";
+    private CombatSide.Side _targetSide;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    public void Setup(int damage, string targetTag)
+    public void Setup(int damage, CombatSide.Side targetSide)
     {
         _damage = damage;
-        _targetTag = targetTag;
+        _targetSide = targetSide;
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (string.IsNullOrEmpty(_targetTag)) return;
-        if (!other.CompareTag(_targetTag))return;
+        DamageReceiver receiver =
+            other.GetComponent<DamageReceiver>();
 
-        if(other.TryGetComponent(out DamageReceiver receiver))
-        {
-            receiver.ReceiveDamaged(_damage);
-        }
+        if (receiver == null)
+            return;
+
+
+        CombatSide otherSide =
+            other.GetComponent<CombatSide>();
+
+
+        if (otherSide == null)
+            return;
+
+
+        if (otherSide.CurrentSide != _targetSide)
+            return;
+
+
+        receiver.ReceiveDamaged(_damage);
     }
 }

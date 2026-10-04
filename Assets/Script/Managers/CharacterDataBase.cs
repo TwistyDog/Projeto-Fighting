@@ -1,4 +1,10 @@
 using UnityEngine;
+
+public enum CharactherControllerType
+{
+    Player,
+    CPU
+}
 [System.Serializable]
 
 public class CharacterDataBase

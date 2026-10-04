@@ -1,6 +1,7 @@
 using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
 
 public class CharacterSpawner : MonoBehaviour
 {
@@ -11,8 +12,6 @@ public class CharacterSpawner : MonoBehaviour
     [SerializeField] private Transform _playerSpawnPoint;
     [SerializeField] private Transform _enemySpawnPoint;
 
-    [Header("Inimigo")]
-    [SerializeField] private GameObject _enemyPrefab;
 
     [Header("CineMachine")]
     [SerializeField] private CinemachineTargetGroup _targetGroup;
@@ -34,89 +33,198 @@ public class CharacterSpawner : MonoBehaviour
 
     private void SpawnPlayer()
     {
-        if(_characterData == null)
-        {
-            Debug.LogError("CharacterSpawner: CharacterData não foi configurado");
-            return;
-        }
-
-        if(_characterData._characters == null || 
-        _characterData._characters.Length == 0)
-        {
-            Debug.LogError("CharacterSpawner: Nenhum Personagem Cadastrado");
-            return;
-        }
-
-        int selectedID = CharacterSelect.SelectedCharacter;
-
-        if(selectedID < 0 ||
-        selectedID >= _characterData._characters.Length)
-        {
-            Debug.LogError($"CharacterSpawner: ID de personagem inválido: {selectedID}");
-            return;
-        }
-
-        CharacterDataBase selectedCharacters = 
-        _characterData._characters[selectedID];
-
-        if(selectedCharacters.prefab == null)
+        if (_characterData == null)
         {
             Debug.LogError(
-                $"CharacterSpawner: O prefab de {selectedCharacters.characterName} não foi configurado!"
+                "CharacterSpawner: CharacterData não configurado!"
             );
 
             return;
         }
 
-        _spawnedPlayer = Instantiate(selectedCharacters.prefab,
-        _playerSpawnPoint.position,
-        _playerSpawnPoint.rotation);
+        if (_characterData._characters == null ||
+            _characterData._characters.Length == 0)
+        {
+            Debug.LogError(
+                "CharacterSpawner: Nenhum personagem cadastrado!"
+            );
 
-        _spawnedPlayer.name = 
-        selectedCharacters.characterName + "_Player";
+            return;
+        }
 
-        Debug.Log(
-            $"Player Spawnado: {selectedCharacters.characterName}"
+
+        // ==========================================
+        // PLAYER
+        // ==========================================
+
+        int playerID = CharacterSelect.SelectedPlayerCharacter;
+
+        if (playerID < 0 ||
+            playerID >= _characterData._characters.Length)
+        {
+            Debug.LogError(
+                $"ID do Player inválido: {playerID}"
+            );
+
+            return;
+        }
+
+
+        CharacterDataBase playerData =
+            _characterData._characters[playerID];
+
+
+        if (playerData.prefab == null)
+        {
+            Debug.LogError(
+                $"Prefab do personagem {playerData.characterName} não configurado!"
+            );
+
+            return;
+        }
+
+
+        _spawnedPlayer = Instantiate(
+            playerData.prefab,
+            _playerSpawnPoint.position,
+            _playerSpawnPoint.rotation
         );
 
+
+        _spawnedPlayer.name =
+            playerData.characterName + "_Player";
+
+        CombatSide playerSide =
+           _spawnedPlayer.GetComponent<CombatSide>();
+
+        
+        if(playerSide != null)
+        {
+            playerSide.SetSide(CombatSide.Side.Player);
+        }
+        else
+        {
+            Debug.LogError(
+        $"CharacterSpawner: {playerData.characterName} não possui CombatSide!"
+    );
+        }
+
+
+        Debug.Log(
+            $"PLAYER: {playerData.characterName}"
+        );
+
+
+        // ==========================================
+        // ENEMY / CPU
+        // ==========================================
+
+        int enemyID = CharacterSelect.SelectedEnemyCharacter;
+
+
+        if (enemyID < 0 ||
+            enemyID >= _characterData._characters.Length)
+        {
+            Debug.LogError(
+                $"ID do Enemy inválido: {enemyID}"
+            );
+
+            return;
+        }
+
+
+        CharacterDataBase enemyData =
+            _characterData._characters[enemyID];
+
+
+        if (enemyData.prefab == null)
+        {
+            Debug.LogError(
+                $"Prefab do personagem {enemyData.characterName} não configurado!"
+            );
+
+            return;
+        }
+
+
         _spawnedEnemy = Instantiate(
-            _enemyPrefab,
+            enemyData.prefab,
             _enemySpawnPoint.position,
             _enemySpawnPoint.rotation
         );
 
-        _spawnedEnemy.name = "Enemy";
 
-        SetupHealthUI();
+        _spawnedEnemy.name =
+            enemyData.characterName + "_CPU";
 
-        Debug.Log("Enemy Spawnado");
+        ConfigureCPU(_spawnedEnemy);
 
-        EnemyIA enemyIA = 
-        _spawnedEnemy.GetComponent<EnemyIA>();
 
-        if(enemyIA != null)
+        CombatSide enemySide =
+            _spawnedEnemy.GetComponent<CombatSide>();
+        
+        if(enemySide != null)
         {
-            enemyIA.SetPlayer(_spawnedPlayer.transform);
+            enemySide.SetSide(CombatSide.Side.Enemy);
+        }
+
+        else
+        {
+          Debug.LogError(
+        $"CharacterSpawner: {enemyData.characterName} não possui CombatSide!"
+    );  
+        }
+
+
+        Debug.Log(
+            $"CPU: {enemyData.characterName}"
+        );
+
+
+        // ==========================================
+        // CONFIGURA IA
+        // ==========================================
+
+        EnemyIA enemyIA =
+            _spawnedEnemy.GetComponent<EnemyIA>();
+
+
+        if (enemyIA != null)
+        {
+            enemyIA.SetPlayer(
+                _spawnedPlayer.transform
+            );
         }
         else
         {
             Debug.LogError(
-                "CharacterSpawner: O Enemy Prefab não possui EnemyIA!"
+                "CharacterSpawner: O personagem escolhido para CPU não possui EnemyIA!"
             );
         }
 
-        EnemyControllerFight enemyControllerFight =
-            _spawnedEnemy.GetComponent<EnemyControllerFight>();
 
-        if(enemyControllerFight != null)
-        {
-            enemyControllerFight.SetPlayer(_spawnedPlayer.transform);
-        }
-        else
-        {
-            Debug.LogError(
-                "CharacterSpawner: Enemy não possui EnemyControllerFight");
-        }
+        NewPlayMove playerMove =
+    _spawnedPlayer.GetComponent<NewPlayMove>();
+
+NewPlayMove enemyMove =
+    _spawnedEnemy.GetComponent<NewPlayMove>();
+
+if (playerMove != null)
+{
+    playerMove.SetEnemy(_spawnedEnemy.transform);
+}
+
+if (enemyMove != null)
+{
+    enemyMove.SetEnemy(_spawnedPlayer.transform);
+}
+
+
+        // ==========================================
+        // HEALTH
+        // ==========================================
+
+        SetupHealthUI();
 
 
     }
@@ -194,6 +302,38 @@ private void SetupHealthUI()
         }
     }
     
+    }
+
+    private void ConfigureCPU(GameObject cpu)
+    {
+       EnemyIA enemyIA = cpu.GetComponent<EnemyIA>();
+
+    if (enemyIA == null)
+    {
+        Debug.LogError(
+            $"CharacterSpawner: {cpu.name} não possui EnemyIA!"
+        );
+
+        return;
+    }
+
+    enemyIA.SetControlMode(
+        EnemyIA.ControlMode.AI
+    );
+
+    enemyIA.SetControlledByEnemyIA(true);
+
+    PlayerInput playerInput =
+        cpu.GetComponent<PlayerInput>();
+
+    if (playerInput != null)
+    {
+        playerInput.enabled = false;
+    }
+
+    Debug.Log(
+        $"{cpu.name} configurado como CPU."
+    ); 
     }
 
 }

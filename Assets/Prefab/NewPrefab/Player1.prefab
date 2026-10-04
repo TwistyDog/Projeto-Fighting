@@ -145,6 +145,8 @@ GameObject:
   - component: {fileID: 5971985307732514452}
   - component: {fileID: 6976062414242584174}
   - component: {fileID: 5175141563263708813}
+  - component: {fileID: -4735496988667827672}
+  - component: {fileID: 3362001268887250447}
   m_Layer: 3
   m_Name: Player1
   m_TagString: Player
@@ -476,6 +478,64 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &-4735496988667827672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 474682694944420074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a08c97e8da551cd49b3806fc7e7426df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyIA
+  _controller: {fileID: 0}
+  _enemy: {fileID: 0}
+  _playerSpeed: 6
+  _jumpHeight: 5
+  _gravityValue: -9.81
+  _crouchHeight: 0.5
+  _isBlocking: 0
+  _damageReduction: 0.5
+  _animator: {fileID: 0}
+  _playerVelocity: {x: 0, y: 0, z: 0}
+  _groundedPlayer: 0
+  _controlMode: 0
+  _player: {fileID: 0}
+  moverPlayer: {fileID: 0}
+  _stoppingDistance: 2
+  _arenaMinX: -8
+  _arenaManX: 8
+  _changeStateTime: 2
+  _retreatDistance: 3
+  _forwardDistance: 5
+  _moveSpeed: 4
+  _retreatStep: 2
+  _jumpReactionChance: 0.6
+  _minReactDistance: 0
+  _jumpCoolDown: 2
+  _minJumpDistance: 1.5
+  _maxJumpDistance: 6
+  _groundCheckDistance: 0.2
+  _groundLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  _groundedBufferTime: 0.1
+  _damageReceiver: {fileID: 0}
+--- !u!114 &3362001268887250447
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 474682694944420074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d54352c3922b524e9e38b13cbbee5f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CombatSide
+  _side: 0
 --- !u!1 &775223840676738115
 GameObject:
   m_ObjectHideFlags: 0

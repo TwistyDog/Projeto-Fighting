@@ -8,6 +8,9 @@ using UnityEngine.UI;
 public class CharacterSelect : MonoBehaviour
 {
 
+    public static int SelectedPlayerCharacter;
+    public static int SelectedEnemyCharacter;
+
     public static int SelectedCharacter;
 
     [SerializeField] private LoadingManager loadingManager;
@@ -24,15 +27,22 @@ public class CharacterSelect : MonoBehaviour
         private int currentCharacters = 0;
 
     private bool canSelect = false;
+
+    private int selectionStep = 0;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
     private void OnEnable()
     {
         currentCharacters = 0;
+        selectionStep = 0;
         canSelect = false;
 
-        if (selectionCursor == null || characterPosition.Length == 0)
+       if(selectionCursor == null ||
+       characterPosition == null ||
+       characterPosition.Length == 0)
+        {
             return;
+        }
 
         selectionCursor.gameObject.SetActive(true);
 
@@ -179,15 +189,76 @@ public class CharacterSelect : MonoBehaviour
 
     private void ConfirmCharacter()
     {
-        SelectedCharacter = currentCharacters;
+        // --------------------------------------
+        // PRIMEIRA ESCOLHA = PLAYER
+        // --------------------------------------
 
-        Debug.Log("Personagem Selecionado" + SelectedCharacter);
-
-        canSelect = false;
-
-        if(loadingManager != null)
+        if (selectionStep == 0)
         {
-            loadingManager.StartLoading("Area de Rua");
+            SelectedPlayerCharacter =
+                currentCharacters;
+
+
+            // Mantém compatibilidade
+            SelectedCharacter =
+                currentCharacters;
+
+
+            Debug.Log(
+                "PLAYER 1 selecionou: " +
+                SelectedPlayerCharacter
+            );
+
+
+            selectionStep = 1;
+
+
+            // Continua permitindo selecionar
+            // o segundo personagem.
+            canSelect = true;
+
+
+            Debug.Log(
+                "Agora selecione o personagem da CPU."
+            );
+
+
+            return;
+        }
+
+
+        // --------------------------------------
+        // SEGUNDA ESCOLHA = CPU
+        // --------------------------------------
+
+        if (selectionStep == 1)
+        {
+            SelectedEnemyCharacter =
+                currentCharacters;
+
+
+            Debug.Log(
+                "CPU selecionou: " +
+                SelectedEnemyCharacter
+            );
+
+
+            canSelect = false;
+
+
+            // Agora sim começa o loading
+            if (loadingManager != null)
+            {
+                loadingManager.StartLoading(
+                    "Area de Rua"
+                );
+            }
+            else
+            {
+                Debug.LogError(
+                    "CharacterSelect: LoadingManager não configurado!"
+                );
+            }
         }
 
 

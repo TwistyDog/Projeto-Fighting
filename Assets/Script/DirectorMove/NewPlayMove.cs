@@ -30,6 +30,8 @@ public class NewPlayMove : MonoBehaviour
     protected float _originalHeight;
     protected bool _isCrouching = false;
 
+    protected bool _isControlledByEnemyIA = false;
+
     protected virtual void Start()
     {
         _controller = GetComponent<CharacterController>();
@@ -66,6 +68,9 @@ public class NewPlayMove : MonoBehaviour
         return;
 
         if(!GameManager.Instance.podeControlar)
+           return;
+
+        if (_isControlledByEnemyIA)
            return;
 
         _groundedPlayer = _controller.isGrounded;
@@ -161,12 +166,21 @@ public class NewPlayMove : MonoBehaviour
     {
         if(_enemy == null)
            return;
+
+        float distanceX = _enemy.position.x - transform.position.x;
+
+        if(Mathf.Abs(distanceX) < 0.01f)
+           return;
         
-        if(_enemy.position.x > transform.position.x)
-          transform.rotation = Quaternion.Euler(0f,0f,0f);
-        
+        if(distanceX > 0f)
+        {
+            transform.rotation = Quaternion.Euler(0f,0f,0f);
+        }
         else
-          transform.rotation = Quaternion.Euler(0f,180f,0f);
+        {
+            transform.rotation = Quaternion.Euler(0f,180f,0f);
+        }
+        
     }
 
     protected virtual void HandleCrouch()
@@ -228,6 +242,16 @@ public class NewPlayMove : MonoBehaviour
     {
         float finalDamage = _isBlocking ? damage * _damageReduction : damage;
         Debug.Log($"Dano Recebido: {finalDamage} (Bloqueado: {_isBlocking})");
+    }
+
+    public void SetControlledByEnemyIA(bool value)
+    {
+        _isControlledByEnemyIA = value;
+    }
+
+    public void SetEnemy(Transform enemy)
+    {
+        _enemy = enemy;
     }
 
     #endregion

@@ -27,6 +27,8 @@ public class LoadingManager : MonoBehaviour
 
     private void Awake()
     {
+        DontDestroyOnLoad(gameObject);
+
         if(loadingPanel != null)
            loadingPanel.SetActive(false);
     }
@@ -44,6 +46,17 @@ public class LoadingManager : MonoBehaviour
         // Ativar painel
         loadingPanel.SetActive(true);
 
+        PrepararLoading();
+
+        float startTime = Time.time;
+
+        // Começa o carregamento da cena 
+        AsyncOperation operation =
+            SceneManager.LoadSceneAsync(sceneName);
+
+        operation.allowSceneActivation = false;
+
+
         // Mata qualquer animação anterior
         if (loadingImage != null)
         {
@@ -54,49 +67,102 @@ public class LoadingManager : MonoBehaviour
             loadingImage.color = color;
         }
 
-        // Começa animação de "CARREGAMENTO" 
-        if(loadingImage != null)
+        while (operation.progress < 0.9f)
         {
+            yield return null;
+        }
+
+        while(Time.time - startTime < minimumLoadingTime)
+        {
+            yield return null;
+        }
+
+        operation.allowSceneActivation = true;
+
+        while (!operation.isDone)
+        {
+            yield return null;
+        }
+
+        yield return null;
+        yield return null;
+        yield return new WaitForEndOfFrame();
+
+        yield return StartCoroutine(PrepararFase());
+
+
+        FinalizarLoading();
+
+        loadingCoroutine = null;
+
+
+
+    }
+
+    private void PrepararLoading()
+    {
+        if (loadingImage != null)
+        {
+            loadingImage.DOKill();
+
+            Color color = loadingImage.color;
+            color.a = 1f;
+            loadingImage.color = color;
+
             loadingImage
                 .DOFade(0f, fadeDuration)
                 .SetLoops(-1, LoopType.Yoyo)
                 .SetEase(Ease.InOutSine);
         }
 
-        if(loadingIcon != null)
+       if (loadingIcon != null)
         {
             loadingIcon.DOKill();
 
-            loadingIcon.transform.localRotation = Quaternion.identity;
+            loadingIcon.transform.localRotation =
+                Quaternion.identity;
 
             loadingIcon.transform
                 .DORotate(
-                new Vector3(0f, 0f, -360f),
-                rotationDuration,
-                RotateMode.FastBeyond360
+                    new Vector3(0f, 0f, -360f),
+                    rotationDuration,
+                    RotateMode.FastBeyond360
                 )
                 .SetLoops(-1, LoopType.Restart)
                 .SetEase(Ease.Linear);
-        }
-
-        // Começa o carregamento da cena 
-        AsyncOperation operation =
-            SceneManager.LoadSceneAsync(sceneName);
-
-        operation.allowSceneActivation = false;
-
-        float startTime = Time.time;
-
-        while (!operation.isDone)
-        {
-            // Impede que a cena seja ativada antes do tempo mínimo
-            if(operation.progress >= 0.9f &&
-                Time.time - startTime > minimumLoadingTime)
-            {
-                operation.allowSceneActivation = true;
-            }
-
-            yield return null;
-        }
+        } 
     }
+
+    private IEnumerator PrepararFase()
+    {
+        // Dá oportunidade para os sistemas da cena
+        // terminarem de inicializar.
+
+        yield return null;
+
+        // Libera recursos que pertenciam à cena anterior
+        AsyncOperation unloadUnused =
+            Resources.UnloadUnusedAssets();
+
+        yield return unloadUnused;
+
+        // Dá mais um frame para os sistemas da fase
+        // terminarem suas inicializações.
+
+        yield return null;
+        yield return new WaitForEndOfFrame();
+    }
+
+    private void FinalizarLoading()
+    {
+        if (loadingImage != null)
+            loadingImage.DOKill();
+
+        if (loadingIcon != null)
+            loadingIcon.DOKill();
+
+        if (loadingPanel != null)
+            loadingPanel.SetActive(false);
+    }
+
 }

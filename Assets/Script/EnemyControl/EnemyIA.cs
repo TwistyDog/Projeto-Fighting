@@ -5,11 +5,34 @@ using UnityEngine.AI;
 using UnityEngine.Rendering;
 using SRandom = System.Random;
 using URandom = System.Random;
+using UnityEngine.InputSystem;
 
 
 
-public class EnemyIA : SpecialMove2
+public class EnemyIA : NewPlayMove
 {
+
+    private SpecialMoves1 _specialMoves1;
+    private SpecialMove2 _specialMoves2;
+
+    public enum SpeciaMoveType
+    {
+        None,
+        SpecialMoves1,
+        SpecialMove2
+    }
+
+    private SpeciaMoveType _specialMoveType =
+          SpeciaMoveType.None;
+    public enum ControlMode
+    {
+        AI,
+        Player
+    }
+
+    [Header("Controle")]
+    [SerializeField]
+    private ControlMode _controlMode = ControlMode.AI;
     
     [SerializeField] private Transform _player;
     [SerializeField] public NewPlayMove moverPlayer;   
@@ -55,62 +78,136 @@ public class EnemyIA : SpecialMove2
 
     private float _groundedTimer;
 
-    protected override void Awake()
+    protected void Awake()
     {
-        _damageReceiver = GetComponent<DamageReceiver>();
-        
+        _damageReceiver =
+           GetComponent<DamageReceiver>();
+
+           _specialMoves1 =
+            GetComponent<SpecialMoves1>();
+
+            _specialMoves2 = 
+            GetComponent<SpecialMove2>();
+
+        DetectarSpecialMove();
 
         ChangeState();
-
-        if (_player != null)
-    {
-        _playerMovei =
-            _player.GetComponent<SpecialMoves1>();
     }
 
+    
+    private void DetectarSpecialMove()
+    {
+        if (_specialMoves1 != null)
+        {
+            _specialMoveType =
+                SpeciaMoveType.SpecialMoves1;
+
+            Debug.Log(
+                gameObject.name +
+                " detectou SpecialMoves1."
+            );
+
+            return;
+        }
+
+
+        if (_specialMoves2 != null)
+        {
+            _specialMoveType =
+                SpeciaMoveType.SpecialMove2;
+
+            Debug.Log(
+                gameObject.name +
+                " detectou SpecialMove2."
+            );
+
+            return;
+        }
+
+
+        _specialMoveType =
+            SpeciaMoveType.None;
+
+
+        Debug.Log(
+            gameObject.name +
+            " não possui SpecialMoves1 nem SpecialMove2."
+        );
     }
 
     // Update is called once per frame
     protected override void Update()
     {
 
-        if(_controller == null || !_controller.enabled)
-           return;
+        if (_controller == null || !_controller.enabled)
+        return;
 
-        if(!GameManager.Instance.podeControlar)
-           return;
-        
-        
+    if (!GameManager.Instance.podeControlar)
+        return;
+
+    if (_controlMode == ControlMode.AI)
+    {
+        UpdateAI();
+    }
+    else
+    {
+        UpdatePlayer();
+    }
+
+    }
+
+    private void UpdateAI()
+    {
         _jumpTimer -= Time.deltaTime;
 
-        if (_groundedPlayer && _playerVelocity.y < 0)
-        {
-            _playerVelocity.y = -0.5f;
-        }
-   
+    if (_groundedPlayer && _playerVelocity.y < 0)
+    {
+        _playerVelocity.y = -0.5f;
+    }
+
     _playerVelocity.y += _gravityValue * Time.deltaTime;
 
     _startTime -= Time.deltaTime;
+
     if (_startTime <= 0)
     {
         ChangeState();
     }
 
-    // ROTAÇÃO
-    if (_player.position.x > transform.position.x)
-        transform.rotation = Quaternion.Euler(0, 0, 0);
-    else
-        transform.rotation = Quaternion.Euler(0, 180f, 0);
+    if (_player != null)
+    {
+        if (_player.position.x > transform.position.x)
+            transform.rotation = Quaternion.Euler(0, 0, 0);
+        else
+            transform.rotation = Quaternion.Euler(0, 180f, 0);
+    }
 
     HandleMovement();
     HandleJumpReaction();
 
-    // 👇 AGORA ATUALIZA GROUNDED (DEPOIS DO MOVE)
-      UptadeGroundedStable();
-
-      AlignWithPlayer();
-
+    UptadeGroundedStable();
+    AlignWithPlayer();
     }
+
+
+    private void UpdatePlayer()
+    {
+        if (_controller == null || !_controller.enabled)
+        return;
+
+    if (_groundedPlayer && _playerVelocity.y < 0)
+    {
+        _playerVelocity.y = -0.5f;
+    }
+
+    _playerVelocity.y += _gravityValue * Time.deltaTime;
+
+    HandlePlayerMovement();
+
+    UptadeGroundedStable();
+    }
+
+
 
 
 
@@ -163,7 +260,32 @@ public class EnemyIA : SpecialMove2
         _controller.Move(finalMove);
             
         }
-        //
+
+
+        private void HandlePlayerMovement()
+    {
+        float moveX = _moveInput.x;
+
+    Vector3 movement =
+        transform.right *
+        moveX *
+        _moveSpeed *
+        Time.deltaTime;
+
+    movement.y =
+        _playerVelocity.y *
+        Time.deltaTime;
+
+    _controller.Move(movement);
+
+    if (Mathf.Abs(moveX) > 0.01f)
+    {
+        if (moveX > 0)
+            transform.rotation = Quaternion.Euler(0, 0, 0);
+        else
+            transform.rotation = Quaternion.Euler(0, 180f, 0);
+    }
+    }
 
     private void HandleJumpReaction()
     {
@@ -193,6 +315,48 @@ public class EnemyIA : SpecialMove2
     }
 
     _playerWasGrounded = playerGrounded;
+    }
+
+    private bool GetPlayerGrounded()
+    {
+       if (_player == null)
+            return true;
+
+
+        // Primeiro tenta SpecialMoves1
+        SpecialMoves1 special1 =
+            _player.GetComponent<SpecialMoves1>();
+
+
+        if (special1 != null)
+        {
+            return special1._groundedPlayer;
+        }
+
+
+        // Depois tenta SpecialMove2
+        SpecialMove2 special2 =
+            _player.GetComponent<SpecialMove2>();
+
+
+        if (special2 != null)
+        {
+            return special2._groundedPlayer;
+        }
+
+
+        // Último fallback
+        CharacterController controller =
+            _player.GetComponent<CharacterController>();
+
+
+        if (controller != null)
+        {
+            return controller.isGrounded;
+        }
+
+
+        return true; 
     }
 
 
@@ -263,6 +427,77 @@ public class EnemyIA : SpecialMove2
         );
 
         }
+    }
+
+    public void SetSpecialMoveType(SpeciaMoveType type)
+    {
+        _specialMoveType =
+            type;
+
+
+        Debug.Log(
+            gameObject.name +
+            " recebeu SpecialMoveType: " +
+            type
+        );
+    }
+
+    public SpeciaMoveType GetSpecialMoveType()
+    {
+        return _specialMoveType;
+    }
+
+
+    public SpecialMoves1 GetSpecialMoves1()
+    {
+        return _specialMoves1;
+    }
+
+
+    public SpecialMove2 GetSpecialMove2()
+    {
+        return _specialMoves2;
+    }
+
+
+    public void OnnMove(InputAction.CallbackContext context)
+    {
+        if(_controlMode != ControlMode.Player)
+           return;
+        
+        base.OnMove(context);
+    }
+
+    public void Onjuump(InputAction.CallbackContext context)
+    {
+       if (_controlMode != ControlMode.Player)
+        return;
+
+    if (!context.performed)
+        return;
+
+       base.OnJump(context);
+    }
+
+    public void OnBlock(InputAction.CallbackContext context)
+    {
+        if(_controlMode != ControlMode.Player)
+           return;
+        
+        BlockAI(context.ReadValueAsButton());
+    }
+
+    public void SetControlMode(ControlMode mode)
+    {
+        _controlMode = mode;
+
+        SetControlledByEnemyIA(mode == ControlMode.AI);
+
+        Debug.Log(
+        gameObject.name +
+        " modo de controle: " +
+        _controlMode
+    );
     }
    
 
