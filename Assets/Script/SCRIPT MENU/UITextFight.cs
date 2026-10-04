@@ -301,6 +301,8 @@ public class UITextFight : MonoBehaviour
 
         roundAtual++;
 
+        ResetarLuta();
+
         yield return new WaitForSeconds(0.3f);
 
         StartCoroutine(
@@ -397,6 +399,8 @@ public class UITextFight : MonoBehaviour
 
         AtualizarHUDVitorias();
 
+        ResetarLuta();
+
         StartCoroutine(
             SequenciaRound()
         );
@@ -491,5 +495,137 @@ public class UITextFight : MonoBehaviour
         }
 
         _texto.alpha = 0f;
+    }
+
+    private void ResetarLuta()
+    {
+        CombatSide[] lutadores =
+        FindObjectsByType<CombatSide>(
+            FindObjectsInactive.Include,
+            FindObjectsSortMode.None
+        );
+
+    if (lutadores.Length == 0)
+    {
+        Debug.LogError(
+            "UITextFight: Nenhum lutador encontrado para resetar!"
+        );
+
+        return;
+    }
+
+    foreach (CombatSide combatSide in lutadores)
+    {
+        if (combatSide == null)
+            continue;
+
+        GameObject lutador =
+            combatSide.gameObject;
+
+        // -------------------------------------------------
+        // CHARACTER CONTROLLER
+        // -------------------------------------------------
+
+        CharacterController controller =
+            lutador.GetComponent<CharacterController>();
+
+        if (controller != null)
+            controller.enabled = false;
+
+
+        // -------------------------------------------------
+        // RESET DE VIDA
+        // -------------------------------------------------
+
+        HealthForAll health =
+            lutador.GetComponent<HealthForAll>();
+
+        if (health != null)
+        {
+            health.ResetarVida();
+        }
+
+
+        // -------------------------------------------------
+        // RESET DE MOVIMENTO
+        // -------------------------------------------------
+
+        NewPlayMove playerMove =
+            lutador.GetComponent<NewPlayMove>();
+
+        if (playerMove != null)
+        {
+            playerMove.ResetState();
+        }
+
+
+        // -------------------------------------------------
+        // RESET DA IA
+        // -------------------------------------------------
+
+        EnemyIA enemyIA =
+            lutador.GetComponent<EnemyIA>();
+
+        if (enemyIA != null)
+        {
+            enemyIA.ResetStateEnemy();
+        }
+
+
+        // -------------------------------------------------
+        // RESET DE COMBATE
+        // -------------------------------------------------
+
+        FightCombat combat =
+            lutador.GetComponent<FightCombat>();
+
+        if (combat != null)
+        {
+            combat.enabled = true;
+        }
+
+
+        // -------------------------------------------------
+        // RESET INPUT
+        // -------------------------------------------------
+
+        UnityEngine.InputSystem.PlayerInput input =
+            lutador.GetComponent<
+                UnityEngine.InputSystem.PlayerInput>();
+
+        if (input != null)
+        {
+            input.enabled = true;
+        }
+
+
+        // -------------------------------------------------
+        // CHARACTER CONTROLLER NOVAMENTE
+        // -------------------------------------------------
+
+        if (controller != null)
+        {
+            controller.enabled = true;
+        }
+
+
+        Debug.Log(
+            $"Lutador resetado: {lutador.name} | " +
+            $"Vida: {(health != null ? health.CurrentHealth : -1)}"
+        );
+    }
+
+    // -----------------------------------------------------
+    // RESET TIMER
+    // -----------------------------------------------------
+
+    _tempoAtual = _tempoRound;
+    _timerRodando = false;
+
+    if (_timerText != null)
+    {
+        _timerText.text =
+            Mathf.CeilToInt(_tempoRound).ToString();
+    }
     }
 }
