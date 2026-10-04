@@ -11,8 +11,8 @@ public class HealthForAll : MonoBehaviour
 
     public int CurrentHealth => _currentHealth;
     public int MaxHealth => _maxHealth;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Awake()
+
+    private void Awake()
     {
         _currentHealth = _maxHealth;
 
@@ -28,8 +28,8 @@ public class HealthForAll : MonoBehaviour
 
     private void UpdateHealthUI()
     {
-        if(_healthSlider == null)
-        return;
+        if (_healthSlider == null)
+            return;
 
         _healthSlider.maxValue = _maxHealth;
         _healthSlider.value = _currentHealth;
@@ -37,14 +37,22 @@ public class HealthForAll : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        Debug.Log($"{gameObject.name} RECEBEU DANO: {damage}");
-        
-        _currentHealth = Mathf.Clamp(_currentHealth - damage,0, _maxHealth);
+        Debug.Log(
+            $"{gameObject.name} RECEBEU DANO: {damage}"
+        );
+
+        _currentHealth = Mathf.Clamp(
+            _currentHealth - damage,
+            0,
+            _maxHealth
+        );
 
         UpdateHealthUI();
 
-        if(_currentHealth <= 0)
+        if (_currentHealth <= 0)
+        {
             Die();
+        }
     }
 
     public void ResetarVida()
@@ -54,27 +62,34 @@ public class HealthForAll : MonoBehaviour
         UpdateHealthUI();
     }
 
-    void Die()
+    private void Die()
     {
-        if(UITextFight.instance != null)
+        Debug.Log(
+            $"{gameObject.name} foi derrotado."
+        );
+
+        // Avisa o sistema da luta qual personagem morreu.
+        if (UITextFight.instance != null)
         {
-            bool isPlayer = CompareTag("Player");
-            UITextFight.instance.OnKO(isPlayer);
+            UITextFight.instance.OnKO(gameObject);
         }
 
-        Debug.Log($"{gameObject.name} foi derrotado");
+        CharacterController controller =
+            GetComponent<CharacterController>();
 
-        var controller = GetComponent<CharacterController>();
-        if(controller != null ) controller.enabled = false;
+        if (controller != null)
+            controller.enabled = false;
 
-        var combat = GetComponent<FightCombat>();
-        if (combat != null) combat.enabled = false;
+        FightCombat combat =
+            GetComponent<FightCombat>();
 
-        var input = GetComponent<UnityEngine.InputSystem.PlayerInput>();
-        if (input != null) input.enabled = false;
+        if (combat != null)
+            combat.enabled = false;
 
-        
-        // aqui depois: animação KO, freeze, etc
+        UnityEngine.InputSystem.PlayerInput input =
+            GetComponent<UnityEngine.InputSystem.PlayerInput>();
+
+        if (input != null)
+            input.enabled = false;
     }
-
 }

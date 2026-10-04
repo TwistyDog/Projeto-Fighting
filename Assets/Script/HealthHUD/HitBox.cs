@@ -11,6 +11,12 @@ public class HitBox : MonoBehaviour
     {
         _damage = damage;
         _targetSide = targetSide;
+
+        Debug.Log(
+            $"{gameObject.name} configurou HitBox | " +
+            $"Dano: {_damage} | " +
+            $"Alvo: {_targetSide}"
+        );
     }
 
     private void OnTriggerEnter(Collider other)
@@ -19,21 +25,45 @@ public class HitBox : MonoBehaviour
             other.GetComponent<DamageReceiver>();
 
         if (receiver == null)
-            return;
+        {
+            Debug.Log(
+                $"HitBox {gameObject.name}: " +
+                $"Collider {other.name} não possui DamageReceiver."
+            );
 
+            return;
+        }
 
         CombatSide otherSide =
-            other.GetComponent<CombatSide>();
-
+            receiver.GetComponent<CombatSide>();
 
         if (otherSide == null)
-            return;
+        {
+            Debug.LogError(
+                $"{receiver.gameObject.name} possui DamageReceiver " +
+                $"mas não possui CombatSide!"
+            );
 
+            return;
+        }
+
+        Debug.Log(
+            $"HitBox: {gameObject.name} atingiu " +
+            $"{receiver.gameObject.name} | " +
+            $"Lado alvo: {otherSide.CurrentSide} | " +
+            $"Lado esperado: {_targetSide}"
+        );
 
         if (otherSide.CurrentSide != _targetSide)
-            return;
+        {
+            Debug.Log(
+                "Ataque ignorado: lado incompatível."
+            );
 
+            return;
+        }
 
         receiver.ReceiveDamaged(_damage);
     }
+    
 }

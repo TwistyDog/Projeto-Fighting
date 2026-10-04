@@ -355,6 +355,7 @@ GameObject:
   - component: {fileID: 5955622279480141928}
   - component: {fileID: -1523557889489603473}
   - component: {fileID: 1521565327650892195}
+  - component: {fileID: 7639419628289525931}
   m_Layer: 6
   m_Name: Gomes
   m_TagString: Enemy
@@ -633,6 +634,156 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CombatSide
   _side: 0
+--- !u!114 &7639419628289525931
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3112043500955644464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.InputSystem::UnityEngine.InputSystem.PlayerInput
+  m_Actions: {fileID: -944628639613478452, guid: c7afdce5b199e05478a3164bf6fa5e00, type: 3}
+  m_NotificationBehavior: 2
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8551480273467358684}
+        m_TargetAssemblyTypeName: FightCombat, Assembly-CSharp
+        m_MethodName: RightPuch
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: c51b4bd5-688e-4345-960b-10056a530c0a
+    m_ActionName: 'Combat/RightPuch[/Keyboard/j]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8551480273467358684}
+        m_TargetAssemblyTypeName: FightCombat, Assembly-CSharp
+        m_MethodName: LeftPuch
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: d1401ff8-8aab-4c17-bdc3-c089b81597d2
+    m_ActionName: 'Combat/LeftPunch[/Keyboard/k]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8551480273467358684}
+        m_TargetAssemblyTypeName: FightCombat, Assembly-CSharp
+        m_MethodName: HighKick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: ed17a3c0-9336-40c0-8cd8-7ab7ea363693
+    m_ActionName: 'Combat/HightKick[/Keyboard/u]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8551480273467358684}
+        m_TargetAssemblyTypeName: FightCombat, Assembly-CSharp
+        m_MethodName: LowKick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: b4fcb706-44ac-4a7c-b5fc-b1f6ec06a3c4
+    m_ActionName: 'Combat/LowKick[/Keyboard/i]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: -1523557889489603473}
+        m_TargetAssemblyTypeName: SpecialMove2, Assembly-CSharp
+        m_MethodName: OnMove
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: d822cba1-9c17-4581-93c1-bec0f23c7618
+    m_ActionName: 'Combat/MoveKeyboard[/Keyboard/a,/Keyboard/d]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: -1523557889489603473}
+        m_TargetAssemblyTypeName: SpecialMove2, Assembly-CSharp
+        m_MethodName: OnJump
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 24be80ff-31c3-41ec-bf6d-2d55d353ccf8
+    m_ActionName: 'Combat/Jump[/Keyboard/w]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 2db85cf2-2c03-4708-83f8-70e96984bdd9
+    m_ActionName: 'Combat/Special[/Keyboard/e]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 2b48bcc0-84c2-4af7-b57d-32a1fca91769
+    m_ActionName: Combat/MoveGamepad
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 71ffa986-e612-449a-a659-33a2a92421e0
+    m_ActionName: 'Navigate/Keyboard[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: aeb4c976-dcbd-49d8-920d-0e2ae3b377bb
+    m_ActionName: Navigate/GamePad
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 1c1f4502-f1b4-4c37-abe9-3a0f7846bc3d
+    m_ActionName: 'Navigate/Submit[/Keyboard/enter]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 02a3ecaa-4457-4b0d-900b-033ca5853dc1
+    m_ActionName: 'Navigate/Cancel[/Keyboard/escape]'
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Combat
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!1 &3226989153121106993
 GameObject:
   m_ObjectHideFlags: 0

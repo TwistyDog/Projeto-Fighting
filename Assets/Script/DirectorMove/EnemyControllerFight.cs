@@ -54,6 +54,12 @@ public class EnemyControllerFight : MonoBehaviour
             Debug.Log(
                 "EnemyFightController recebeu o Player" + _player.name);
         }
+        else
+        {
+            Debug.LogWarning(
+                $"{gameObject.name} recebeu o Player: {_player.name}"
+            );
+        }
     }
 
     private void DoRandomAttack()

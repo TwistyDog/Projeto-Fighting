@@ -202,6 +202,22 @@ public class CharacterSpawner : MonoBehaviour
             );
         }
 
+        EnemyControllerFight enemyFight =
+            _spawnedEnemy.GetComponent<EnemyControllerFight>();
+        
+        if (enemyFight != null)
+        {
+            enemyFight.SetPlayer(
+                _spawnedPlayer.transform
+            );
+        }
+        else
+        {
+            Debug.LogWarning(
+        "CharacterSpawner: CPU não possui EnemyControllerFight."
+    );
+        }
+
 
         NewPlayMove playerMove =
     _spawnedPlayer.GetComponent<NewPlayMove>();

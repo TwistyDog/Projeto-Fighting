@@ -11,6 +11,12 @@ public class CharacterSelect : MonoBehaviour
     public static int SelectedPlayerCharacter;
     public static int SelectedEnemyCharacter;
 
+    public static ControlType Player1Control;
+    public static ControlType Player2Control;
+
+    public static bool Player1IsCPU = false;
+    public static bool Player2IsCPU = true;
+
     public static int SelectedCharacter;
 
     [SerializeField] private LoadingManager loadingManager;
@@ -29,6 +35,12 @@ public class CharacterSelect : MonoBehaviour
     private bool canSelect = false;
 
     private int selectionStep = 0;
+
+    public enum ControlType
+    {
+        Player,
+        CPU
+    }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
     private void OnEnable()
@@ -206,7 +218,9 @@ public class CharacterSelect : MonoBehaviour
 
             Debug.Log(
                 "PLAYER 1 selecionou: " +
-                SelectedPlayerCharacter
+                SelectedPlayerCharacter +
+                "| CPU: " +
+                Player1IsCPU
             );
 
 
@@ -239,7 +253,9 @@ public class CharacterSelect : MonoBehaviour
 
             Debug.Log(
                 "CPU selecionou: " +
-                SelectedEnemyCharacter
+                SelectedEnemyCharacter +
+                "| CPU: " +
+                Player2IsCPU
             );
 
 

@@ -9,280 +9,487 @@ public class UITextFight : MonoBehaviour
 {
     public static UITextFight instance;
 
-    public TextMeshProUGUI _texto;
-    public float tempoEntreTextos = 1.5f;
+    [Header("Texto da Luta")]
+    [SerializeField] private TextMeshProUGUI _texto;
+    [SerializeField] private float tempoEntreTextos = 1.5f;
 
-    private int roundAtual = 1;
-    private bool lutaAtiva = false;
-
-    public int playerWins = 0;
-    public int enemyWins = 0;
-
+    [Header("Rounds")]
     [SerializeField] private int maxRounds = 3;
 
+    private int roundAtual = 1;
+
+    private int playerWins = 0;
+    private int enemyWins = 0;
+
+    private bool lutaAtiva = false;
+    private bool lutaFinalizada = false;
+
+    [Header("Tela Final")]
     [SerializeField] private GameObject painelFinal;
 
     [Header("Timer")]
     [SerializeField] private TextMeshProUGUI _timerText;
-    [SerializeField] private float _tempoRound;
+    [SerializeField] private float _tempoRound = 60f;
 
     private float _tempoAtual;
     private bool _timerRodando = false;
 
-    private bool lutaFinalizada = false;
-
-    [Header("WinCounter")]
+    [Header("Contador de Vitórias")]
     [SerializeField] private Image[] playerWinIcons;
     [SerializeField] private Image[] enemyWinIcons;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
 
-    void Awake()
+    // =========================================================
+    // UNITY
+    // =========================================================
+
+    private void Awake()
     {
         instance = this;
     }
 
-    private void Update()
+    private void Start()
     {
-        AtualizarTime();
-    }
-    void Start()
-    {
+        if (painelFinal != null)
+            painelFinal.SetActive(false);
+
         AtualizarHUDVitorias();
+
         StartCoroutine(SequenciaRound());
     }
 
-    IEnumerator SequenciaRound()
+    private void Update()
+    {
+        AtualizarTimer();
+    }
+
+
+    // =========================================================
+    // INÍCIO DO ROUND
+    // =========================================================
+
+    private IEnumerator SequenciaRound()
     {
         GameManager.Instance.TravarControle();
+
         lutaAtiva = false;
 
-        yield return StartCoroutine(MostrarTexto("ROUND" + roundAtual));
+        yield return StartCoroutine(
+            MostrarTexto("ROUND " + roundAtual)
+        );
 
         yield return new WaitForSeconds(0.5f);
 
-        yield return StartCoroutine(MostrarTexto("LUTEEEEEM"));
+        yield return StartCoroutine(
+            MostrarTexto("LUTEEEEEM")
+        );
 
         _tempoAtual = _tempoRound;
         _timerRodando = true;
+
+        if (_timerText != null)
+        {
+            _timerText.text =
+                Mathf.CeilToInt(_tempoAtual).ToString();
+        }
 
         lutaAtiva = true;
 
         GameManager.Instance.LiberarControle();
     }
 
-    void AtualizarTime()
+
+    // =========================================================
+    // TIMER
+    // =========================================================
+
+    private void AtualizarTimer()
     {
-        if(!_timerRodando || !lutaAtiva)
-           return;
-        
+        if (!_timerRodando || !lutaAtiva)
+            return;
+
         _tempoAtual -= Time.deltaTime;
 
-        if(_tempoAtual < 0)
-           _tempoAtual = 0;
-        
-        _timerText.text = Mathf.CeilToInt(_tempoAtual).ToString();
-
-        if(_tempoAtual <= 0)
-        {
+        if (_tempoAtual < 0)
             _tempoAtual = 0;
+
+        if (_timerText != null)
+        {
+            _timerText.text =
+                Mathf.CeilToInt(_tempoAtual).ToString();
+        }
+
+        if (_tempoAtual <= 0)
+        {
             _timerRodando = false;
 
             VerificarVencedorPorTempo();
-            
-            
         }
     }
 
-    void AtualizarHUDVitorias()
-    {
-        // Player
-        for(int i = 0; i  < playerWinIcons.Length; i++)
-        {
-            playerWinIcons[i].gameObject.SetActive(i < playerWins);
-        }
 
-        for (int i = 0; i < enemyWinIcons.Length; i++)
-        {
-            enemyWinIcons[i].gameObject.SetActive(i < enemyWins);
-        }
-    }
+    // =========================================================
+    // VITÓRIA POR TEMPO
+    // =========================================================
 
-    void VerificarVencedorPorTempo()
+    private void VerificarVencedorPorTempo()
     {
+        if (!lutaAtiva || lutaFinalizada)
+            return;
+
         lutaAtiva = false;
 
-        GameObject player = GameObject.FindWithTag("Player");
-        GameObject enemy = GameObject.FindWithTag("Enemy");
+        CombatSide[] lutadores =
+            FindObjectsByType<CombatSide>(
+                FindObjectsInactive.Exclude,
+                FindObjectsSortMode.None
+            );
 
-        if(player == null || enemy == null)
-           return;
+        HealthForAll playerHealth = null;
+        HealthForAll enemyHealth = null;
 
-        
-        HealthForAll playerHP = player.GetComponent<HealthForAll>();
-        HealthForAll enemyHP = enemy.GetComponent<HealthForAll>();
+        foreach (CombatSide lutador in lutadores)
+        {
+            HealthForAll health =
+                lutador.GetComponent<HealthForAll>();
 
-        // finalizado nessa parte aqui
-    }
+            if (health == null)
+                continue;
 
-    public void OnKO(bool morreuPlayer)
-    {
-        if(!lutaAtiva || lutaFinalizada) return;
+            if (lutador.CurrentSide ==
+                CombatSide.Side.Player)
+            {
+                playerHealth = health;
+            }
+            else if (lutador.CurrentSide ==
+                     CombatSide.Side.Enemy)
+            {
+                enemyHealth = health;
+            }
+        }
 
-        if(morreuPlayer)
-           enemyWins++;
-        
+        if (playerHealth == null ||
+            enemyHealth == null)
+        {
+            Debug.LogError(
+                "UITextFight: Não foi possível encontrar a vida dos dois lutadores."
+            );
+
+            return;
+        }
+
+        if (playerHealth.CurrentHealth >
+            enemyHealth.CurrentHealth)
+        {
+            playerWins++;
+
+            Debug.Log(
+                "PLAYER venceu o round por tempo!"
+            );
+        }
+        else if (enemyHealth.CurrentHealth >
+                 playerHealth.CurrentHealth)
+        {
+            enemyWins++;
+
+            Debug.Log(
+                "CPU/PLAYER 2 venceu o round por tempo!"
+            );
+        }
         else
-           playerWins++;
+        {
+            Debug.Log(
+                "Empate por tempo!"
+            );
+        }
 
         AtualizarHUDVitorias();
 
-        StartCoroutine(SequenciaKO());
+        StartCoroutine(SequenciaFimRound());
     }
 
-    IEnumerator SequenciaKO()
+
+    // =========================================================
+    // KO
+    // =========================================================
+
+    public void OnKO(GameObject derrotado)
     {
+        if (!lutaAtiva || lutaFinalizada)
+            return;
+
+        if (derrotado == null)
+            return;
+
+        CombatSide combatSide =
+            derrotado.GetComponent<CombatSide>();
+
+        if (combatSide == null)
+        {
+            Debug.LogError(
+                $"{derrotado.name}: CombatSide não encontrado!"
+            );
+
+            return;
+        }
+
         lutaAtiva = false;
+        _timerRodando = false;
+
+
+        // =====================================================
+        // QUEM MORREU?
+        // =====================================================
+
+        if (combatSide.CurrentSide ==
+            CombatSide.Side.Player)
+        {
+            enemyWins++;
+
+            Debug.Log(
+                $"{derrotado.name} era PLAYER e perdeu o round!"
+            );
+        }
+        else if (combatSide.CurrentSide ==
+                 CombatSide.Side.Enemy)
+        {
+            playerWins++;
+
+            Debug.Log(
+                $"{derrotado.name} era ENEMY e perdeu o round!"
+            );
+        }
+
+
+        AtualizarHUDVitorias();
+
+        StartCoroutine(SequenciaFimRound());
+    }
+
+
+    // =========================================================
+    // FIM DO ROUND
+    // =========================================================
+
+    private IEnumerator SequenciaFimRound()
+    {
         GameManager.Instance.TravarControle();
 
-        yield return StartCoroutine(MostrarTexto("K.O"));
+        lutaAtiva = false;
+        _timerRodando = false;
+
+        yield return StartCoroutine(
+            MostrarTexto("K.O")
+        );
 
         yield return new WaitForSeconds(1f);
 
-        if(playerWins >= 2 || enemyWins >= 2)
+        int vitoriasNecessarias =
+            Mathf.CeilToInt(maxRounds / 2f);
+
+        if (playerWins >= vitoriasNecessarias ||
+            enemyWins >= vitoriasNecessarias)
         {
             lutaFinalizada = true;
-            StartCoroutine(TelaFinal());
+
+            yield return StartCoroutine(
+                TelaFinal()
+            );
+
             yield break;
         }
 
         roundAtual++;
 
-        ResetarLuta();
+        yield return new WaitForSeconds(0.3f);
 
-        yield return new WaitForSeconds(0.5f);
-
-        StartCoroutine(SequenciaRound());
-
-
+        StartCoroutine(
+            SequenciaRound()
+        );
     }
 
-    IEnumerator TelaFinal()
-    {
-        string vencedor = playerWins > enemyWins ? "PLAYER VENCEU" : "INIMIGO VENCEU SEU FRACO";
 
-        yield return StartCoroutine(MostrarTexto(vencedor));
+    // =========================================================
+    // TELA FINAL
+    // =========================================================
+
+    private IEnumerator TelaFinal()
+    {
+        string vencedor;
+
+        if (playerWins > enemyWins)
+        {
+            vencedor = "PLAYER VENCEU";
+        }
+        else
+        {
+            vencedor = "INIMIGO VENCEU";
+        }
+
+        yield return StartCoroutine(
+            MostrarTexto(vencedor)
+        );
 
         MostrarOpcoesFinais();
     }
 
-    void MostrarOpcoesFinais()
+    private void MostrarOpcoesFinais()
     {
-        painelFinal.SetActive(true);
+        if (painelFinal != null)
+            painelFinal.SetActive(true);
     }
+
+
+    // =========================================================
+    // HUD DE VITÓRIAS
+    // =========================================================
+
+    private void AtualizarHUDVitorias()
+    {
+        if (playerWinIcons != null)
+        {
+            for (int i = 0;
+                 i < playerWinIcons.Length;
+                 i++)
+            {
+                if (playerWinIcons[i] != null)
+                {
+                    playerWinIcons[i]
+                        .gameObject
+                        .SetActive(i < playerWins);
+                }
+            }
+        }
+
+        if (enemyWinIcons != null)
+        {
+            for (int i = 0;
+                 i < enemyWinIcons.Length;
+                 i++)
+            {
+                if (enemyWinIcons[i] != null)
+                {
+                    enemyWinIcons[i]
+                        .gameObject
+                        .SetActive(i < enemyWins);
+                }
+            }
+        }
+    }
+
+
+    // =========================================================
+    // JOGAR NOVAMENTE
+    // =========================================================
 
     public void JogarNovamente()
     {
-        painelFinal.SetActive(false);
+        if (painelFinal != null)
+            painelFinal.SetActive(false);
 
         playerWins = 0;
         enemyWins = 0;
-        AtualizarHUDVitorias();
-        roundAtual = 1;
-        lutaFinalizada = false;
 
-        ResetarLuta();
-        StartCoroutine(SequenciaRound());
+        roundAtual = 1;
+
+        lutaFinalizada = false;
+        lutaAtiva = false;
+
+        AtualizarHUDVitorias();
+
+        StartCoroutine(
+            SequenciaRound()
+        );
     }
+
+
+    // =========================================================
+    // MENU PRINCIPAL
+    // =========================================================
 
     public void MenuPrincipal()
     {
-        SceneManager.LoadScene("menuprincipal");
+        GameManager.Instance.TravarControle();
+
+        SceneManager.LoadScene(
+            "menuprincipal"
+        );
     }
 
-    void ResetarLuta()
+
+    // =========================================================
+    // TEXTO DA LUTA
+    // =========================================================
+
+    private IEnumerator MostrarTexto(string mensagem)
     {
-        _tempoAtual = _tempoRound;
-        _timerText.text = Mathf.CeilToInt(_tempoAtual).ToString();
-        
-        GameObject Player = GameObject.FindWithTag("Player");
-        GameObject NewEnemy = GameObject.FindWithTag("Enemy");
+        if (_texto == null)
+            yield break;
 
-        if(Player == null || NewEnemy == null)
-        {
-            Debug.LogError("Player ou Enemy não encontrado");
-            return;
-        }
-
-        var pController = Player.GetComponent<CharacterController>();
-        var eController = NewEnemy.GetComponent<CharacterController>();
-
-        if (pController != null) pController.enabled = true;
-        if (eController != null) eController.enabled = true;
-
-        Player.transform.position = new Vector3(-7.524553f, 6.141839f, 2.323583f);
-        NewEnemy.transform.position = new Vector3(9.035446f, 4.741839f, 2.593583f);
-        
-        Player.GetComponent<NewPlayMove>()?.ResetState();
-        NewEnemy.GetComponent<EnemyIA>()?.ResetState();
-
-
-
-        Player.GetComponent<HealthForAll>()?.ResetarVida();
-        NewEnemy.GetComponent<HealthForAll>()?.ResetarVida();
-
-        ResetarComponentes(Player);
-        ResetarComponentes(NewEnemy);
-
-    }
-
-    void ResetarComponentes(GameObject obj)
-    {
-        var combat = obj.GetComponent<FightCombat>();
-        if(combat != null) combat.enabled = true;
-
-        var input = obj.GetComponent<UnityEngine.InputSystem.PlayerInput>();
-        if(input != null) input.enabled = true;
-
-    }
-
-    IEnumerator MostrarTexto(string mensagem)
-    {
         _texto.text = mensagem;
-
-        // Fade In + Scale
 
         float tempo = 0f;
         float duracao = 0.5f;
-        
-        _texto.alpha = 0;
-        _texto.transform.localScale = Vector3.one * 0.5f;
 
-        while(tempo < duracao)
+        _texto.alpha = 0f;
+
+        _texto.transform.localScale =
+            Vector3.one * 0.5f;
+
+        while (tempo < duracao)
         {
             tempo += Time.deltaTime;
-            float t = tempo / duracao;
 
-            _texto.alpha = Mathf.Lerp(0,1, t);
-            _texto.transform.localScale = Vector3.Lerp(Vector3.one * 0.5f, Vector3.one, t);
+            float t =
+                tempo / duracao;
+
+            _texto.alpha =
+                Mathf.Lerp(
+                    0f,
+                    1f,
+                    t
+                );
+
+            _texto.transform.localScale =
+                Vector3.Lerp(
+                    Vector3.one * 0.5f,
+                    Vector3.one,
+                    t
+                );
 
             yield return null;
         }
 
-        yield return new WaitForSeconds(tempoEntreTextos);
+        yield return new WaitForSeconds(
+            tempoEntreTextos
+        );
 
-        // Fade Out
         tempo = 0f;
 
-        while(tempo < duracao)
+        while (tempo < duracao)
         {
             tempo += Time.deltaTime;
-            float t = tempo / duracao;
 
-            _texto.alpha = Mathf.Lerp(1,0,t);
-            _texto.transform.localScale = Vector3.Lerp(Vector3.one, Vector3.one * 1.2f, t);
+            float t =
+                tempo / duracao;
+
+            _texto.alpha =
+                Mathf.Lerp(
+                    1f,
+                    0f,
+                    t
+                );
+
+            _texto.transform.localScale =
+                Vector3.Lerp(
+                    Vector3.one,
+                    Vector3.one * 1.2f,
+                    t
+                );
 
             yield return null;
         }
+
+        _texto.alpha = 0f;
     }
 }

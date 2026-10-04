@@ -3,13 +3,15 @@ using UnityEngine;
 public class DamageReceiver : MonoBehaviour
 {
     [SerializeField] private bool _isBlocking;
-    [SerializeField, Range(0f,1f)] private float _blockReduction = 1f;
+    [SerializeField, Range(0f, 1f)] private float _blockReduction = 1f;
 
     private HealthForAll _health;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Awake()
+    private CombatSide _combatSide;
+
+    private void Awake()
     {
         _health = GetComponent<HealthForAll>();
+        _combatSide = GetComponent<CombatSide>();
     }
 
     public void SetBlocking(bool block)
@@ -19,23 +21,48 @@ public class DamageReceiver : MonoBehaviour
 
     public void Morrer()
     {
-        bool isPlayer = CompareTag("Player");
-        UITextFight.instance.OnKO(isPlayer);
+        if (UITextFight.instance == null)
+        {
+            Debug.LogError(
+                "DamageReceiver: UITextFight não encontrado!"
+            );
+
+            return;
+        }
+
+        // Envia o próprio GameObject que morreu.
+        UITextFight.instance.OnKO(gameObject);
     }
 
     public void ReceiveDamaged(int damage)
     {
-        if (_health == null) return;
+        if (_health == null)
+        {
+            Debug.LogError(
+                $"{gameObject.name}: HealthForAll não encontrado!"
+            );
+
+            return;
+        }
 
         if (_isBlocking)
         {
-            damage = Mathf.RoundToInt(damage *(1f - _blockReduction));
-            Debug.Log($"{gameObject.name} bloqueou o ataque");
+            damage = Mathf.RoundToInt(
+                damage * (1f - _blockReduction)
+            );
+
+            Debug.Log(
+                $"{gameObject.name} bloqueou o ataque."
+            );
         }
 
-        if(damage > 0)
-        _health.TakeDamage(damage);
+        if (damage > 0)
+        {
+            Debug.Log(
+                $"{gameObject.name} recebeu {damage} de dano."
+            );
 
-        Debug.Log("Recebeu dano. Blocking: " + _isBlocking);
+            _health.TakeDamage(damage);
+        }
     }
 }
