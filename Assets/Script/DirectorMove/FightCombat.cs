@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -6,104 +7,164 @@ using UnityEngine.InputSystem;
 public class FightCombat : MonoBehaviour
 {
     private bool _isAtacking = false;
-    private float _attackCooldown = 0.3f;
 
-    // golpes
+    private Coroutine _attackLockCoroutine;
+
     [Header("HitBoxes")]
     [SerializeField] private GameObject _rightPunchHitbox;
     [SerializeField] private GameObject _leftPunchHitbox;
     [SerializeField] private GameObject _hightKickHitbox;
     [SerializeField] private GameObject _lowKickHitbox;
 
-    // Dano dos golpes
     [Header("Damage")]
     [SerializeField] private int _rightPunchDamage = 10;
     [SerializeField] private int _leftPunchDamage = 12;
     [SerializeField] private int _highKickDamage = 15;
     [SerializeField] private int _lowKickDamage = 8;
 
-    public bool IsAtacking => _isAtacking;
-
+    [Header("Animation")]
     [SerializeField] private Animator _animator;
 
+    public bool IsAtacking => _isAtacking;
 
     private CombatSide _combatSide;
 
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    
-    void Awake()
+    private void Awake()
     {
-        if(_animator == null)
-           _animator = GetComponentInChildren<Animator>();
+        if (_animator == null)
+            _animator = GetComponentInChildren<Animator>();
 
-           _combatSide = GetComponent<CombatSide>();
+        _combatSide = GetComponent<CombatSide>();
 
-        var playerInput = GetComponent<PlayerInput>();
+        PlayerInput playerInput =
+            GetComponent<PlayerInput>();
+
         if (playerInput != null)
             playerInput.SwitchCurrentActionMap("Combat");
+
+        // Garante que as hitboxes começam desligadas
+        DisableHitBox();
     }
 
-    //
+
+    // =========================================================
+    // ATAQUES
+    // =========================================================
 
     public void RightPuch()
     {
-        TryAttack(_rightPunchHitbox, _rightPunchDamage, "WeakPunch");
-        
+        TryAttack(
+            _rightPunchHitbox,
+            _rightPunchDamage,
+            "WeakPunch"
+        );
     }
+
 
     public void LeftPuch()
     {
-        TryAttack(_leftPunchHitbox, _leftPunchDamage, "StrongPunch");
+        TryAttack(
+            _leftPunchHitbox,
+            _leftPunchDamage,
+            "StrongPunch"
+        );
     }
+
+
     public void HighKick()
     {
-        TryAttack(_hightKickHitbox, _highKickDamage, "HighKick");
+        TryAttack(
+            _hightKickHitbox,
+            _highKickDamage,
+            "HighKick"
+        );
     }
+
 
     public void LowKick()
     {
-        TryAttack(_lowKickHitbox, _lowKickDamage, "lowKick");
+        TryAttack(
+            _lowKickHitbox,
+            _lowKickDamage,
+            "lowKick"
+        );
     }
 
-    void TryAttack(GameObject hitbox, int damage, string animationSetTrigger)
+
+    // =========================================================
+    // EXECUTA ATAQUE
+    // =========================================================
+
+    private void TryAttack(
+        GameObject hitbox,
+        int damage,
+        string animationSetTrigger)
     {
-        if(_isAtacking) return;
+        // =====================================================
+        // JÁ ESTÁ ATACANDO
+        // =====================================================
+
+        if (_isAtacking)
+            return;
+
 
         if (hitbox == null)
-    {
-        Debug.LogWarning($"{gameObject.name} tentou usar um hitbox que não está configurado!");
-        return;
-    }
+        {
+            Debug.LogWarning(
+                $"{gameObject.name} tentou usar um hitbox que não está configurado!"
+            );
 
-    if(_combatSide == null)
+            return;
+        }
+
+
+        if (_combatSide == null)
         {
             Debug.LogError(
                 $"{gameObject.name} não possui CombatSide!"
             );
 
             return;
-            
         }
 
-    _isAtacking = true;
 
-    if(_animator != null)
+        // =====================================================
+        // BLOQUEIA NOVOS ATAQUES
+        // =====================================================
+
+        _isAtacking = true;
+
+
+        // =====================================================
+        // ANIMAÇÃO
+        // =====================================================
+
+        if (_animator != null)
         {
-            _animator.SetTrigger(animationSetTrigger);
+            _animator.SetTrigger(
+                animationSetTrigger
+            );
         }
 
-    HitBox hb = hitbox.GetComponent<HitBox>();
 
-    if(hb != null)
+        // =====================================================
+        // CONFIGURA HITBOX
+        // =====================================================
+
+        HitBox hb =
+            hitbox.GetComponent<HitBox>();
+
+
+        if (hb != null)
         {
             CombatSide.Side targetSide =
-                _combatSide.CurrentSide == 
+                _combatSide.CurrentSide ==
                 CombatSide.Side.Player
 
                 ? CombatSide.Side.Enemy
-
                 : CombatSide.Side.Player;
+
 
             hb.Setup(
                 damage,
@@ -111,14 +172,51 @@ public class FightCombat : MonoBehaviour
             );
         }
 
-    hitbox.SetActive(true);
 
-    Invoke(nameof(DisableHitBox), 0.1f);
-    Invoke(nameof(ResetAttack), _attackCooldown);
+        // =====================================================
+        // ATIVA HITBOX
+        // =====================================================
 
+        DisableHitBox();
+
+        hitbox.SetActive(true);
+
+
+        Invoke(
+            nameof(DisableHitBox),
+            0.1f
+        );
+
+        if (_attackLockCoroutine != null)
+            StopCoroutine(_attackLockCoroutine);
+
+        _attackLockCoroutine =
+            StartCoroutine(WaitForAttackAnimation());
     }
 
-    void DisableHitBox()
+
+    // =========================================================
+    // DESATIVA HITBOX
+    // =========================================================
+
+    private IEnumerator WaitForAttackAnimation()
+    {
+        yield return new WaitUntil(() =>
+        _animator.GetCurrentAnimatorStateInfo(0).IsTag("Attack"));
+
+        yield return new WaitUntil(() =>
+        !_animator.GetCurrentAnimatorStateInfo(0).IsTag("Attack"));
+
+        _isAtacking = false;
+
+        _attackLockCoroutine = null;
+
+        Debug.Log(
+        $"{gameObject.name}: ataque finalizado!"
+    );
+    }
+
+    private void DisableHitBox()
     {
         _rightPunchHitbox?.SetActive(false);
         _leftPunchHitbox?.SetActive(false);
@@ -126,6 +224,10 @@ public class FightCombat : MonoBehaviour
         _lowKickHitbox?.SetActive(false);
     }
 
-    void ResetAttack() => _isAtacking = false;
-    
+
+    // =========================================================
+    // FINAL DA ANIMAÇÃO
+    // CHAMADO PELO ANIMATION EVENT
+    // =========================================================
+
 }
