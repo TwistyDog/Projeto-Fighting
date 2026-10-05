@@ -39,6 +39,9 @@ public class UITextFight : MonoBehaviour
     [SerializeField] private Image[] enemyWinIcons;
 
 
+    private CharacterSpawner _characterSpawner;
+
+
     // =========================================================
     // UNITY
     // =========================================================
@@ -46,6 +49,16 @@ public class UITextFight : MonoBehaviour
     private void Awake()
     {
         instance = this;
+
+        _characterSpawner =
+             FindFirstObjectByType<CharacterSpawner>();
+        
+        if(_characterSpawner == null)
+        {
+            Debug.LogError(
+            "UITextFight: CharacterSpawner não encontrado na cena!"
+            );
+        }
     }
 
     private void Start()
@@ -514,6 +527,11 @@ public class UITextFight : MonoBehaviour
         return;
     }
 
+    if(_characterSpawner != null)
+        {
+            _characterSpawner.ResetarPosicoesDosLutadores();
+        }
+
     foreach (CombatSide combatSide in lutadores)
     {
         if (combatSide == null)
@@ -595,7 +613,14 @@ public class UITextFight : MonoBehaviour
 
         if (input != null)
         {
-            input.enabled = true;
+            if (combatSide.CurrentSide == CombatSide.Side.Player)
+                {
+                    input.enabled = true;
+                }
+            else if (combatSide.CurrentSide == CombatSide.Side.Enemy)
+                {
+                    input.enabled = false;
+                }
         }
 
 

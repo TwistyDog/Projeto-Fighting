@@ -352,4 +352,47 @@ private void SetupHealthUI()
     ); 
     }
 
+    public void ResetarPosicoesDosLutadores()
+    {
+        if (_spawnedPlayer != null && _playerSpawnPoint != null)
+    {
+        CharacterController controller =
+            _spawnedPlayer.GetComponent<CharacterController>();
+
+        if (controller != null)
+            controller.enabled = false;
+
+        _spawnedPlayer.transform.SetPositionAndRotation(
+            _playerSpawnPoint.position,
+            _playerSpawnPoint.rotation
+        );
+
+        if (controller != null)
+            controller.enabled = true;
+    }
+
+
+    if (_spawnedEnemy != null && _enemySpawnPoint != null)
+    {
+        CharacterController controller =
+            _spawnedEnemy.GetComponent<CharacterController>();
+
+        if (controller != null)
+            controller.enabled = false;
+
+        _spawnedEnemy.transform.SetPositionAndRotation(
+            _enemySpawnPoint.position,
+            _enemySpawnPoint.rotation
+        );
+
+        if (controller != null)
+            controller.enabled = true;
+    }
+
+
+    Debug.Log(
+        "CharacterSpawner: posições dos lutadores resetadas para os SpawnPoints."
+    );
+    }
+
 }
